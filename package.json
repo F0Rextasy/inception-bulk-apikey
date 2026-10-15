@@ -1,0 +1,64 @@
+{
+  "name": "inception-bulk-apikey",
+  "version": "1.0.0",
+  "description": "Bulk API keys for Inception Labs (inceptionlabs.ai) — free tier: 100M free tokens per account, 3 Mercury models (mercury-2.5, mercury-2, mercury-decide). One account per key.",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "inception-bulk-apikey": "cli.js",
+    "inception-bulk-apikey-launcher": "launcher.js"
+  },
+  "main": "cli.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node launcher.js",
+    "mint": "node cli.js"
+  },
+  "keywords": [
+    "api-key",
+    "bulk",
+    "register",
+    "launcher",
+    "inception",
+    "bulk",
+    "apikey"
+  ],
+  "files": [
+    "broker-timing.js",
+    "browser.js",
+    "cdp.js",
+    "chrome-flags.js",
+    "chunks.js",
+    "cli.js",
+    "debug-mail.js",
+    "exits.js",
+    "finish.js",
+    "get.js",
+    "http-probe.js",
+    "launcher.js",
+    "lib.js",
+    "mail.js",
+    "mint.js",
+    "pilot.js",
+    "pool-union.js",
+    "proxy.js",
+    "recon-browser.js",
+    "relay.js",
+    "replay-test.js",
+    "rescue-reset.js",
+    "rescue-ui.js",
+    "screen.js",
+    "split-relay.js",
+    "token-required.js",
+    "token-screen.js",
+    "try-exits.js",
+    "turnstile-probe.js",
+    "verify-keys.js",
+    "warm-screen.js",
+    "warp-token.js",
+    "README.md",
+    "LICENSE"
+  ]
+}
