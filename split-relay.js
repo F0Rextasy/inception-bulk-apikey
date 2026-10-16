@@ -1,1 +1,231 @@
-const a0_0x176408=a0_0x1bc6;(function(_0x1722a9,_0x8e35a1){const _0x693d3e=a0_0x1bc6,_0x5b7ef7=_0x1722a9();while(!![]){try{const _0x1280fe=parseInt(_0x693d3e(0x100))/0x1*(-parseInt(_0x693d3e(0x112))/0x2)+-parseInt(_0x693d3e(0x108))/0x3*(-parseInt(_0x693d3e(0x10e))/0x4)+parseInt(_0x693d3e(0xdd))/0x5*(-parseInt(_0x693d3e(0xe5))/0x6)+-parseInt(_0x693d3e(0xfb))/0x7+-parseInt(_0x693d3e(0x117))/0x8*(-parseInt(_0x693d3e(0xfd))/0x9)+-parseInt(_0x693d3e(0x118))/0xa*(-parseInt(_0x693d3e(0xf4))/0xb)+-parseInt(_0x693d3e(0x115))/0xc;if(_0x1280fe===_0x8e35a1)break;else _0x5b7ef7['push'](_0x5b7ef7['shift']());}catch(_0x5590b2){_0x5b7ef7['push'](_0x5b7ef7['shift']());}}}(a0_0x179d,0xbd2a6));const a0_0x6f31ce=(function(){let _0x264b0a=!![];return function(_0x252765,_0x49aaa1){const _0x42f89e=_0x264b0a?function(){if(_0x49aaa1){const _0x48bbb9=_0x49aaa1['apply'](_0x252765,arguments);return _0x49aaa1=null,_0x48bbb9;}}:function(){};return _0x264b0a=![],_0x42f89e;};}()),a0_0x97c3f8=a0_0x6f31ce(this,function(){const _0x2d5e61=a0_0x1bc6;if(a0_0x97c3f8[_0x2d5e61(0xdf)]()[_0x2d5e61(0xd3)]()[_0x2d5e61(0xd8)]('\x0a')!==-0x1)return;return a0_0x97c3f8[_0x2d5e61(0xd3)]()[_0x2d5e61(0xe2)](_0x2d5e61(0xf6))[_0x2d5e61(0xd3)]()[_0x2d5e61(0xd9)](a0_0x97c3f8)[_0x2d5e61(0xe2)](_0x2d5e61(0xf6));});a0_0x97c3f8();'use strict';const net=require(a0_0x176408(0xd6)),fs=require('fs'),path=require(a0_0x176408(0xcc)),{parseProxyText,openTunnel}=require('./proxy.js'),PORT=parseInt(process[a0_0x176408(0xda)][0x2]||a0_0x176408(0x116),0xa),LIST=process[a0_0x176408(0xda)][0x3]||path[a0_0x176408(0x101)](__dirname,a0_0x176408(0xf5),a0_0x176408(0x114)),LOG=path[a0_0x176408(0x101)](__dirname,'out',a0_0x176408(0xe6)),CONNECT_TIMEOUT_MS=0x1f40,BUDGET_MS=0x61a8,BATCH=0x3,WARP={'protocol':a0_0x176408(0x127),'host':a0_0x176408(0xf8),'port':0x9c40,'raw':a0_0x176408(0xf1)},CF_HOST=/(^|\.)cloudflare\.com$/i,PROBE_HOST=a0_0x176408(0xd2);let list=parseProxyText(fs[a0_0x176408(0xce)](LIST,a0_0x176408(0xd5)));if(!list['length'])throw new Error('no\x20proxies\x20in\x20'+LIST);const state=list['map'](_0x26064e=>({'p':_0x26064e,'cooldownUntil':0x0,'fails':0x0,'oks':0x0}));let cursor=0x0;function a0_0x1bc6(_0x407199,_0x2fb5b4){_0x407199=_0x407199-0xcc;const _0x575274=a0_0x179d();let _0x97c3f8=_0x575274[_0x407199];if(a0_0x1bc6['VymPqf']===undefined){var _0x6f31ce=function(_0x326585){const _0x2a3c4c='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x3cff1a='',_0x1db6c1='',_0x2c1513=_0x3cff1a+_0x6f31ce,_0x207f72=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x264b0a=0x0,_0x252765,_0x49aaa1,_0x42f89e=0x0;_0x49aaa1=_0x326585['charAt'](_0x42f89e++);~_0x49aaa1&&(_0x252765=_0x264b0a%0x4?_0x252765*0x40+_0x49aaa1:_0x49aaa1,_0x264b0a++%0x4)?_0x3cff1a+=_0x207f72||_0x2c1513['charCodeAt'](_0x42f89e+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x252765>>(-0x2*_0x264b0a&0x6)):_0x264b0a:0x0){_0x49aaa1=_0x2a3c4c['indexOf'](_0x49aaa1);}for(let _0x48bbb9=0x0,_0x26064e=_0x3cff1a['length'];_0x48bbb9<_0x26064e;_0x48bbb9++){_0x1db6c1+='%'+('00'+_0x3cff1a['charCodeAt'](_0x48bbb9)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x1db6c1);};a0_0x1bc6['HVjYAQ']=_0x6f31ce,a0_0x1bc6['AFFBrO']={},a0_0x1bc6['VymPqf']=!![];}const _0x179d4a=_0x575274[0x0];a0_0x1bc6['jmBYwk']!==_0x179d4a&&(a0_0x1bc6['AFFBrO']={},a0_0x1bc6['jmBYwk']=_0x179d4a);const _0x1bc619=a0_0x1bc6['AFFBrO'][_0x407199];if(_0x1bc619===undefined){const _0x12b2b7=function(_0x353804){this['DxfNkX']=_0x353804,this['gYAMHi']=[0x1,0x0,0x0],this['ZtpLng']=function(){return'newState';},this['BFKnfQ']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['eBfBZq']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x12b2b7['prototype']['LDWLzb']=function(){const _0x2cb9f1=new RegExp(this['BFKnfQ']+this['eBfBZq']),_0x489bf6=_0x2cb9f1['test'](this['ZtpLng']['toString']())?--this['gYAMHi'][0x1]:--this['gYAMHi'][0x0];return this['MegNrD'](_0x489bf6);},_0x12b2b7['prototype']['MegNrD']=function(_0x37e4da){if(!Boolean(~_0x37e4da))return _0x37e4da;return this['SWyGOe'](this['DxfNkX']);},_0x12b2b7['prototype']['SWyGOe']=function(_0x5ad3bc){for(let _0x1b4e38=0x0,_0x1ee83d=this['gYAMHi']['length'];_0x1b4e38<_0x1ee83d;_0x1b4e38++){this['gYAMHi']['push'](Math['round'](Math['random']())),_0x1ee83d=this['gYAMHi']['length'];}return _0x5ad3bc(this['gYAMHi'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x12b2b7(a0_0x1bc6)['LDWLzb'](),_0x97c3f8=a0_0x1bc6['HVjYAQ'](_0x97c3f8),a0_0x1bc6['AFFBrO'][_0x407199]=_0x97c3f8;}else _0x97c3f8=_0x1bc619;return _0x97c3f8;}function a0_0x179d(){const _0x2110bf=['zw50CMLLCW','y29VBgrVD25vBNrPBa','DgXZ','Awr4','mZbTrKTQCwm','C29JAW','y29UBMvJDa','y2f0y2G','C29Tzq','sfruuc8XlJeGnda1ie1LDgHVzcboB3qGqwXSB3DLza0kdqO','ndG2otu2zg9hwNfS','zxjYB3i','zMLSDgvY','yw55','mta2ndKZmMzOzgvcDq','B25Jzq','CMvSyxKTy2fUzgLKyxrLCY50Ehq','nJiZmtCYDhnpr3Ls','mtGXnda','ognTzhL6Aa','mtbQsLL0v1C','ChjVDg9JB2W','Dw5Yzwy','BwvZC2fNzq','ywrK','BgLZDgvU','yxbWzw5KrMLSzvn5BMm','CgLWzq','C2XPy2u','ywXSihvWC3rYzwfTCYbMywLSzwq','zxHLyW','CMvTB3zLtgLZDgvUzxi','DgHLBG','y29Uy2f0','Ag9ZDa','C29JA3m1','y2XVC2u','Cgf0Aa','ignHBMrPzgf0zxmSia','CMvHzezPBgvtEw5J','Bgf0Aw4X','AgfZ','imk3ia','CgXHDgzVCM0UAw5Jzxb0Aw9UBgfICY5HAq','Dg9tDhjPBMC','C3bSAxq','DxrMoa','BMv0','iezbsuWG','Aw5KzxHpzG','y29UC3rYDwn0B3i','yxjNDG','DgvZDa','ihrVDgfSkq','mtvWsK91vei','q09otKvdvca','yMLUza','ywXS','Dg9ju09tDhjPBMC','C2vHCMnO','BM93','ywXSB2m','nJCWmZC0rLPVCgTR','C3bSAxqTCMvSyxKUBg9N','B2TZ','zgf0yq','sfruuc8XlJeGntaYiejHzcbhyxrLD2f5dqOncG','ihvWC3rYzwfTCYdcTYbJBg91zgzSyxjLlMnVBsaTpIb3yxjWimk3igvSC2uGCMfJzwqGzxHPDhm','DgXZihrPBwvVDxq','D2fYBs11CdOG','D3jPDgu','Cg9YDa','zM9YrwfJAa','D2fYCa','C29JA3m1oI8Vmti3lJaUmc4XoJqWmdaW','CMf3','ChvZAa','mtq5mdi4nZDfC3rPB1q','B3v0','kcGOlISPkYKRksSK','oJq0mYaO','mti3lJaUmc4X','BgvUz3rO','zgvZDhjVEq','mZG3mZe0mKLjAuL0rG','BwfW','mtG3mtGYovPZEhnxzW','zw5K','zxjYB3jZ','mNvWD01UuG','AM9PBG','zMfPBhm','CMvSyxKGD2fYBt0'];a0_0x179d=function(){return _0x2110bf;};return a0_0x179d();}function reloadList(){const _0x14c6fb=a0_0x176408;let _0x12b2b7=0x0;for(const _0x353804 of parseProxyText(fs['readFileSync'](LIST,_0x14c6fb(0xd5)))){const _0x2cb9f1=_0x353804[_0x14c6fb(0xf2)]||_0x353804[_0x14c6fb(0x119)]+'://'+_0x353804[_0x14c6fb(0x126)]+':'+_0x353804[_0x14c6fb(0xee)];if(state[_0x14c6fb(0x10c)](_0x489bf6=>(_0x489bf6['p'][_0x14c6fb(0xf2)]||_0x489bf6['p']['protocol']+'://'+_0x489bf6['p'][_0x14c6fb(0x126)]+':'+_0x489bf6['p']['port'])===_0x2cb9f1))continue;state[_0x14c6fb(0xf3)]({'p':_0x353804,'cooldownUntil':0x0,'fails':0x0,'oks':0x0}),_0x12b2b7++;}return _0x12b2b7;}async function warmUp(_0x37e4da=0x28,_0x5ad3bc=0x6){const _0x7b93ad=a0_0x176408,_0x1b4e38=state[_0x7b93ad(0x110)](_0x87249b=>_0x87249b['oks']===0x0&&_0x87249b[_0x7b93ad(0x105)]<=Date[_0x7b93ad(0xe3)]())[_0x7b93ad(0x120)](0x0,_0x37e4da);if(!_0x1b4e38[_0x7b93ad(0xf9)])return 0x0;let _0x1ee83d=0x0,_0x516f17=0x0;const _0x2ab003=async()=>{const _0xed7f27=_0x7b93ad;for(;;){const _0x26eb52=_0x1b4e38[_0x1ee83d++];if(!_0x26eb52)return;try{const _0x364464=await openTunnel(_0x26eb52['p'],{'host':PROBE_HOST,'port':0x1bb,'timeoutMs':0x1b58}),_0xf08a33=require(_0xed7f27(0x106))[_0xed7f27(0x10a)]({'socket':_0x364464,'servername':PROBE_HOST});await new Promise((_0x5895a8,_0x13d438)=>{const _0x290eee=_0xed7f27,_0x2a1b81=setTimeout(()=>_0x13d438(new Error(_0x290eee(0xeb))),0x2710);_0xf08a33[_0x290eee(0x113)]('secureConnect',()=>{clearTimeout(_0x2a1b81),_0x5895a8();}),_0xf08a33[_0x290eee(0x113)](_0x290eee(0x10f),_0x13d438);}),_0xf08a33['destroy'](),_0x26eb52[_0xed7f27(0xe7)]=0x1,_0x516f17++;}catch{_0x26eb52['cooldownUntil']=Date[_0xed7f27(0xe3)]()+0xea60;}}};return await Promise[_0x7b93ad(0xe0)](new Array(_0x5ad3bc)['fill'](0x0)[_0x7b93ad(0xfc)](_0x2ab003)),_0x516f17;}function logLine(_0x134020){const _0x12cd03=a0_0x176408,_0x1d435a=new Date()[_0x12cd03(0xe1)]()['slice'](0xb,0x13)+'\x20'+_0x134020;console['log'](_0x1d435a);try{fs[_0x12cd03(0x11e)](LOG,_0x1d435a+'\x0a');}catch{}}function candidates(){const _0x15fda7=a0_0x176408,_0x171f27=Date[_0x15fda7(0xe3)](),_0x3bf855=[],_0x18dceb=[];return state[_0x15fda7(0xef)]((_0x4cc498,_0x26e3b2)=>{const _0x228fe2=_0x15fda7;if(_0x4cc498[_0x228fe2(0x105)]>_0x171f27)return;(_0x4cc498[_0x228fe2(0xe7)]>0x0?_0x3bf855:_0x18dceb)['push'](_0x26e3b2);}),_0x3bf855['sort']((_0x2f8f66,_0x47924a)=>state[_0x47924a][_0x15fda7(0xe7)]-state[_0x2f8f66]['oks']),[cursor,..._0x3bf855,..._0x18dceb]['filter']((_0xf8e612,_0x253c19,_0x13aaeb)=>_0x13aaeb[_0x15fda7(0xd8)](_0xf8e612)===_0x253c19&&state[_0xf8e612]&&state[_0xf8e612][_0x15fda7(0x105)]<=_0x171f27);}function note(_0x4e955f,_0x433d9b){const _0x4cee03=a0_0x176408,_0x38ccde=state[_0x4e955f];_0x433d9b?(_0x38ccde[_0x4cee03(0xe7)]++,_0x38ccde[_0x4cee03(0x102)]=0x0,cursor=_0x4e955f):(_0x38ccde['fails']++,_0x38ccde[_0x4cee03(0xe7)]=Math['max'](0x0,_0x38ccde['oks']-0x1),_0x38ccde['cooldownUntil']=Date[_0x4cee03(0xe3)]()+(_0x38ccde['fails']>=0x3?0x927c0:0x15f90));}async function raceFreeExit(_0x28bfd0,_0x188015){const _0x1fe550=a0_0x176408,_0x1f3eaa=Date[_0x1fe550(0xe3)]()+BUDGET_MS,_0x2c0798=new Set();let _0x85efb=null;while(Date[_0x1fe550(0xe3)]()<_0x1f3eaa){const _0x241198=candidates()[_0x1fe550(0x110)](_0x27fa6d=>!_0x2c0798[_0x1fe550(0xd0)](_0x27fa6d));if(!_0x241198['length'])break;const _0x4c313d=_0x241198[_0x1fe550(0x120)](0x0,BATCH);_0x4c313d['forEach'](_0x5063d2=>_0x2c0798[_0x1fe550(0x11c)](_0x5063d2));const _0x34f14d=_0x4c313d[_0x1fe550(0xfc)](_0x3d06bb=>openTunnel(state[_0x3d06bb]['p'],{'host':_0x28bfd0,'port':_0x188015,'timeoutMs':CONNECT_TIMEOUT_MS})[_0x1fe550(0x124)](_0x244d4f=>({'idx':_0x3d06bb,'sock':_0x244d4f}),_0x430e1f=>{note(_0x3d06bb,![]);throw _0x430e1f;}));try{const _0x3af90c=await Promise[_0x1fe550(0x111)](_0x34f14d);return _0x34f14d[_0x1fe550(0xef)](_0x1b2c12=>_0x1b2c12['then'](_0x5cc655=>{const _0x3c0e00=_0x1fe550;if(_0x5cc655[_0x3c0e00(0x109)]!==_0x3af90c[_0x3c0e00(0x109)])_0x5cc655['sock'][_0x3c0e00(0xfa)]();})[_0x1fe550(0x10b)](()=>{})),note(_0x3af90c[_0x1fe550(0x107)],!![]),{'sock':_0x3af90c[_0x1fe550(0x109)],'via':state[_0x3af90c['idx']]['p']['raw']};}catch(_0x5df726){_0x85efb=_0x5df726 instanceof AggregateError?_0x5df726[_0x1fe550(0xff)][_0x5df726['errors'][_0x1fe550(0xf9)]-0x1]:_0x5df726;}}throw _0x85efb||new Error(_0x1fe550(0x121));}async function upstream(_0xde8f3d,_0x2cd005){const _0x545f76=a0_0x176408;if(CF_HOST[_0x545f76(0xdb)](_0xde8f3d)){const _0x395a85=await openTunnel(WARP,{'host':_0xde8f3d,'port':_0x2cd005,'timeoutMs':CONNECT_TIMEOUT_MS});return{'sock':_0x395a85,'via':_0x545f76(0xf0)};}return raceFreeExit(_0xde8f3d,_0x2cd005);}const stats={},server=net['createServer'](_0x54d21d=>{const _0x1848f1=a0_0x176408;_0x54d21d[_0x1848f1(0x113)](_0x1848f1(0x10f),()=>{});let _0x3177ac=Buffer[_0x1848f1(0xe4)](0x0);const _0x342f02=_0x561f70=>{const _0x1f79e6=_0x1848f1;_0x3177ac=Buffer[_0x1f79e6(0x125)]([_0x3177ac,_0x561f70]);const _0x2e41e0=_0x3177ac['indexOf']('\x0d\x0a\x0d\x0a');if(_0x2e41e0===-0x1)return;_0x54d21d[_0x1f79e6(0x123)](_0x1f79e6(0xe8),_0x342f02);const _0x5df765=_0x3177ac['slice'](0x0,_0x2e41e0)[_0x1f79e6(0xd3)](_0x1f79e6(0xcf)),_0x2af868=_0x5df765['split']('\x0d\x0a')[0x0],_0xf15324=/^CONNECT ([^\s:]+):(\d+)/i[_0x1f79e6(0x122)](_0x2af868);if(!_0xf15324){_0x54d21d[_0x1f79e6(0xfe)](_0x1f79e6(0x10d));return;}const _0x474536=_0xf15324[0x1],_0x2ca253=Date[_0x1f79e6(0xe3)](),_0x404121=stats[_0x474536]=stats[_0x474536]||{'ok':0x0,'fail':0x0};upstream(_0x474536,parseInt(_0xf15324[0x2],0xa))[_0x1f79e6(0x124)](({sock:_0x241038,via:_0x215d3a})=>{const _0x1fc4aa=_0x1f79e6;_0x404121['ok']++,logLine(_0x1fc4aa(0xde)+_0x474536+'\x20OK\x20via\x20'+(_0x215d3a===_0x1fc4aa(0xf0)?_0x1fc4aa(0xf0):_0x215d3a[_0x1fc4aa(0x120)](0x0,0x28))+'\x20'+(Date[_0x1fc4aa(0xe3)]()-_0x2ca253)+'ms'),_0x54d21d[_0x1fc4aa(0xed)]('HTTP/1.1\x20200\x20Connection\x20Established\x0d\x0a\x0d\x0a');const _0x366a6a=_0x3177ac[_0x1fc4aa(0x120)](_0x2e41e0+0x4);if(_0x366a6a[_0x1fc4aa(0xf9)])_0x241038[_0x1fc4aa(0xed)](_0x366a6a);_0x54d21d[_0x1fc4aa(0x11f)](_0x241038),_0x241038[_0x1fc4aa(0x11f)](_0x54d21d),_0x241038['on'](_0x1fc4aa(0x10f),()=>_0x54d21d[_0x1fc4aa(0xfa)]()),_0x54d21d['on'](_0x1fc4aa(0x128),()=>_0x241038['destroy']());})[_0x1f79e6(0x10b)](_0x63bdb1=>{const _0x29ddf6=_0x1f79e6;_0x404121['fail']++,logLine(_0x29ddf6(0xde)+_0x474536+_0x29ddf6(0xd7)+String(_0x63bdb1&&_0x63bdb1[_0x29ddf6(0x11b)]||_0x63bdb1)[_0x29ddf6(0x120)](0x0,0x46)+'\x20'+(Date[_0x29ddf6(0xe3)]()-_0x2ca253)+'ms');try{_0x54d21d[_0x29ddf6(0xfe)](_0x29ddf6(0xe9));}catch{}});};_0x54d21d['on']('data',_0x342f02);});setInterval(()=>{const _0x346cfb=a0_0x176408,_0x17d017=state['filter'](_0x17cd76=>_0x17cd76[_0x346cfb(0xe7)]>0x0&&_0x17cd76[_0x346cfb(0x105)]<=Date[_0x346cfb(0xe3)]())[_0x346cfb(0xf9)],_0x3b2671=Object[_0x346cfb(0x104)](stats)[_0x346cfb(0xfc)](([_0x327816,_0x697aea])=>_0x327816[_0x346cfb(0xd4)]('.')[0x0]+':'+_0x697aea['ok']+'/'+(_0x697aea['ok']+_0x697aea['fail']))[_0x346cfb(0x120)](0x0,0x6)['join']('\x20');logLine(_0x346cfb(0x103)+_0x17d017+'/'+state[_0x346cfb(0xf9)]+'\x20'+_0x3b2671);},0x7530)['unref'](),setInterval(async()=>{const _0x1b4eb9=a0_0x176408,_0x1a11b2=reloadList(),_0x1664c2=await warmUp(0x1e,0x6);if(_0x1a11b2||_0x1664c2)logLine('refresh:\x20+'+_0x1a11b2+_0x1b4eb9(0xcd)+_0x1664c2+'\x20warmed\x20('+state[_0x1b4eb9(0xf9)]+_0x1b4eb9(0xdc));},0x1d4c0)[a0_0x176408(0x11a)](),server[a0_0x176408(0x11d)](PORT,a0_0x176408(0xf8),async()=>{const _0x38826e=a0_0x176408;logLine('split\x20relay\x20on\x20127.0.0.1:'+PORT+_0x38826e(0xd1)+list[_0x38826e(0xf9)]+_0x38826e(0xea));const _0x1e877a=await warmUp(0x3c,0x6);logLine(_0x38826e(0xec)+_0x1e877a+'\x20upstreams\x20answer\x20'+PROBE_HOST+_0x38826e(0xf7)+state[_0x38826e(0xf9)]+_0x38826e(0xdc));});
+'use strict';
+
+/**
+ * Split-egress relay for the Inception browser bursts.
+ *
+ * Two measured facts drive it:
+ *   1. the free exits can reach the Vercel-hosted console but usually CANNOT
+ *      reach challenges.cloudflare.com (net::ERR_TIMED_OUT measured), so the
+ *      Turnstile widget never solves and the sign-up POST has no token;
+ *   2. Cloudflare's own WARP egress (socks5://127.0.0.1:40000) reaches
+ *      challenges.cloudflare.com fine, but a single shared WARP exit is not
+ *      where account traffic should live.
+ *
+ * So Chrome talks to this relay only, and the relay picks the upstream per
+ * destination: `*.cloudflare.com` → WARP, everything else → a raced free exit.
+ * Nothing ever leaves through the host's own line.
+ *
+ * Usage: node src/split-relay.js [port] [listFile]
+ */
+
+const net = require('net');
+const fs = require('fs');
+const path = require('path');
+const { parseProxyText, openTunnel } = require('./proxy.js');
+
+const PORT = parseInt(process.argv[2] || '18140', 10);
+const LIST = process.argv[3] || path.join(__dirname, 'out', 'relay-candidates.txt');
+const LOG = path.join(__dirname, 'out', 'split-relay.log');
+const CONNECT_TIMEOUT_MS = 8000;
+const BUDGET_MS = 25000;
+const BATCH = 3;
+
+const WARP = { protocol: 'socks5', host: '127.0.0.1', port: 40000, raw: 'socks5://127.0.0.1:40000' };
+const CF_HOST = /(^|\.)cloudflare\.com$/i;
+const PROBE_HOST = 'platform.inceptionlabs.ai';
+
+let list = parseProxyText(fs.readFileSync(LIST, 'utf8'));
+if (!list.length) throw new Error(`no proxies in ${LIST}`);
+const state = list.map((p) => ({ p, cooldownUntil: 0, fails: 0, oks: 0 }));
+let cursor = 0;
+
+/**
+ * The pool churns: dead lines are replaced by new ones every few minutes, and a
+ * relay that reads its list once starts cold in a way no amount of racing
+ * fixes (measured by a sibling: 112 startup-time upstreams, ~95 % dead → every
+ * CONNECT lost). So the list is re-read, and entries are *probed* warm.
+ */
+function reloadList() {
+  let added = 0;
+  for (const p of parseProxyText(fs.readFileSync(LIST, 'utf8'))) {
+    const raw = p.raw || `${p.protocol}://${p.host}:${p.port}`;
+    if (state.some((s) => (s.p.raw || `${s.p.protocol}://${s.p.host}:${s.p.port}`) === raw)) continue;
+    state.push({ p, cooldownUntil: 0, fails: 0, oks: 0 });
+    added++;
+  }
+  return added;
+}
+
+/** Probes cold upstreams against the console host and marks the responders. */
+async function warmUp(limit = 40, conc = 6) {
+  const cold = state.filter((s) => s.oks === 0 && s.cooldownUntil <= Date.now()).slice(0, limit);
+  if (!cold.length) return 0;
+  let i = 0;
+  let warm = 0;
+  const worker = async () => {
+    for (;;) {
+      const s = cold[i++];
+      if (!s) return;
+      try {
+        const sock = await openTunnel(s.p, { host: PROBE_HOST, port: 443, timeoutMs: 7000 });
+        // A tunnel is not enough — the line must answer a real TLS request.
+        const tls = require('tls').connect({ socket: sock, servername: PROBE_HOST });
+        await new Promise((res, rej) => {
+          const t = setTimeout(() => rej(new Error('tls timeout')), 10000);
+          tls.once('secureConnect', () => {
+            clearTimeout(t);
+            res();
+          });
+          tls.once('error', rej);
+        });
+        tls.destroy();
+        s.oks = 1;
+        warm++;
+      } catch {
+        s.cooldownUntil = Date.now() + 60000;
+      }
+    }
+  };
+  await Promise.all(new Array(conc).fill(0).map(worker));
+  return warm;
+}
+
+function logLine(msg) {
+  const line = `${new Date().toISOString().slice(11, 19)} ${msg}`;
+  console.log(line);
+  try {
+    fs.appendFileSync(LOG, line + '\n');
+  } catch {}
+}
+
+function candidates() {
+  const now = Date.now();
+  const warm = [];
+  const cold = [];
+  state.forEach((s, idx) => {
+    if (s.cooldownUntil > now) return;
+    (s.oks > 0 ? warm : cold).push(idx);
+  });
+  warm.sort((a, b) => state[b].oks - state[a].oks);
+  return [cursor, ...warm, ...cold].filter((v, i, arr) => arr.indexOf(v) === i && state[v] && state[v].cooldownUntil <= now);
+}
+
+function note(idx, ok) {
+  const s = state[idx];
+  if (ok) {
+    s.oks++;
+    s.fails = 0;
+    cursor = idx;
+  } else {
+    s.fails++;
+    s.oks = Math.max(0, s.oks - 1);
+    s.cooldownUntil = Date.now() + (s.fails >= 3 ? 600000 : 90000);
+  }
+}
+
+async function raceFreeExit(host, port) {
+  const deadline = Date.now() + BUDGET_MS;
+  const tried = new Set();
+  let lastErr = null;
+  while (Date.now() < deadline) {
+    const order = candidates().filter((i) => !tried.has(i));
+    if (!order.length) break;
+    const batch = order.slice(0, BATCH);
+    batch.forEach((i) => tried.add(i));
+    const attempts = batch.map((i) =>
+      openTunnel(state[i].p, { host, port, timeoutMs: CONNECT_TIMEOUT_MS }).then(
+        (sock) => ({ idx: i, sock }),
+        (err) => {
+          note(i, false);
+          throw err;
+        }
+      )
+    );
+    try {
+      const winner = await Promise.any(attempts);
+      attempts.forEach((p) =>
+        p
+          .then((r) => {
+            if (r.sock !== winner.sock) r.sock.destroy();
+          })
+          .catch(() => {})
+      );
+      note(winner.idx, true);
+      return { sock: winner.sock, via: state[winner.idx].p.raw };
+    } catch (e) {
+      lastErr = e instanceof AggregateError ? e.errors[e.errors.length - 1] : e;
+    }
+  }
+  throw lastErr || new Error('all upstreams failed');
+}
+
+async function upstream(host, port) {
+  if (CF_HOST.test(host)) {
+    const sock = await openTunnel(WARP, { host, port, timeoutMs: CONNECT_TIMEOUT_MS });
+    return { sock, via: 'warp' };
+  }
+  return raceFreeExit(host, port);
+}
+
+const stats = {};
+const server = net.createServer((client) => {
+  client.once('error', () => {});
+  let buf = Buffer.alloc(0);
+  const onData = (chunk) => {
+    buf = Buffer.concat([buf, chunk]);
+    const end = buf.indexOf('\r\n\r\n');
+    if (end === -1) return;
+    client.removeListener('data', onData);
+    const head = buf.slice(0, end).toString('latin1');
+    const line = head.split('\r\n')[0];
+    const m = /^CONNECT ([^\s:]+):(\d+)/i.exec(line);
+    if (!m) {
+      client.end('HTTP/1.1 405 Method Not Allowed\r\n\r\n');
+      return;
+    }
+    const host = m[1];
+    const t0 = Date.now();
+    const bucket = (stats[host] = stats[host] || { ok: 0, fail: 0 });
+    upstream(host, parseInt(m[2], 10))
+      .then(({ sock, via }) => {
+        bucket.ok++;
+        logLine(`CONNECT ${host} OK via ${via === 'warp' ? 'warp' : via.slice(0, 40)} ${Date.now() - t0}ms`);
+        client.write('HTTP/1.1 200 Connection Established\r\n\r\n');
+        const rest = buf.slice(end + 4);
+        if (rest.length) sock.write(rest);
+        client.pipe(sock);
+        sock.pipe(client);
+        sock.on('error', () => client.destroy());
+        client.on('close', () => sock.destroy());
+      })
+      .catch((e) => {
+        bucket.fail++;
+        logLine(`CONNECT ${host} FAIL ${String((e && e.message) || e).slice(0, 70)} ${Date.now() - t0}ms`);
+        try {
+          client.end('HTTP/1.1 502 Bad Gateway\r\n\r\n');
+        } catch {}
+      });
+  };
+  client.on('data', onData);
+});
+
+setInterval(() => {
+  const warm = state.filter((s) => s.oks > 0 && s.cooldownUntil <= Date.now()).length;
+  const hosts = Object.entries(stats)
+    .map(([h, v]) => `${h.split('.')[0]}:${v.ok}/${v.ok + v.fail}`)
+    .slice(0, 6)
+    .join(' ');
+  logLine(`relay warm=${warm}/${state.length} ${hosts}`);
+}, 30000).unref();
+
+setInterval(async () => {
+  const added = reloadList();
+  const warm = await warmUp(30, 6);
+  if (added || warm) logLine(`refresh: +${added} candidates, ${warm} warmed (${state.length} total)`);
+}, 120000).unref();
+
+server.listen(PORT, '127.0.0.1', async () => {
+  logLine(`split relay on 127.0.0.1:${PORT} · ${list.length} upstreams · cloudflare.com -> warp · else raced exits`);
+  const warm = await warmUp(60, 6);
+  logLine(`warm-up: ${warm} upstreams answer ${PROBE_HOST}:443 (${state.length} total)`);
+});

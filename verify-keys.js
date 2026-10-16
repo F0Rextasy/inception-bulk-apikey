@@ -1,1 +1,106 @@
-const a0_0x36947d=a0_0x6feb;(function(_0x21d916,_0x28c900){const _0x5c4ae0=a0_0x6feb,_0x231599=_0x21d916();while(!![]){try{const _0x473c16=parseInt(_0x5c4ae0(0x1e4))/0x1*(parseInt(_0x5c4ae0(0x1da))/0x2)+parseInt(_0x5c4ae0(0x1fd))/0x3+parseInt(_0x5c4ae0(0x1ba))/0x4*(parseInt(_0x5c4ae0(0x1bc))/0x5)+parseInt(_0x5c4ae0(0x1bf))/0x6+-parseInt(_0x5c4ae0(0x1cc))/0x7+-parseInt(_0x5c4ae0(0x1f2))/0x8*(parseInt(_0x5c4ae0(0x1db))/0x9)+-parseInt(_0x5c4ae0(0x1e5))/0xa;if(_0x473c16===_0x28c900)break;else _0x231599['push'](_0x231599['shift']());}catch(_0x17aefd){_0x231599['push'](_0x231599['shift']());}}}(a0_0x2fca,0xb1b9f));function a0_0x2fca(){const _0x5b4753=['C2fTCgXL','lI9SAwi','Aw5KzxHpzG','y29UC3rYDwn0B3i','yxbPlwXPDMuUDhH0','C3rHy2S','l2nOyxqVy29TCgXLDgLVBNm','Aw5JBhvKzxm','C3bSAxq','Bg9N','nZe3mZa2mvj4reLruG','C2vHCMnO','ig1VzgvSCYb8ia','BwfW','Bw9KzwXZ','yxbWBhK','Bw9KzwXZia','zxHPDa','CMvHzezPBgvtEw5J','ChjVEgLLCY50Ehq','DxnLCG','rKfuquW','y29UDgvUDa','Dg9ju09tDhjPBMC','mtr3txHiwee','ndm2mZm4ouvvAu5hBa','C2XPy2u','BwvYy3vYEs0YlJu','C3rHDhvZ','Ahr0Chm6lY9HCgKUAw5Jzxb0Aw9UBgfICY5HAs92mq','C2HPzNq','oYbTB2rLBd0','C3rYAw5NAwz5','Dgv4Da','odG5ntHJz25zugO','mty3mZeXmeL4CfrdBa','DxrMoa','yxbWBgLJyxrPB24VANnVBG','CMfUzg9Tsw50','qMvHCMvYia','zMLSDgvY','BwvZC2fNzq','ChvZAa','yxjNDG','zxHPC3rZu3LUyW','DgHYB3CG','BgvUz3rO','y2HVAwnLCW','oej4Dgz6Eq','BM8GzxHPDa','uMvWBhKGD2L0Acb0AguGC2LUz2XLihDVCMq6ig9R','DhjPBq','DMvYAwzPzwqG','DgvZDa','ls1VBMX5','Cgf0Aa','DMvYAwz5lxjLCg9YDc5QC29U','kcGOlISPkYKRksSK','BM90zq','mZa1nJi1owvUEM1Oua','yMLUza','ue9tva','zxjYB3i','ls1JAgf0','y2f0y2G','zgf0yq','CgfYC2vqCM94Eq','mtq3otjwu0H4Awq','AM9PBG','ndG1vMjZsvHl','D3jPDgvgAwXLu3LUyW','CgfYC2u','mJqYnZK0mM5OuuHOCq','y2HHDca','rKfjta'];a0_0x2fca=function(){return _0x5b4753;};return a0_0x2fca();}const a0_0x6318e1=(function(){let _0x2da2a9=!![];return function(_0xaf1b33,_0x11bf20){const _0x412750=_0x2da2a9?function(){const _0x361a24=a0_0x6feb;if(_0x11bf20){const _0x825595=_0x11bf20[_0x361a24(0x1d1)](_0xaf1b33,arguments);return _0x11bf20=null,_0x825595;}}:function(){};return _0x2da2a9=![],_0x412750;};}()),a0_0x155665=a0_0x6318e1(this,function(){const _0x409483=a0_0x6feb;if(a0_0x155665[_0x409483(0x1b3)]()['toString']()['indexOf']('\x0a')!==-0x1)return;return a0_0x155665['toString']()[_0x409483(0x1cd)](_0x409483(0x1fb))['toString']()[_0x409483(0x1c5)](a0_0x155665)['search']('(((.+)+)+)+$');});a0_0x155665();'use strict';const fs=require('fs'),path=require(a0_0x36947d(0x1f9)),crypto=require('crypto'),{request,ensureOut,proxyLib,mapLimit,sleep}=require(a0_0x36947d(0x1c3)),HERE=path[a0_0x36947d(0x1bb)](__dirname),KEYS_FILE=path[a0_0x36947d(0x1bb)](HERE,'keys.txt'),OUT=ensureOut(),API=a0_0x36947d(0x1df),argv=process[a0_0x36947d(0x1ed)][a0_0x36947d(0x1dc)](0x2),arg=(_0x20cdc5,_0x38db28)=>argv[a0_0x36947d(0x1c9)](_0x20cdc5)?argv[argv[a0_0x36947d(0x1c4)](_0x20cdc5)+0x1]:_0x38db28,MODEL=arg('--model',a0_0x36947d(0x1dd)),CHAT_LIMIT=parseInt(arg(a0_0x36947d(0x1b6),'30'),0xa);function apiExits(){const _0x1eb532=a0_0x36947d,_0x283e0e=[];for(const _0x47e927 of[path[_0x1eb532(0x1bb)](__dirname,_0x1eb532(0x1d5)),path['join'](OUT,_0x1eb532(0x1c6)),path[_0x1eb532(0x1bb)](OUT,'api-live.jsonl')]){if(!fs[_0x1eb532(0x1ee)](_0x47e927))continue;for(const _0x1bd5c5 of fs[_0x1eb532(0x1d4)](_0x47e927,_0x1eb532(0x1e6))['split'](/\r?\n/)){const _0x4e0c8f=_0x1bd5c5[_0x1eb532(0x1ca)]('\x09')[0x0]['trim']();if(!/^(https?|socks[45]):\/\//[_0x1eb532(0x1f7)](_0x4e0c8f))continue;const _0x5f4fea=proxyLib[_0x1eb532(0x1b9)](_0x4e0c8f);if(_0x5f4fea)_0x283e0e[_0x1eb532(0x1ec)](_0x5f4fea);}}return _0x283e0e;}function a0_0x6feb(_0xae617b,_0x231ade){_0xae617b=_0xae617b-0x1b3;const _0x35a46f=a0_0x2fca();let _0x155665=_0x35a46f[_0xae617b];if(a0_0x6feb['yrduFH']===undefined){var _0x6318e1=function(_0x260adc){const _0x262793='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x1720fa='',_0x3ba083='',_0xa50409=_0x1720fa+_0x6318e1,_0x1d91a9=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x2da2a9=0x0,_0xaf1b33,_0x11bf20,_0x412750=0x0;_0x11bf20=_0x260adc['charAt'](_0x412750++);~_0x11bf20&&(_0xaf1b33=_0x2da2a9%0x4?_0xaf1b33*0x40+_0x11bf20:_0x11bf20,_0x2da2a9++%0x4)?_0x1720fa+=_0x1d91a9||_0xa50409['charCodeAt'](_0x412750+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0xaf1b33>>(-0x2*_0x2da2a9&0x6)):_0x2da2a9:0x0){_0x11bf20=_0x262793['indexOf'](_0x11bf20);}for(let _0x825595=0x0,_0x20cdc5=_0x1720fa['length'];_0x825595<_0x20cdc5;_0x825595++){_0x3ba083+='%'+('00'+_0x1720fa['charCodeAt'](_0x825595)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x3ba083);};a0_0x6feb['hWiDSe']=_0x6318e1,a0_0x6feb['GRelMs']={},a0_0x6feb['yrduFH']=!![];}const _0x2fca6a=_0x35a46f[0x0];a0_0x6feb['mPrQDT']!==_0x2fca6a&&(a0_0x6feb['GRelMs']={},a0_0x6feb['mPrQDT']=_0x2fca6a);const _0x6feb50=a0_0x6feb['GRelMs'][_0xae617b];if(_0x6feb50===undefined){const _0x38db28=function(_0x283e0e){this['husUzV']=_0x283e0e,this['kyKStF']=[0x1,0x0,0x0],this['cPSgVA']=function(){return'newState';},this['lraYoS']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['nNdEkM']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x38db28['prototype']['wYZuML']=function(){const _0x47e927=new RegExp(this['lraYoS']+this['nNdEkM']),_0x1bd5c5=_0x47e927['test'](this['cPSgVA']['toString']())?--this['kyKStF'][0x1]:--this['kyKStF'][0x0];return this['kIwBpv'](_0x1bd5c5);},_0x38db28['prototype']['kIwBpv']=function(_0x4e0c8f){if(!Boolean(~_0x4e0c8f))return _0x4e0c8f;return this['kqPMOu'](this['husUzV']);},_0x38db28['prototype']['kqPMOu']=function(_0x5f4fea){for(let _0xd260ae=0x0,_0x207c1f=this['kyKStF']['length'];_0xd260ae<_0x207c1f;_0xd260ae++){this['kyKStF']['push'](Math['round'](Math['random']())),_0x207c1f=this['kyKStF']['length'];}return _0x5f4fea(this['kyKStF'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x38db28(a0_0x6feb)['wYZuML'](),_0x155665=a0_0x6feb['hWiDSe'](_0x155665),a0_0x6feb['GRelMs'][_0xae617b]=_0x155665;}else _0x155665=_0x6feb50;return _0x155665;}async function withExit(_0xd260ae,{attempts:attempts=0x8}={}){const _0x44f677=a0_0x36947d,_0x207c1f=apiExits(),_0xa33261=process.env.INCEPTION_VERIFY_EXIT?proxyLib[_0x44f677(0x1b9)](process.env.INCEPTION_VERIFY_EXIT):null,_0x511245=_0xa33261?[_0xa33261]:[];if(!_0x511245[_0x44f677(0x1f0)]&&!_0x207c1f[_0x44f677(0x1f0)])throw new Error('no\x20exits:\x20add\x20proxy\x20lines\x20to\x20proxies.txt\x20or\x20set\x20INCEPTION_VERIFY_EXIT');let _0x3e39b8=null;for(let _0x57de72=0x0;_0x57de72<attempts;_0x57de72++){const _0x5cdfe4=_0x511245[_0x44f677(0x1f0)]?_0x511245[_0x44f677(0x1e0)]():_0x207c1f[_0x44f677(0x1f0)]?_0x207c1f[crypto[_0x44f677(0x1e8)](0x0,_0x207c1f[_0x44f677(0x1f0)])]:null;try{return await _0xd260ae(_0x5cdfe4);}catch(_0x46f76b){_0x3e39b8=_0x46f76b,await sleep(0x190);}}throw _0x3e39b8||new Error(_0x44f677(0x1f3));}async function checkKey(_0x4062f1,{chat:_0x3a5b43}){const _0xf81d8a=a0_0x36947d,_0x154e03=await withExit(_0x1cef1b=>request(_0x1cef1b,API+'/models',{'timeoutMs':0x61a8,'headers':{'authorization':'Bearer\x20'+_0x4062f1,'accept':_0xf81d8a(0x1e7)}}));if(_0x154e03[_0xf81d8a(0x1de)]!==0xc8)return{'key':_0x4062f1,'ok':![],'note':_0xf81d8a(0x1d2)+_0x154e03[_0xf81d8a(0x1de)]+'\x20'+_0x154e03[_0xf81d8a(0x1e3)][_0xf81d8a(0x1dc)](0x0,0x78)};let _0x628c8d=[];try{_0x628c8d=JSON[_0xf81d8a(0x1be)](_0x154e03[_0xf81d8a(0x1e3)])[_0xf81d8a(0x1b8)]||[];}catch{}let _0x28e864=null;if(_0x3a5b43){const _0x54f992=await withExit(_0x1b0d97=>request(_0x1b0d97,API+_0xf81d8a(0x1c8),{'method':_0xf81d8a(0x1b4),'timeoutMs':0xea60,'headers':{'authorization':_0xf81d8a(0x1e9)+_0x4062f1,'content-type':_0xf81d8a(0x1e7)},'body':{'model':MODEL,'messages':[{'role':_0xf81d8a(0x1d6),'content':_0xf81d8a(0x1f4)}],'max_tokens':0x8,'temperature':0x0}}));if(_0x54f992[_0xf81d8a(0x1de)]!==0xc8)return{'key':_0x4062f1,'ok':![],'note':_0xf81d8a(0x1c0)+_0x54f992[_0xf81d8a(0x1de)]+'\x20'+_0x54f992[_0xf81d8a(0x1e3)][_0xf81d8a(0x1dc)](0x0,0x8c),'models':_0x628c8d[_0xf81d8a(0x1cf)](_0x2cb708=>_0x2cb708['id'])};try{const _0x3f7c1a=JSON[_0xf81d8a(0x1be)](_0x54f992[_0xf81d8a(0x1e3)]);_0x28e864=_0x3f7c1a[_0xf81d8a(0x1f1)]&&_0x3f7c1a['choices'][0x0]&&_0x3f7c1a[_0xf81d8a(0x1f1)][0x0][_0xf81d8a(0x1eb)]&&_0x3f7c1a[_0xf81d8a(0x1f1)][0x0]['message'][_0xf81d8a(0x1d8)]||'';}catch{}}return{'key':_0x4062f1,'ok':!![],'models':_0x628c8d[_0xf81d8a(0x1cf)](_0x568779=>_0x568779['id']),'sample':_0x28e864===null?undefined:String(_0x28e864)['slice'](0x0,0x50)};}(async()=>{const _0x3af4ee=a0_0x36947d,_0x1086f4=arg(_0x3af4ee(0x1f8)),_0x36beb7=(_0x1086f4?[_0x1086f4]:fs['readFileSync'](KEYS_FILE,'utf8')['split'](/\r?\n/))[_0x3af4ee(0x1cf)](_0x39091d=>_0x39091d[_0x3af4ee(0x1f5)]())[_0x3af4ee(0x1ea)](Boolean);console[_0x3af4ee(0x1cb)](_0x36beb7['length']+'\x20keys\x20to\x20verify;\x20exits='+apiExits()[_0x3af4ee(0x1f0)]+_0x3af4ee(0x1e1)+MODEL);let _0x4f4706=0x0;const _0x2102c6=await mapLimit(_0x36beb7,0x4,async _0x1ffda4=>{const _0x3fcf19=_0x3af4ee,_0x32f6cf=_0x4f4706++,_0x774069=await checkKey(_0x1ffda4,{'chat':_0x32f6cf<CHAT_LIMIT})[_0x3fcf19(0x1b7)](_0x1bf1ab=>({'key':_0x1ffda4,'ok':![],'note':_0x3fcf19(0x1ef)+String(_0x1bf1ab[_0x3fcf19(0x1eb)])[_0x3fcf19(0x1dc)](0x0,0x50)}));return console['log']((_0x774069['ok']?'OK\x20\x20':_0x3fcf19(0x1c1))+'\x20'+_0x1ffda4[_0x3fcf19(0x1dc)](0x0,0x4)+'…'+_0x1ffda4[_0x3fcf19(0x1dc)](-0x4)+'\x20'+(_0x774069['ok']?(_0x774069[_0x3fcf19(0x1d0)]||[])['length']+_0x3fcf19(0x1ce)+(_0x774069[_0x3fcf19(0x1c2)]??''):_0x774069[_0x3fcf19(0x1fc)])),_0x774069;}),_0x4c49bd=_0x2102c6[_0x3af4ee(0x1ea)](_0x425531=>_0x425531['ok'])['length'];fs[_0x3af4ee(0x1bd)](path[_0x3af4ee(0x1bb)](OUT,_0x3af4ee(0x1fa)),JSON[_0x3af4ee(0x1e2)]({'at':new Date()[_0x3af4ee(0x1d9)](),'model':MODEL,'ok':_0x4c49bd,'total':_0x2102c6[_0x3af4ee(0x1f0)],'results':_0x2102c6},null,0x1)),console[_0x3af4ee(0x1cb)](_0x3af4ee(0x1f6)+_0x4c49bd+'/'+_0x2102c6[_0x3af4ee(0x1f0)]),process[_0x3af4ee(0x1d3)](_0x4c49bd===_0x2102c6['length']?0x0:0x1);})()[a0_0x36947d(0x1b7)](_0x2772ef=>{const _0x312cb4=a0_0x36947d;console[_0x312cb4(0x1b5)](_0x312cb4(0x1d7),_0x2772ef&&_0x2772ef[_0x312cb4(0x1c7)]),process[_0x312cb4(0x1d3)](0x1);});
+'use strict';
+
+/**
+ * Standalone re-verifier: every key in keys.txt gets `GET /v1/models` and one
+ * tiny chat completion through api.inceptionlabs.ai (CloudFront — no Vercel
+ * checkpoint on this host, so plain HTTP through an api-capable exit works).
+ *
+ *   node src/verify-keys.js [--model mercury-2] [--only <key>] [--chat 30]
+ */
+
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const { request, ensureOut, proxyLib, mapLimit, sleep } = require('./lib');
+
+const HERE = path.join(__dirname);
+const KEYS_FILE = path.join(HERE, 'keys.txt');
+const OUT = ensureOut();
+const API = 'https://api.inceptionlabs.ai/v1';
+
+const argv = process.argv.slice(2);
+const arg = (name, dflt) => (argv.includes(name) ? argv[argv.indexOf(name) + 1] : dflt);
+const MODEL = arg('--model', 'mercury-2.5');
+const CHAT_LIMIT = parseInt(arg('--chat', '30'), 10);
+
+function apiExits() {
+  const out = [];
+  for (const f of [path.join(__dirname, 'proxies.txt'), path.join(OUT, 'api-live.txt'), path.join(OUT, 'api-live.jsonl')]) {
+    if (!fs.existsSync(f)) continue;
+    for (const line of fs.readFileSync(f, 'utf8').split(/\r?\n/)) {
+      const p = line.split('\t')[0].trim();
+      if (!/^(https?|socks[45]):\/\//.test(p)) continue;
+      const parsed = proxyLib.parseProxy(p);
+      if (parsed) out.push(parsed);
+    }
+  }
+  return out;
+}
+
+async function withExit(fn, { attempts = 8 } = {}) {
+  const exits = apiExits();
+  // A fixed exit via INCEPTION_VERIFY_EXIT wins; otherwise everything goes through
+  // the pool in proxies.txt. No implicit local exit.
+  const fixed = process.env.INCEPTION_VERIFY_EXIT ? proxyLib.parseProxy(process.env.INCEPTION_VERIFY_EXIT) : null;
+  const order = fixed ? [fixed] : [];
+  if (!order.length && !exits.length) throw new Error('no exits: add proxy lines to proxies.txt or set INCEPTION_VERIFY_EXIT');
+  let lastErr = null;
+  for (let i = 0; i < attempts; i++) {
+    const proxy = order.length ? order.shift() : exits.length ? exits[crypto.randomInt(0, exits.length)] : null;
+    try {
+      return await fn(proxy);
+    } catch (e) {
+      lastErr = e;
+      await sleep(400);
+    }
+  }
+  throw lastErr || new Error('no exit');
+}
+
+async function checkKey(key, { chat }) {
+  const models = await withExit((proxy) =>
+    request(proxy, `${API}/models`, { timeoutMs: 25000, headers: { authorization: `Bearer ${key}`, accept: 'application/json' } })
+  );
+  if (models.status !== 200) return { key, ok: false, note: `models ${models.status} ${models.text.slice(0, 120)}` };
+  let list = [];
+  try {
+    list = JSON.parse(models.text).data || [];
+  } catch {}
+  let sample = null;
+  if (chat) {
+    const r = await withExit((proxy) =>
+      request(proxy, `${API}/chat/completions`, {
+        method: 'POST',
+        timeoutMs: 60000,
+        headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
+        body: { model: MODEL, messages: [{ role: 'user', content: 'Reply with the single word: ok' }], max_tokens: 8, temperature: 0 },
+      })
+    );
+    if (r.status !== 200) return { key, ok: false, note: `chat ${r.status} ${r.text.slice(0, 140)}`, models: list.map((m) => m.id) };
+    try {
+      const j = JSON.parse(r.text);
+      sample = (j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content) || '';
+    } catch {}
+  }
+  return { key, ok: true, models: list.map((m) => m.id), sample: sample === null ? undefined : String(sample).slice(0, 80) };
+}
+
+(async () => {
+  const only = arg('--only');
+  const keys = (only ? [only] : fs.readFileSync(KEYS_FILE, 'utf8').split(/\r?\n/)).map((s) => s.trim()).filter(Boolean);
+  console.log(`${keys.length} keys to verify; exits=${apiExits().length}; model=${MODEL}`);
+  let i = 0;
+  const results = await mapLimit(keys, 4, async (key) => {
+    const idx = i++;
+    const r = await checkKey(key, { chat: idx < CHAT_LIMIT }).catch((e) => ({ key, ok: false, note: `throw ${String(e.message).slice(0, 80)}` }));
+    console.log(`${r.ok ? 'OK  ' : 'FAIL'} ${key.slice(0, 4)}…${key.slice(-4)} ${r.ok ? `${(r.models || []).length} models | ${r.sample ?? ''}` : r.note}`);
+    return r;
+  });
+  const okCount = results.filter((r) => r.ok).length;
+  fs.writeFileSync(path.join(OUT, 'verify-report.json'), JSON.stringify({ at: new Date().toISOString(), model: MODEL, ok: okCount, total: results.length, results }, null, 1));
+  console.log(`verified ${okCount}/${results.length}`);
+  process.exit(okCount === results.length ? 0 : 1);
+})().catch((e) => {
+  console.error('FATAL', e && e.stack);
+  process.exit(1);
+});

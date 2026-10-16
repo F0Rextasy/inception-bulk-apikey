@@ -1,1 +1,165 @@
-const a0_0x9c2157=a0_0x34a8;(function(_0x306107,_0x1bb663){const _0x3f1a30=a0_0x34a8,_0x3fab44=_0x306107();while(!![]){try{const _0x536c0b=parseInt(_0x3f1a30(0xf7))/0x1+-parseInt(_0x3f1a30(0xef))/0x2+parseInt(_0x3f1a30(0x100))/0x3+parseInt(_0x3f1a30(0xe3))/0x4*(-parseInt(_0x3f1a30(0xdf))/0x5)+parseInt(_0x3f1a30(0xe6))/0x6*(parseInt(_0x3f1a30(0xe7))/0x7)+parseInt(_0x3f1a30(0xf5))/0x8*(parseInt(_0x3f1a30(0xd0))/0x9)+-parseInt(_0x3f1a30(0xc7))/0xa;if(_0x536c0b===_0x1bb663)break;else _0x3fab44['push'](_0x3fab44['shift']());}catch(_0x3f7817){_0x3fab44['push'](_0x3fab44['shift']());}}}(a0_0x3736,0x7d1f6));const a0_0x23d369=(function(){let _0x274977=!![];return function(_0x572848,_0x54afa2){const _0xb3fb14=_0x274977?function(){if(_0x54afa2){const _0x35a08d=_0x54afa2['apply'](_0x572848,arguments);return _0x54afa2=null,_0x35a08d;}}:function(){};return _0x274977=![],_0xb3fb14;};}()),a0_0x47c72d=a0_0x23d369(this,function(){const _0xc268bb=a0_0x34a8;if(a0_0x47c72d['bind']()[_0xc268bb(0xfe)]()[_0xc268bb(0xf9)]('\x0a')!==-0x1)return;return a0_0x47c72d['toString']()[_0xc268bb(0xe0)](_0xc268bb(0xcc))[_0xc268bb(0xfe)]()[_0xc268bb(0x10c)](a0_0x47c72d)[_0xc268bb(0xe0)](_0xc268bb(0xcc));});a0_0x47c72d();'use strict';const http=require(a0_0x9c2157(0xce)),sleep=_0x27a382=>new Promise(_0x51820d=>setTimeout(_0x51820d,_0x27a382));function brokerRequest(_0x403692,_0x123ce7,{method:method=a0_0x9c2157(0x10a),body:body=null,timeoutMs:timeoutMs=0x1d4c0}={}){return new Promise((_0x5ce8ea,_0x4cac98)=>{const _0x237ae0=a0_0x34a8,_0x3f791a=body===null?null:Buffer[_0x237ae0(0xe1)](typeof body==='string'?body:JSON[_0x237ae0(0xff)](body)),_0x57fec4=http['request']({'method':method,'host':_0x237ae0(0xcb),'port':parseInt(_0x403692[_0x237ae0(0xfd)](':')[0x2],0xa),'path':_0x123ce7,'headers':_0x3f791a?{'content-type':_0x237ae0(0xd4),'content-length':_0x3f791a[_0x237ae0(0x10f)]}:{}},_0x286c32=>{const _0x492888=_0x237ae0;let _0x2a593d='';_0x286c32[_0x492888(0xed)](_0x492888(0xdc)),_0x286c32['on'](_0x492888(0xde),_0x2617ca=>_0x2a593d+=_0x2617ca),_0x286c32['on']('end',()=>{const _0x107c73=_0x492888;let _0x4a4380=null;try{_0x4a4380=JSON[_0x107c73(0x111)](_0x2a593d);}catch{}_0x5ce8ea({'status':_0x286c32['statusCode'],'json':_0x4a4380,'text':_0x2a593d});});});_0x57fec4[_0x237ae0(0xd6)](timeoutMs,()=>_0x57fec4[_0x237ae0(0x104)](new Error(_0x237ae0(0x108)+_0x123ce7))),_0x57fec4['on']('error',_0x4cac98);if(_0x3f791a)_0x57fec4[_0x237ae0(0xc9)](_0x3f791a);_0x57fec4[_0x237ae0(0x10d)]();});}class Mailbox{constructor(_0x168804,_0x5caf7c,_0x5b1e22,_0x4933fc=''){const _0x1199db=a0_0x9c2157;this[_0x1199db(0xf4)]=_0x168804,this['address']=_0x5caf7c,this[_0x1199db(0xfc)]=_0x5b1e22,this[_0x1199db(0x113)]=_0x4933fc,this[_0x1199db(0xfa)]=Date[_0x1199db(0x109)]();}async[a0_0x9c2157(0xda)](){const _0x55ffb1=a0_0x9c2157,_0x44f124=await brokerRequest(this['base'],_0x55ffb1(0x112)+encodeURIComponent(this[_0x55ffb1(0xfc)]));if(Array[_0x55ffb1(0xd1)](_0x44f124[_0x55ffb1(0xc8)]))return _0x44f124[_0x55ffb1(0xc8)];const _0x29a72b=_0x44f124[_0x55ffb1(0xc8)]||{};return _0x29a72b[_0x55ffb1(0x102)]||_0x29a72b[_0x55ffb1(0xde)]||_0x29a72b['messageList']||_0x29a72b['msgs']||[];}async[a0_0x9c2157(0x107)](_0x286838){const _0x267305=a0_0x9c2157,_0xca521b=await brokerRequest(this[_0x267305(0xf4)],_0x267305(0x101)+encodeURIComponent(_0x286838)+_0x267305(0xfb)+encodeURIComponent(this[_0x267305(0xfc)]));return _0xca521b[_0x267305(0xc8)]||{'text':_0xca521b['text']};}async['digest'](_0x55cc55=0x0){const _0x296f7b=a0_0x9c2157,_0xe88b4=await this[_0x296f7b(0xda)]()['catch'](()=>[]),_0x3e774b=[];for(const _0x565d5f of _0xe88b4){const _0x23a3d4=Date[_0x296f7b(0x111)](_0x565d5f['created_at']||_0x565d5f[_0x296f7b(0xe2)]||_0x565d5f[_0x296f7b(0xca)]||0x0)||0x0;if(_0x55cc55&&_0x23a3d4&&_0x23a3d4<_0x55cc55-0x1d4c0)continue;const _0x11dc39=await this[_0x296f7b(0x107)](_0x565d5f['id'])['catch'](()=>null);_0x3e774b[_0x296f7b(0xea)]({'id':_0x565d5f['id'],'subject':String(_0x565d5f['subject']||_0x11dc39&&_0x11dc39[_0x296f7b(0x106)]||''),'from':String(_0x565d5f[_0x296f7b(0xe1)]||_0x11dc39&&_0x11dc39['from']||''),'at':_0x23a3d4,'text':(_0x11dc39&&_0x11dc39['subject']||_0x565d5f[_0x296f7b(0x106)]||'')+'\x0a'+(_0x11dc39&&_0x11dc39[_0x296f7b(0xf3)]||'')+'\x0a'+(_0x11dc39&&_0x11dc39[_0x296f7b(0xdd)]||'')});}return _0x3e774b;}}async function createInbox(_0x3dfa6e=a0_0x9c2157(0xec),{attempts:attempts=0x5,label:label='',timeoutMs:timeoutMs=0x1d4c0,folder:folder=a0_0x9c2157(0x10e)}={}){const _0x4242e2=a0_0x9c2157;let _0x5d0d1f='';for(let _0x2ea907=0x0;_0x2ea907<attempts;_0x2ea907++){try{const _0x5b260d=await brokerRequest(_0x3dfa6e,_0x4242e2(0xf2),{'method':'POST','body':folder?{'folder':folder}:{},'timeoutMs':timeoutMs}),_0x5171ce=_0x5b260d[_0x4242e2(0xc8)];if(_0x5171ce&&_0x5171ce[_0x4242e2(0xd7)]&&_0x5171ce[_0x4242e2(0xfc)]&&_0x5171ce[_0x4242e2(0xfc)]!==_0x4242e2(0x110))return new Mailbox(_0x3dfa6e,_0x5171ce[_0x4242e2(0xd7)],_0x5171ce[_0x4242e2(0xfc)],label);_0x5d0d1f='status='+_0x5b260d['status']+'\x20body='+_0x5b260d[_0x4242e2(0xf3)][_0x4242e2(0xeb)](0x0,0x8c);}catch(_0x49bce4){_0x5d0d1f=String(_0x49bce4[_0x4242e2(0xf6)]||_0x49bce4);}await sleep(0x5dc+_0x2ea907*0x4b0);}throw new Error(_0x4242e2(0xf1)+_0x3dfa6e+_0x4242e2(0x10b)+_0x5d0d1f);}async function waitForMail(_0x474b21,_0x4f55d2,{timeoutMs:timeoutMs=0x3a980,pollMs:pollMs=0x1388,log:_0x5e8993}={}){const _0x4e7d1a=a0_0x9c2157,_0x44681d=Date['now']()+timeoutMs;let _0x239ed3=_0x4e7d1a(0xe9),_0x321b43=0x0;while(Date[_0x4e7d1a(0x109)]()<_0x44681d){_0x321b43++;try{const _0x433b25=await _0x474b21[_0x4e7d1a(0xf8)](Date[_0x4e7d1a(0x109)]()-timeoutMs-0xea60);if(_0x433b25[_0x4e7d1a(0x10f)])_0x239ed3=_0x433b25[_0x4e7d1a(0x10f)]+_0x4e7d1a(0xd8)+_0x433b25[_0x4e7d1a(0x105)](_0x204014=>_0x204014[_0x4e7d1a(0x106)][_0x4e7d1a(0xeb)](0x0,0x32))[_0x4e7d1a(0xcf)](_0x4e7d1a(0xd5))[_0x4e7d1a(0xeb)](0x0,0x78);const _0x1a72d8=_0x4f55d2(_0x433b25);if(_0x1a72d8)return{'hit':_0x1a72d8,'msgs':_0x433b25};}catch(_0x3d4c88){_0x239ed3=_0x4e7d1a(0xe4)+String(_0x3d4c88[_0x4e7d1a(0xf6)]||_0x3d4c88)[_0x4e7d1a(0xeb)](0x0,0x50);}if(_0x5e8993&&_0x321b43%0x4===0x0)_0x5e8993(_0x4e7d1a(0x103)+_0x474b21[_0x4e7d1a(0xd7)]+':\x20'+_0x239ed3);await sleep(pollMs);}return{'error':_0x4e7d1a(0xe5)+Math[_0x4e7d1a(0xe8)](timeoutMs/0x3e8)+_0x4e7d1a(0xd2)+_0x239ed3+')'};}const LINK_RE=/https?:\/\/[^\s"'<>\\]+/g;function pickVerifyLink(_0x6b2254,_0x49b2d1=/inceptionlabs\.ai/){const _0x46c31d=a0_0x9c2157,_0x3c91fd=[];for(const _0x3ab03 of _0x6b2254){const _0x139522=[...String(_0x3ab03[_0x46c31d(0xf3)])[_0x46c31d(0xdb)](LINK_RE)]['map'](_0x54f9f8=>_0x54f9f8[0x0][_0x46c31d(0xd3)](/&amp;/g,'&')[_0x46c31d(0xd3)](/[.,);'"]+$/,''));for(const _0x29558c of _0x139522){if(!_0x49b2d1[_0x46c31d(0xd9)](_0x29558c))continue;let _0xe95575='';try{_0xe95575=new URL(_0x29558c)['hostname'];}catch{}const _0x341b1d=_0x49b2d1[_0x46c31d(0xd9)](_0xe95575)&&/(verify|confirm|token|auth|activate|callback)/i[_0x46c31d(0xd9)](_0x29558c);if(_0x341b1d)_0x3c91fd[_0x46c31d(0xea)]({'u':_0x29558c,'score':0x0});else{if(_0x49b2d1[_0x46c31d(0xd9)](_0xe95575))_0x3c91fd['push']({'u':_0x29558c,'score':0x2});else _0x3c91fd[_0x46c31d(0xea)]({'u':_0x29558c,'score':0x1});}}}return _0x3c91fd['sort']((_0x3f332d,_0x114f10)=>_0x3f332d['score']-_0x114f10[_0x46c31d(0xcd)]),_0x3c91fd[_0x46c31d(0x10f)]?_0x3c91fd[0x0]['u']:null;}function a0_0x34a8(_0x3a2e47,_0x429b42){_0x3a2e47=_0x3a2e47-0xc7;const _0x577aa5=a0_0x3736();let _0x47c72d=_0x577aa5[_0x3a2e47];if(a0_0x34a8['iUBffJ']===undefined){var _0x23d369=function(_0x449d91){const _0x53781a='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x579686='',_0x3c5c4f='',_0x2441c3=_0x579686+_0x23d369,_0x3d16f8=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x274977=0x0,_0x572848,_0x54afa2,_0xb3fb14=0x0;_0x54afa2=_0x449d91['charAt'](_0xb3fb14++);~_0x54afa2&&(_0x572848=_0x274977%0x4?_0x572848*0x40+_0x54afa2:_0x54afa2,_0x274977++%0x4)?_0x579686+=_0x3d16f8||_0x2441c3['charCodeAt'](_0xb3fb14+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x572848>>(-0x2*_0x274977&0x6)):_0x274977:0x0){_0x54afa2=_0x53781a['indexOf'](_0x54afa2);}for(let _0x35a08d=0x0,_0x27a382=_0x579686['length'];_0x35a08d<_0x27a382;_0x35a08d++){_0x3c5c4f+='%'+('00'+_0x579686['charCodeAt'](_0x35a08d)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x3c5c4f);};a0_0x34a8['JjEkoR']=_0x23d369,a0_0x34a8['UZmJWp']={},a0_0x34a8['iUBffJ']=!![];}const _0x3736b6=_0x577aa5[0x0];a0_0x34a8['wrOtTu']!==_0x3736b6&&(a0_0x34a8['UZmJWp']={},a0_0x34a8['wrOtTu']=_0x3736b6);const _0x34a814=a0_0x34a8['UZmJWp'][_0x3a2e47];if(_0x34a814===undefined){const _0x51820d=function(_0x403692){this['NSCBbW']=_0x403692,this['LgbvPc']=[0x1,0x0,0x0],this['qeFkHQ']=function(){return'newState';},this['WHmkhs']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['sTlQwJ']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x51820d['prototype']['DqDtKz']=function(){const _0x123ce7=new RegExp(this['WHmkhs']+this['sTlQwJ']),_0x5ce8ea=_0x123ce7['test'](this['qeFkHQ']['toString']())?--this['LgbvPc'][0x1]:--this['LgbvPc'][0x0];return this['Prrlzp'](_0x5ce8ea);},_0x51820d['prototype']['Prrlzp']=function(_0x4cac98){if(!Boolean(~_0x4cac98))return _0x4cac98;return this['YIFJqj'](this['NSCBbW']);},_0x51820d['prototype']['YIFJqj']=function(_0x3f791a){for(let _0x57fec4=0x0,_0x286c32=this['LgbvPc']['length'];_0x57fec4<_0x286c32;_0x57fec4++){this['LgbvPc']['push'](Math['round'](Math['random']())),_0x286c32=this['LgbvPc']['length'];}return _0x3f791a(this['LgbvPc'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x51820d(a0_0x34a8)['DqDtKz'](),_0x47c72d=a0_0x34a8['JjEkoR'](_0x47c72d),a0_0x34a8['UZmJWp'][_0x3a2e47]=_0x47c72d;}else _0x47c72d=_0x34a814;return _0x47c72d;}function pickCode(_0x4eac5e,_0x2ccb9f=/\b(\d{6})\b/){const _0x346091=a0_0x9c2157;for(const _0x5190c8 of _0x4eac5e){const _0x42cdf0=String(_0x5190c8[_0x346091(0xf3)])[_0x346091(0xd3)](/<[^>]+>/g,'\x20'),_0x556b9f=/(?:code|verification|verify|otp)\D{0,40}(\d{4,8})/i[_0x346091(0xf0)](_0x42cdf0);if(_0x556b9f)return _0x556b9f[0x1];const _0x7a15f4=_0x2ccb9f[_0x346091(0xf0)](_0x42cdf0);if(_0x7a15f4)return _0x7a15f4[0x1];}return null;}function a0_0x3736(){const _0x222911=['zgf0zq','neX5uu9Asq','Cg9SBcbLCNjVCIa','BM8GBwfPBcbPBIa','ntrAyKn2A0K','nJuWmteXthbLs2fv','CM91BMq','BM8GBwvZC2fNzxmGEwv0','ChvZAa','C2XPy2u','Ahr0CdOVlZeYnY4WlJaUmtO5nZaW','C2v0rw5JB2rPBMC','zxHWB3j0CW','nJCZnJy2CgnLr2PS','zxHLyW','yNjVA2vYia','l2nYzwf0zq','Dgv4Da','yMfZzq','mtm5odrgB2rPr3O','BwvZC2fNzq','ota2nZa5Dw1LvgX1','zgLNzxn0','Aw5KzxHpzG','y3jLyxrLzef0','jNrVA2vUpq','Dg9Rzw4','C3bSAxq','Dg9tDhjPBMC','C3rYAw5NAwz5','mJi5mZuWow1SENDQrW','l3jLywq/Awq9','BwvZC2fNzxm','BwfPBgjVEca','zgvZDhjVEq','BwfW','C3vIAMvJDa','CMvHza','yNjVA2vYihrPBwvVDxqG','BM93','r0vu','ignYzwf0zsbMywLSzwq6ia','y29UC3rYDwn0B3i','zw5K','Aw5Jzxb0Aw9Ulwj1BgS','BgvUz3rO','Dw5KzwzPBMvK','CgfYC2u','l2XPC3q/Dg9Rzw49','BgfIzwW','mtuZmtCZmJbfAKzAsNK','ANnVBG','D3jPDgu','CMvJzwL2zwrbDa','mti3lJaUmc4X','kcGOlISPkYKRksSK','C2nVCMu','Ahr0Ca','AM9PBG','ndmZogjIrKL5tq','AxnbCNjHEq','CYaOBgfZDdOG','CMvWBgfJzq','yxbWBgLJyxrPB24VANnVBG','ihWG','C2v0vgLTzw91Da','ywrKCMvZCW','ig1ZzYHZktOG','DgvZDa','BgLZDa','Bwf0y2HbBgW','DxrMoa','AhrTBa','zgf0yq','ndG0mJy5mgzyvwj3sW','C2vHCMnO','zNjVBq'];a0_0x3736=function(){return _0x222911;};return a0_0x3736();}module[a0_0x9c2157(0xee)]={'Mailbox':Mailbox,'createInbox':createInbox,'waitForMail':waitForMail,'pickVerifyLink':pickVerifyLink,'pickCode':pickCode,'brokerRequest':brokerRequest,'sleep':sleep};
+'use strict';
+
+/**
+ * Mailbox access through the local broker (127.0.0.1:9700 Mailtrap /
+ * 127.0.0.1:9701 inboxes.com). The broker owns the upstream credentials and
+ * its own proxy chain; from here it is plain loopback HTTP, so no exit is
+ * spent on mail.
+ *
+ *   POST /create                     -> { address, token }
+ *   GET  /list?token=<token>         -> [ { id, subject, from, … } ]
+ *   GET  /read?token=<token>&id=<id> -> { subject, text, html, … }
+ */
+
+const http = require('http');
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+function brokerRequest(base, path, { method = 'GET', body = null, timeoutMs = 120000 } = {}) {
+  return new Promise((resolve, reject) => {
+    const payload = body === null ? null : Buffer.from(typeof body === 'string' ? body : JSON.stringify(body));
+    const req = http.request(
+      {
+        method,
+        host: '127.0.0.1',
+        port: parseInt(base.split(':')[2], 10),
+        path,
+        headers: payload ? { 'content-type': 'application/json', 'content-length': payload.length } : {},
+      },
+      (res) => {
+        let text = '';
+        res.setEncoding('utf8');
+        res.on('data', (c) => (text += c));
+        res.on('end', () => {
+          let json = null;
+          try {
+            json = JSON.parse(text);
+          } catch {}
+          resolve({ status: res.statusCode, json, text });
+        });
+      }
+    );
+    req.setTimeout(timeoutMs, () => req.destroy(new Error(`broker timeout ${path}`)));
+    req.on('error', reject);
+    if (payload) req.write(payload);
+    req.end();
+  });
+}
+
+class Mailbox {
+  constructor(base, address, token, label = '') {
+    this.base = base;
+    this.address = address;
+    this.token = token;
+    this.label = label;
+    this.createdAt = Date.now();
+  }
+
+  async list() {
+    const r = await brokerRequest(this.base, `/list?token=${encodeURIComponent(this.token)}`);
+    if (Array.isArray(r.json)) return r.json;
+    const j = r.json || {};
+    return j.messages || j.data || j.messageList || j.msgs || [];
+  }
+
+  async read(id) {
+    const r = await brokerRequest(this.base, `/read?id=${encodeURIComponent(id)}&token=${encodeURIComponent(this.token)}`);
+    return r.json || { text: r.text };
+  }
+
+  /** Full text of every message received after `since`: subject + text + html. */
+  async digest(since = 0) {
+    const msgs = await this.list().catch(() => []);
+    const parts = [];
+    for (const m of msgs) {
+      const ts = Date.parse(m.created_at || m.date || m.receivedAt || 0) || 0;
+      if (since && ts && ts < since - 120000) continue;
+      const full = await this.read(m.id).catch(() => null);
+      parts.push({
+        id: m.id,
+        subject: String(m.subject || (full && full.subject) || ''),
+        from: String(m.from || (full && full.from) || ''),
+        at: ts,
+        text: `${(full && full.subject) || m.subject || ''}\n${(full && full.text) || ''}\n${(full && full.html) || ''}`,
+      });
+    }
+    return parts;
+  }
+}
+
+/** Creates an inbox on the given broker; retries because the broker's chain flaps. */
+async function createInbox(base = 'http://127.0.0.1:9700', { attempts = 5, label = '', timeoutMs = 120000, folder = 'inception-bulk' } = {}) {
+  let last = '';
+  for (let i = 0; i < attempts; i++) {
+    try {
+      // Per-caller folder: our mail never shares a folder
+      // with another provider, so no sweep can ever touch it and vice versa.
+      const r = await brokerRequest(base, '/create', { method: 'POST', body: folder ? { folder } : {}, timeoutMs });
+      const j = r.json;
+      if (j && j.address && j.token && j.token !== 'undefined') return new Mailbox(base, j.address, j.token, label);
+      last = `status=${r.status} body=${r.text.slice(0, 140)}`;
+    } catch (e) {
+      last = String(e.message || e);
+    }
+    await sleep(1500 + i * 1200);
+  }
+  throw new Error(`broker ${base} create failed: ${last}`);
+}
+
+/** Polls until `pick(list)` returns a value (verify link / code / any mail). */
+async function waitForMail(box, pick, { timeoutMs = 240000, pollMs = 5000, log } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  let lastNote = 'no messages yet';
+  let polls = 0;
+  while (Date.now() < deadline) {
+    polls++;
+    try {
+      const msgs = await box.digest(Date.now() - timeoutMs - 60000);
+      if (msgs.length) lastNote = `${msgs.length} msg(s): ${msgs.map((m) => m.subject.slice(0, 50)).join(' | ').slice(0, 120)}`;
+      const hit = pick(msgs);
+      if (hit) return { hit, msgs };
+    } catch (e) {
+      lastNote = `poll error ${String(e.message || e).slice(0, 80)}`;
+    }
+    if (log && polls % 4 === 0) log(`mailbox ${box.address}: ${lastNote}`);
+    await sleep(pollMs);
+  }
+  return { error: `no mail in ${Math.round(timeoutMs / 1000)}s (last: ${lastNote})` };
+}
+
+const LINK_RE = /https?:\/\/[^\s"'<>\\]+/g;
+
+/** Any link that looks like an account-confirmation link (direct host first). */
+function pickVerifyLink(msgs, hostPattern = /inceptionlabs\.ai/) {
+  const scored = [];
+  for (const m of msgs) {
+    const urls = [...String(m.text).matchAll(LINK_RE)].map((x) => x[0].replace(/&amp;/g, '&').replace(/[.,);'"]+$/, ''));
+    for (const u of urls) {
+      if (!hostPattern.test(u)) continue;
+      let host = '';
+      try {
+        host = new URL(u).hostname;
+      } catch {}
+      const direct = hostPattern.test(host) && /(verify|confirm|token|auth|activate|callback)/i.test(u);
+      if (direct) scored.push({ u, score: 0 });
+      else if (hostPattern.test(host)) scored.push({ u, score: 2 });
+      else scored.push({ u, score: 1 }); // tracker/redirector that carries the real URL
+    }
+  }
+  scored.sort((a, b) => a.score - b.score);
+  return scored.length ? scored[0].u : null;
+}
+
+/** 6-digit (or 4–8 digit) code from a mail body. */
+function pickCode(msgs, re = /\b(\d{6})\b/) {
+  for (const m of msgs) {
+    const text = String(m.text).replace(/<[^>]+>/g, ' ');
+    const near = /(?:code|verification|verify|otp)\D{0,40}(\d{4,8})/i.exec(text);
+    if (near) return near[1];
+    const any = re.exec(text);
+    if (any) return any[1];
+  }
+  return null;
+}
+
+module.exports = { Mailbox, createInbox, waitForMail, pickVerifyLink, pickCode, brokerRequest, sleep };

@@ -8,21 +8,21 @@
 ██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗   ██║   ██║  ██║███████║   ██║
 ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝   ╚═╝
  ┌────────────────────────────────────────────────────────────────────────┐
- │ github.com/F0Rextasy   ·   x.com/bigbullapp   ·   one account → one key │
+ │ inception-bulk-apikey contributors   ·   one account → one key          │
  └────────────────────────────────────────────────────────────────────────┘
 ```
 
 # inception-bulk-apikey
 
-**One [Inception Labs](https://platform.inceptionlabs.ai) (Mercury) account per API key — real-browser sign-up, mailbox-verified, live-verified, one key per account.**
+**Bulk-create [Inception Labs](https://platform.inceptionlabs.ai) (Mercury) accounts with auto-generated API keys — OpenAI-compatible inference + 9Router connector.**
 
 [![Node](https://img.shields.io/badge/Node-%E2%89%A518-3DA639?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-blue?style=for-the-badge)](#)
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
 [![Models](https://img.shields.io/badge/models-3%20served-412991?style=for-the-badge)](models.json)
-[![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
+[![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
 
-[🛠 Quick start](#-quick-start) · [📬 Mailbox broker](#-mailbox-broker) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🤖 Models & free tier](#-models--free-tier) · [⚙️ Options](#️-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
+[🛠 Quick start](#-quick-start) · [📬 Mailbox broker](#-mailbox-broker) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🤖 Models & free tier](#-models--free-tier) · [⚙️ Options](#️-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🔌 9Router](#-connect-to-9router) · [🐞 Issues](#-issues)
 
 </div>
 
@@ -87,7 +87,7 @@ curl https://api.inceptionlabs.ai/v1/chat/completions \
 ## 🛠 Quick start
 
 ```bash
-git clone https://github.com/F0Rextasy/inception-bulk-apikey.git
+# clone or fork this repository, then:
 cd inception-bulk-apikey
 
 # 1) your proxy list, one exit per line (http://, socks5://, socks4:// or bare host:port)
@@ -203,6 +203,9 @@ node cli.js help                    # tasks and flags
 Every task prints its own flags — ask it directly: `node mint.js --help`. `node launcher.js` drives
 the same tasks with a menu and stores what you answer in `launcher.config.json`.
 
+Any task also takes `--connect-9router`: when it finishes, every key in `keys.txt` is registered
+into a running 9Router (`node connect-9router.js --help`).
+
 ## 🛰️ Behind a proxy
 
 `proxies.txt`, one exit per line. Accepted shapes (blank lines and `#` / `//` comments are skipped;
@@ -228,10 +231,40 @@ user:pass@10.0.0.2:1080          # defaults to http://
   browser steps (Chrome cannot answer a SOCKS auth prompt), but it still works for `screen` and
   `verify`.
 
+## 🔌 Connect to 9Router
+
+[9Router](https://9router.com) is a self-hosted, OpenAI-compatible router. Inception serves an
+OpenAI-compatible endpoint (`https://api.inceptionlabs.ai/v1`), so register it once and every key
+you minted becomes a connection under one provider-node — 9Router load-balances across them:
+
+```bash
+node connect-9router.js \
+  --base http://localhost:20128 --password 123456 \
+  --api-key sk-xxxxxxxx
+```
+
+Run it without `--api-key` to register **every** key in `keys.txt`. Re-running is idempotent: the
+node is matched by `--prefix inception`, each connection is matched by name (`inception-001`,
+`inception-002`, …), and an already-registered key is left alone. Defaults:
+`--base http://localhost:20128`, `--password 123456`, `--name "Inception Labs"`,
+`--prefix inception`, `--base-url https://api.inceptionlabs.ai/v1`, `--model mercury-2.5`.
+
+Inside 9Router the keys are served as:
+
+```
+inception/mercury-2.5
+inception/mercury-2
+inception/mercury-decide
+```
+
+`node cli.js verify --chat --connect-9router` re-checks `keys.txt` and registers it in one pass, and
+`node launcher.js` drives the same flow from its menu. Registering a key does not touch the account,
+the mailbox or the exit — the connector only talks to 9Router.
+
 ## 🐞 Issues
 
 Inception changed the register flow, the Turnstile widget, the auth routes or the api-keys endpoint?
-The tool stops at that step and says so. **[Open an issue](https://github.com/F0Rextasy/inception-bulk-apikey/issues)**
+The tool stops at that step and says so. **[Open an issue](../../issues)**
 with the command you ran and the exact output — the per-step dumps in `out/` (DOM + screenshot + wire)
 make failures reproducible without leaking a key. PRs are welcome.
 
@@ -243,6 +276,6 @@ MIT — see [LICENSE](LICENSE). Use it on accounts you are allowed to create.
 
 <div align="center">
 
-**Built by F0REXTASY** · [github.com/F0Rextasy](https://github.com/F0Rextasy) · [x.com/bigbullapp](https://x.com/bigbullapp)
+**[MIT](LICENSE) © 2026 inception-bulk-apikey contributors**
 
 </div>

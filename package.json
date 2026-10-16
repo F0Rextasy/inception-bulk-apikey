@@ -1,7 +1,7 @@
 {
   "name": "inception-bulk-apikey",
   "version": "1.0.0",
-  "description": "Bulk API keys for Inception Labs (inceptionlabs.ai) — free tier: 100M free tokens per account, 3 Mercury models (mercury-2.5, mercury-2, mercury-decide). One account per key.",
+  "description": "Bulk-create Inception Labs (Mercury) accounts with auto-generated API keys — OpenAI-compatible inference + 9Router connector.",
   "license": "MIT",
   "type": "commonjs",
   "bin": {
@@ -22,8 +22,9 @@
     "register",
     "launcher",
     "inception",
-    "bulk",
-    "apikey"
+    "apikey",
+    "9router",
+    "openai-compatible"
   ],
   "files": [
     "broker-timing.js",
@@ -58,6 +59,7 @@
     "verify-keys.js",
     "warm-screen.js",
     "warp-token.js",
+    "connect-9router.js",
     "README.md",
     "LICENSE"
   ]

@@ -1,1 +1,91 @@
-function a0_0x1b6c(_0x1f7697,_0x5941f0){_0x1f7697=_0x1f7697-0x155;const _0x3a8215=a0_0x5977();let _0x6e9584=_0x3a8215[_0x1f7697];if(a0_0x1b6c['SIrwzp']===undefined){var _0x112402=function(_0x1868f8){const _0x535ecb='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0xffce05='',_0x275c80='',_0x416bf6=_0xffce05+_0x112402,_0x443713=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x5c54ad=0x0,_0x2fed85,_0x202660,_0x4b57f3=0x0;_0x202660=_0x1868f8['charAt'](_0x4b57f3++);~_0x202660&&(_0x2fed85=_0x5c54ad%0x4?_0x2fed85*0x40+_0x202660:_0x202660,_0x5c54ad++%0x4)?_0xffce05+=_0x443713||_0x416bf6['charCodeAt'](_0x4b57f3+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x2fed85>>(-0x2*_0x5c54ad&0x6)):_0x5c54ad:0x0){_0x202660=_0x535ecb['indexOf'](_0x202660);}for(let _0x4e1a5f=0x0,_0x333893=_0xffce05['length'];_0x4e1a5f<_0x333893;_0x4e1a5f++){_0x275c80+='%'+('00'+_0xffce05['charCodeAt'](_0x4e1a5f)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x275c80);};a0_0x1b6c['sDMIaN']=_0x112402,a0_0x1b6c['xetgBJ']={},a0_0x1b6c['SIrwzp']=!![];}const _0x597782=_0x3a8215[0x0];a0_0x1b6c['THysaQ']!==_0x597782&&(a0_0x1b6c['xetgBJ']={},a0_0x1b6c['THysaQ']=_0x597782);const _0x1b6cae=a0_0x1b6c['xetgBJ'][_0x1f7697];if(_0x1b6cae===undefined){const _0x2f1a19=function(_0x140719){this['EyqDLl']=_0x140719,this['fmlaOE']=[0x1,0x0,0x0],this['piiqsg']=function(){return'newState';},this['UYyqdu']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['STtqhN']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x2f1a19['prototype']['KWNllX']=function(){const _0x5df82a=new RegExp(this['UYyqdu']+this['STtqhN']),_0x5acdf9=_0x5df82a['test'](this['piiqsg']['toString']())?--this['fmlaOE'][0x1]:--this['fmlaOE'][0x0];return this['ZxFENi'](_0x5acdf9);},_0x2f1a19['prototype']['ZxFENi']=function(_0x7f850f){if(!Boolean(~_0x7f850f))return _0x7f850f;return this['CpYjVb'](this['EyqDLl']);},_0x2f1a19['prototype']['CpYjVb']=function(_0x4611c0){for(let _0x5230e7=0x0,_0x24b445=this['fmlaOE']['length'];_0x5230e7<_0x24b445;_0x5230e7++){this['fmlaOE']['push'](Math['round'](Math['random']())),_0x24b445=this['fmlaOE']['length'];}return _0x4611c0(this['fmlaOE'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x2f1a19(a0_0x1b6c)['KWNllX'](),_0x6e9584=a0_0x1b6c['sDMIaN'](_0x6e9584),a0_0x1b6c['xetgBJ'][_0x1f7697]=_0x6e9584;}else _0x6e9584=_0x1b6cae;return _0x6e9584;}const a0_0x5a545c=a0_0x1b6c;(function(_0x2e2e25,_0x58af2c){const _0x2aeb83=a0_0x1b6c,_0x544229=_0x2e2e25();while(!![]){try{const _0x1d5dd8=-parseInt(_0x2aeb83(0x169))/0x1*(parseInt(_0x2aeb83(0x15a))/0x2)+-parseInt(_0x2aeb83(0x17d))/0x3*(-parseInt(_0x2aeb83(0x183))/0x4)+parseInt(_0x2aeb83(0x156))/0x5+-parseInt(_0x2aeb83(0x173))/0x6+-parseInt(_0x2aeb83(0x16f))/0x7+-parseInt(_0x2aeb83(0x163))/0x8+parseInt(_0x2aeb83(0x15c))/0x9*(parseInt(_0x2aeb83(0x176))/0xa);if(_0x1d5dd8===_0x58af2c)break;else _0x544229['push'](_0x544229['shift']());}catch(_0xd64586){_0x544229['push'](_0x544229['shift']());}}}(a0_0x5977,0x364a5));function a0_0x5977(){const _0x28aa96=['zxHPDa','D2fPDezVCG','zxHLyW','D3jPDgvgAwXLu3LUyW','icbJDhG9','kg5VBMuP','m3r2CfvSCG','kcGPid0+ihSGy29UC3qGzca9igrVy3vTzw50lNf1zxj5u2vSzwn0B3iOj1TYB2XLpwrPywXVz10NktSGAwyGkcfKksbYzxr1CM4GBNvSBdSGCMv0DxjUifSUlI5KlNf1zxj5u2vSzwn0B3jbBgWOj2j1DhrVBICPxs5MAw5KkgiGpt4Gl2nYzwf0zsbRzxKVAs50zxn0kcHIlMLUBMvYvgv4DhX8jYCPlNrYAw0OksKGjIyGiwiUzgLZywjSzwqPihX8ig51BgW7ih0PkcK','yxjNDG','C2vHCMnO','Dg9tDhjPBMC','CMvZy3vLlwTLEs50Ehq','mZG4mdiWA1rOz0P3','CMvZy3vLlwTLEs5WBMC','y2f0y2G','ugfNzq','tMv0D29YAW','yNjVD3nLCKnVBNrLEhrjza','DxjS','DgvZDa','lI9SAwi','C3rHy2S','ls10yxjNzxq','vgfYz2v0lMf0DgfJAfrVvgfYz2v0','BM93','zxzHBa','y29UC3rYDwn0B3i','Bg9N','AM9PBG','Aw5KzxHpzG','y3jLyxrLlwTLEsbZDwjTAxr0zwq9','otK2nG','C2nYzwvUC2HVDa','kcGPid0+ihSGy29UC3qGy2fUzhmGpsbBxtSGy29UC3qGzca9igrVy3vTzw50lNf1zxj5u2vSzwn0B3iOj1TYB2XLpwrPywXVz10NktSGAwyGkgqPihSGzc5XDwvYEvnLBgvJDg9YqwXSkcDPBNb1DcXJB2rLlhbYzsXZCgfUlgrPDICPlMzVCKvHy2GOzsa9pIb7ignVBNn0ihyGpsbLlNzHBhvLihX8iguUAw5UzxjuzxH0ihX8icCNoYbPzIaODIaMjIb2lMXLBMD0Aca+idiWksbJyw5KCY5WDxnOkhyUDhjPBsGPktSGFsK7ih0GCMv0DxjUignHBMrZlMPVAw4Oj1XUjYK7ih0PkcK','uNvUDgLTzq','zMLSDgvY','ntiZmZKWA21mu2vp','zxjYB3i','yMLUza','lMvUywjSzq','mtm0yNfZsxjI','BgvUz3rO','owXKwxzbza','Aw5JBhvKzxm','ihvYBd0','BM8GAw5Jzxb0Aw9UBgfICYbWywDLihrHCMDLDdSGzg9Uzq','z290BW','yxbWBhK','DgfYz2v0swq','mZiZnta2nfDxv1fZCq','C2XPy2u','kcGOlISPkYKRksSK','CgfNzxm6ia','ls1JCMvHDgu','y3jLyxrLlwrPywXVzYbJBgLJAZOG','mZy0mvzJrNDzDq','wY4UlMrVy3vTzw50lNf1zxj5u2vSzwn0B3jbBgWOj2j1DhrVBICPxs5MAw5KkgiGpt4Gl2nYzwf0zsbHCgKGA2v5l2KUDgvZDcGOyI5PBM5LCLrLEhqGFhWGjYCPlNrYAw0OksKP','DgfYz2v0sw5MB3m','y2XPy2S','ig5HBwvjBNb1Dd0','lI9ICM93C2vY','mJi0mZiZnhDyzhLHta','vgfYz2v0lMDLDfrHCMDLDhm','Ahr0Chm6lY9WBgf0zM9YBs5PBMnLChrPB25SywjZlMfPl2rHC2HIB2fYzc9HCgKTA2v5CW','l0fqssblzxLZl2KUDgvZDcGOzg9JDw1LBNqUyM9KEsyMzg9JDw1LBNqUyM9KEs5PBM5LCLrLEhqPFhWNjYK','mZGYmZyYuuHwB0Dn','C2vUza','ls1WB3j0','mta1mZiWotbtyLjnwKC'];a0_0x5977=function(){return _0x28aa96;};return a0_0x5977();}const a0_0x112402=(function(){let _0x5c54ad=!![];return function(_0x2fed85,_0x202660){const _0x4b57f3=_0x5c54ad?function(){const _0x51be5e=a0_0x1b6c;if(_0x202660){const _0x4e1a5f=_0x202660[_0x51be5e(0x161)](_0x2fed85,arguments);return _0x202660=null,_0x4e1a5f;}}:function(){};return _0x5c54ad=![],_0x4b57f3;};}()),a0_0x6e9584=a0_0x112402(this,function(){const _0xb26a05=a0_0x1b6c;if(a0_0x6e9584[_0xb26a05(0x158)]()[_0xb26a05(0x181)]()[_0xb26a05(0x194)]('\x0a')!==-0x1)return;return a0_0x6e9584['toString']()[_0xb26a05(0x180)](_0xb26a05(0x165))[_0xb26a05(0x181)]()[_0xb26a05(0x191)](a0_0x6e9584)[_0xb26a05(0x180)]('(((.+)+)+)+$');});a0_0x6e9584();'use strict';const fs=require('fs'),path=require('path'),B=require(a0_0x5a545c(0x16e)),{ensureOut,sleep}=require(a0_0x5a545c(0x18b)),args=process[a0_0x5a545c(0x17f)][a0_0x5a545c(0x164)](0x2),arg=(_0x333893,_0x2f1a19)=>args[a0_0x5a545c(0x15d)](_0x333893)?args[args[a0_0x5a545c(0x194)](_0x333893)+0x1]:_0x2f1a19,PORT=parseInt(arg(a0_0x5a545c(0x175),a0_0x5a545c(0x196)),0xa),CREATE=args[a0_0x5a545c(0x15d)](a0_0x5a545c(0x167)),OUT=ensureOut();(async()=>{const _0x70bba2=a0_0x5a545c,_0x140719=await B['connect'](PORT),_0x5df82a=await _0x140719[_0x70bba2(0x174)](_0x70bba2(0x170),{},null),_0x5acdf9=_0x5df82a[_0x70bba2(0x16b)][_0x70bba2(0x155)](_0xd7f913=>_0xd7f913['type']==='page');console[_0x70bba2(0x192)](_0x70bba2(0x166)+_0x5acdf9[_0x70bba2(0x15b)]);for(const _0x4eeb8a of _0x5acdf9)console['log']('\x20\x20'+_0x4eeb8a[_0x70bba2(0x162)]+'\x20'+String(_0x4eeb8a['url'])[_0x70bba2(0x164)](0x0,0x6e)+_0x70bba2(0x17b)+(_0x4eeb8a[_0x70bba2(0x188)]||'-'));const _0x7f850f=_0x5acdf9[_0x70bba2(0x155)](_0x231ecb=>/inceptionlabs\.ai/[_0x70bba2(0x18a)](_0x231ecb['url'])&&!/assets|favicon/[_0x70bba2(0x18a)](_0x231ecb[_0x70bba2(0x189)]));!_0x7f850f['length']&&(console['log'](_0x70bba2(0x15f)),process['exit'](0x0));const _0x4611c0=arg(_0x70bba2(0x18d))||_0x7f850f[_0x7f850f[_0x70bba2(0x15b)]-0x1]['targetId'],{sessionId:_0x5230e7}=await _0x140719[_0x70bba2(0x174)](_0x70bba2(0x18e),{'targetId':_0x4611c0,'flatten':!![]},null);for(const _0x578930 of['Page',_0x70bba2(0x199),_0x70bba2(0x187)])await _0x140719[_0x70bba2(0x174)](_0x578930+_0x70bba2(0x159),{},_0x5230e7)[_0x70bba2(0x185)](()=>{});const _0x24b445=new B[(_0x70bba2(0x186))](_0x140719,_0x5230e7,{'reqs':[],'responses':[],'console':[]}),_0x142985=await _0x24b445[_0x70bba2(0x189)]();console['log']('attached:\x20'+_0x4611c0+_0x70bba2(0x15e)+_0x142985),await _0x24b445['screenshot'](path[_0x70bba2(0x193)](OUT,'rescue-attach.png'));const _0xd2ff43=(await _0x24b445['body']())['replace'](/\s+/g,'\x20')[_0x70bba2(0x164)](0x0,0x12c);console[_0x70bba2(0x192)]('body:\x20'+_0xd2ff43);!CREATE&&process[_0x70bba2(0x177)](0x0);!/\/dashboard\/api-keys/[_0x70bba2(0x18a)](await _0x24b445['url']())&&(await _0x24b445[_0x70bba2(0x160)](_0x70bba2(0x171)),await _0x24b445[_0x70bba2(0x178)](_0x70bba2(0x172),{'timeoutMs':0xea60,'pollMs':0x384}));await sleep(0x3e8);const _0x29dc58=await _0x24b445[_0x70bba2(0x16c)](_0x70bba2(0x16a));console['log'](_0x70bba2(0x168)+_0x29dc58),await sleep(0x708);const _0x2c7118=await _0x24b445['waitFor']('(()\x20=>\x20{\x20const\x20d\x20=\x20document.querySelector(\x27[role=dialog]\x27);\x20if\x20(!d)\x20return\x20null;\x20const\x20el\x20=\x20d.querySelector(\x27input\x27);\x20return\x20el\x20?\x20(el.id\x20||\x20el.name\x20||\x20\x27dialog-input\x27)\x20:\x20null;\x20})()',{'timeoutMs':0x3a98,'pollMs':0x2bc});_0x2c7118&&(await _0x24b445[_0x70bba2(0x190)]('(()\x20=>\x20{\x20const\x20d\x20=\x20document.querySelector(\x27[role=dialog]\x27);\x20const\x20el\x20=\x20d.querySelector(\x27input\x27);\x20const\x20setter\x20=\x20Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,\x27value\x27).set;\x20el.focus();\x20setter.call(el,\x20\x27river-rescue\x27);\x20el.dispatchEvent(new\x20Event(\x27input\x27,{bubbles:true}));\x20el.dispatchEvent(new\x20Event(\x27change\x27,{bubbles:true}));\x20return\x20true;\x20})()'),await sleep(0x258));const _0x38c925=await _0x24b445[_0x70bba2(0x16c)](_0x70bba2(0x17e));console[_0x70bba2(0x192)](_0x70bba2(0x195)+_0x38c925+_0x70bba2(0x16d)+_0x2c7118);let _0x5a7a1a=null;const _0x5aef10=Date[_0x70bba2(0x18f)]()+0xafc8;while(Date[_0x70bba2(0x18f)]()<_0x5aef10){const _0x34e57b=await _0x24b445[_0x70bba2(0x190)](_0x70bba2(0x198))[_0x70bba2(0x185)](()=>''),_0x584f94=/([A-Za-z0-9_\-]{24,})/[_0x70bba2(0x179)](String(_0x34e57b||''));if(_0x584f94&&!/^river-/[_0x70bba2(0x18a)](_0x584f94[0x1])&&_0x584f94[0x1][_0x70bba2(0x15b)]>=0x18){_0x5a7a1a=_0x584f94[0x1];break;}await sleep(0x5dc);}console[_0x70bba2(0x192)]('KEY='+(_0x5a7a1a||_0x70bba2(0x17c))),await _0x24b445[_0x70bba2(0x197)](path[_0x70bba2(0x193)](OUT,_0x70bba2(0x184)));if(_0x5a7a1a)fs[_0x70bba2(0x17a)](path[_0x70bba2(0x193)](OUT,_0x70bba2(0x182)),_0x5a7a1a+'\x0a');process[_0x70bba2(0x177)](_0x5a7a1a?0x0:0x2);})()[a0_0x5a545c(0x185)](_0x2ffc20=>{const _0x1eb223=a0_0x5a545c;console[_0x1eb223(0x157)]('FATAL',_0x2ffc20&&_0x2ffc20[_0x1eb223(0x18c)]||_0x2ffc20),process[_0x1eb223(0x177)](0x1);});
+'use strict';
+
+/**
+ * Rescue UI: attach to the already-running mint browser (port) as a second CDP
+ * client, find the signed-in platform.inceptionlabs.ai page, and (optionally)
+ * complete "Create API Key" on it — used when the mint process wedges after
+ * sign-in but the browser context still holds the authenticated session.
+ *
+ *   node src/rescue-ui.js --port 9966 [--create] [--target <targetId>]
+ */
+
+const fs = require('fs');
+const path = require('path');
+const B = require('./browser');
+const { ensureOut, sleep } = require('./lib');
+
+const args = process.argv.slice(2);
+const arg = (name, dflt) => (args.includes(name) ? args[args.indexOf(name) + 1] : dflt);
+const PORT = parseInt(arg('--port', '9966'), 10);
+const CREATE = args.includes('--create');
+const OUT = ensureOut();
+
+(async () => {
+  const cdp = await B.connect(PORT);
+  const targets = await cdp.send('Target.getTargets', {}, null);
+  const pages = targets.targetInfos.filter((t) => t.type === 'page');
+  console.log(`pages: ${pages.length}`);
+  for (const t of pages) console.log(`  ${t.targetId} ${String(t.url).slice(0, 110)}  ctx=${t.browserContextId || '-'}`);
+  const hits = pages.filter((t) => /inceptionlabs\.ai/.test(t.url) && !/assets|favicon/.test(t.url));
+  if (!hits.length) {
+    console.log('no inceptionlabs page target; done');
+    process.exit(0);
+  }
+  const pick = arg('--target') || hits[hits.length - 1].targetId;
+  const { sessionId } = await cdp.send('Target.attachToTarget', { targetId: pick, flatten: true }, null);
+  for (const d of ['Page', 'Runtime', 'Network']) await cdp.send(`${d}.enable`, {}, sessionId).catch(() => {});
+  const page = new B.Page(cdp, sessionId, { reqs: [], responses: [], console: [] });
+
+  const url = await page.url();
+  console.log(`attached: ${pick} url=${url}`);
+  await page.screenshot(path.join(OUT, 'rescue-attach.png'));
+  const body = (await page.body()).replace(/\s+/g, ' ').slice(0, 300);
+  console.log(`body: ${body}`);
+
+  if (!CREATE) {
+    process.exit(0);
+  }
+
+  if (!/\/dashboard\/api-keys/.test(await page.url())) {
+    await page.goto('https://platform.inceptionlabs.ai/dashboard/api-keys');
+    await page.waitFor(`/API Keys/i.test((document.body&&document.body.innerText)||'')`, { timeoutMs: 60000, pollMs: 900 });
+  }
+  await sleep(1000);
+  const opened = await page.click(`[...document.querySelectorAll('button')].find(b => /create api key/i.test((b.innerText || '').trim()))`);
+  console.log(`create-dialog click: ${opened}`);
+  await sleep(1800);
+  const nameInput = await page.waitFor(
+    `(() => { const d = document.querySelector('[role=dialog]'); if (!d) return null; const el = d.querySelector('input'); return el ? (el.id || el.name || 'dialog-input') : null; })()`,
+    { timeoutMs: 15000, pollMs: 700 }
+  );
+  if (nameInput) {
+    await page.eval(
+      `(() => { const d = document.querySelector('[role=dialog]'); const el = d.querySelector('input'); const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set; el.focus(); setter.call(el, 'river-rescue'); el.dispatchEvent(new Event('input',{bubbles:true})); el.dispatchEvent(new Event('change',{bubbles:true})); return true; })()`
+    );
+    await sleep(600);
+  }
+  const submitted = await page.click(
+    `(() => { const d = document.querySelector('[role=dialog]'); if (!d) return null; return [...d.querySelectorAll('button')].find(b => /create key/i.test((b.innerText||'').trim()) && !b.disabled) || null; })()`
+  );
+  console.log(`create-key submitted=${submitted} nameInput=${nameInput}`);
+  let key = null;
+  const deadline = Date.now() + 45000;
+  while (Date.now() < deadline) {
+    const found = await page
+      .eval(`(() => { const cands = []; const d = document.querySelector('[role=dialog]'); if (d) { d.querySelectorAll('input,code,pre,span,div').forEach(e => { const v = e.value || e.innerText || ''; if (v && v.length > 20) cands.push(v.trim()); }); } return cands.join('\\n'); })()`)
+      .catch(() => '');
+    const m = /([A-Za-z0-9_\-]{24,})/.exec(String(found || ''));
+    if (m && !/^river-/.test(m[1]) && m[1].length >= 24) {
+      key = m[1];
+      break;
+    }
+    await sleep(1500);
+  }
+  console.log(`KEY=${key || '(none)'}`);
+  await page.screenshot(path.join(OUT, 'rescue-key.png'));
+  if (key) fs.writeFileSync(path.join(OUT, 'rescue-key.txt'), key + '\n');
+  process.exit(key ? 0 : 2);
+})().catch((e) => {
+  console.error('FATAL', (e && e.stack) || e);
+  process.exit(1);
+});

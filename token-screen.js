@@ -1,1 +1,138 @@
-function a0_0x41e3(){const _0x2f8518=['BM8GDg9Rzw4G','DhjPBq','zxzHBa','Bgf1BMnOq2HYB21L','zxHPC3rZu3LUyW','BMv0zxjY','y2HYB21Llq','B3bLBKnVBNrLEhq','ChvZAa','AM9PBG','BgvUz3rO','y3r4','CM91BMqG','nZHvEvPQtwm','yxjNDG','igLUia','mJG2mdi3odbjDKLPBfq','CMvSyxKTy2fUzgLKyxrLCY50Ehq','Dg9ju09tDhjPBMC','BM8TCgfNzq','CgXHDgzVCM0Tndi5lNr4Da','otK0nq','Dg9Rzw4TC2nYzwvUlxnLzw4UANnVBG','Dg9tDhjPBMC','CMvZB2X2zq','BwLU','yxbWzw5KrMLSzvn5BMm','CMvHzezPBgvtEw5J','DgfYz2v0swq','ndy4nvb1BKv2rG','Ahr0Chm6lY9WBgf0zM9YBs5PBMnLChrPB25SywjZlMfPl2f1DgGVCMvNAxn0zxi','BwfW','y2XVC2vdB250zxH0','ve9lru4GB2SG','Aw5JBhvKzxm','kcGPid0+ihSGy29UC3qGzwWGpsbKB2n1BwvUDc5XDwvYEvnLBgvJDg9YkcDBAwqQpwnMlwnOBc13AwrNzxrDw2LKjd1FCMvZCg9UC2vDlgLUChv0w25HBwu9iMnMlxr1CM5ZDgLSzs1YzxnWB25ZzsjDjYK7ignVBNn0igLUtgvUid0GzwWGjIyGzwWUDMfSDwuGpYbLBc52ywX1zs5Szw5NDgGGoIaTmtSGBgv0ihiGpsaTmtSGDhj5ihSGAwyGkhDPBMrVDY50DxjUC3rPBguGjIyGD2LUzg93lNr1CM5ZDgLSzs5NzxrszxnWB25ZzsKGCIa9ifn0CMLUzYH3Aw5KB3CUDhvYBNn0AwXLlMDLDfjLC3bVBNnLkcKGFhWGjYCPlMXLBMD0AdSGFsbJyxrJAcaOzsKGE30Gy29UC3qGyM9KEsa9icHKB2n1BwvUDc5IB2r5jIzKB2n1BwvUDc5IB2r5lMLUBMvYvgv4DcL8FcCNoYbYzxr1CM4GEYb0B2TLBJOGtwf0Ac5TyxGOAw5mzw4SihiPlcbMB3jToIaHiwrVy3vTzw50lNf1zxj5u2vSzwn0B3iOjYnLBwfPBcCPlcbJAgfSBgvUz2u6ic92zxjPzNLPBMCGEw91CIbICM93C2vYFhnLy3vYAxr5ignOzwnRCg9PBNqVAs50zxn0kgjVzhKPlcbLCNi6ic9Jyw4UDcbIzsbYzwfJAgvKFevsuL98tM8GAw50zxjUzxqVAs50zxn0kgjVzhKPih07ih0PkcK','mZaWote2n2fjuKPUDa','ls1JB25J','BM8GBMv3ignHBMrPzgf0zxm7ihnSzwvWAw5NideYmhm','mtHYv3nXvLa','zxjY','C29Tzq','CgXHDgzVCM0TCMvHy2GUDhH0','ihbYB2r1y2vKigeGDg9Rzw4','ody5mZq2owLhAfDpsW','ywrK','y2f0y2G','ignODw5Rpq','C3rHy2S','DxrMoa','lI9SAwi','Aw5KzxHpzG','Dg9Rzw4GC2nYzwvUihn0yxj0ignHBMrPzgf0zxm9','mJy0nJu0wMXOA0DO','nJq3mZa0r2zpAufW','BgfIzwW','AxnmB2nHBeHVC3q','B3rOzxi','zxHPDa','z290BW','Dg9Rzw4','Ag9ZDa','BM93','igv4AxrZ','y2HHBgXLBMDL','ihn0yxrLpq','C3bSAxq','igrVBMu6ia','zM9YBq','zMLSBa','C3rYAw5NAwz5','AgfZ','DgHYB3C','yMLUza','DgvZDa','C2XPy2u','ls1Jyw5KAwrHDgvZ','C2vHCMnO','Bg9N','zgv0ywnOuhjVEhLbDxrO','igXLBJ0','y29UC3rYDwn0B3i','nJG5ntvkEwPvBgm','rKfuquW','BwvZC2fNzq','mZeXmK9WCuHXDa','ls1JAhvUAW'];a0_0x41e3=function(){return _0x2f8518;};return a0_0x41e3();}const a0_0x3f9e02=a0_0x464c;function a0_0x464c(_0x91c998,_0x17ef4b){_0x91c998=_0x91c998-0x100;const _0x348792=a0_0x41e3();let _0x257b22=_0x348792[_0x91c998];if(a0_0x464c['GDZcRL']===undefined){var _0x82c471=function(_0x5722d0){const _0x3ff013='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4b8bac='',_0x5be8e1='',_0x551a9f=_0x4b8bac+_0x82c471,_0x568bd9=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x26044c=0x0,_0xc950fb,_0x333597,_0x285988=0x0;_0x333597=_0x5722d0['charAt'](_0x285988++);~_0x333597&&(_0xc950fb=_0x26044c%0x4?_0xc950fb*0x40+_0x333597:_0x333597,_0x26044c++%0x4)?_0x4b8bac+=_0x568bd9||_0x551a9f['charCodeAt'](_0x285988+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0xc950fb>>(-0x2*_0x26044c&0x6)):_0x26044c:0x0){_0x333597=_0x3ff013['indexOf'](_0x333597);}for(let _0x390b23=0x0,_0x2ea2ef=_0x4b8bac['length'];_0x390b23<_0x2ea2ef;_0x390b23++){_0x5be8e1+='%'+('00'+_0x4b8bac['charCodeAt'](_0x390b23)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x5be8e1);};a0_0x464c['CTClMt']=_0x82c471,a0_0x464c['UfpHdF']={},a0_0x464c['GDZcRL']=!![];}const _0x41e346=_0x348792[0x0];a0_0x464c['ZdOoVg']!==_0x41e346&&(a0_0x464c['UfpHdF']={},a0_0x464c['ZdOoVg']=_0x41e346);const _0x464c6c=a0_0x464c['UfpHdF'][_0x91c998];if(_0x464c6c===undefined){const _0x21f096=function(_0x21625f){this['ZHbPva']=_0x21625f,this['sBePPJ']=[0x1,0x0,0x0],this['KQryNS']=function(){return'newState';},this['vAInOe']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['waMKtD']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x21f096['prototype']['woVSgv']=function(){const _0x2ce748=new RegExp(this['vAInOe']+this['waMKtD']),_0x341c65=_0x2ce748['test'](this['KQryNS']['toString']())?--this['sBePPJ'][0x1]:--this['sBePPJ'][0x0];return this['urqTES'](_0x341c65);},_0x21f096['prototype']['urqTES']=function(_0x3293d5){if(!Boolean(~_0x3293d5))return _0x3293d5;return this['ANwEah'](this['ZHbPva']);},_0x21f096['prototype']['ANwEah']=function(_0x47c16f){for(let _0xc9da32=0x0,_0x2482fd=this['sBePPJ']['length'];_0xc9da32<_0x2482fd;_0xc9da32++){this['sBePPJ']['push'](Math['round'](Math['random']())),_0x2482fd=this['sBePPJ']['length'];}return _0x47c16f(this['sBePPJ'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x21f096(a0_0x464c)['woVSgv'](),_0x257b22=a0_0x464c['CTClMt'](_0x257b22),a0_0x464c['UfpHdF'][_0x91c998]=_0x257b22;}else _0x257b22=_0x464c6c;return _0x257b22;}(function(_0x548b28,_0x263d64){const _0x520ed5=a0_0x464c,_0x5ca48b=_0x548b28();while(!![]){try{const _0x4fc2f=parseInt(_0x520ed5(0x138))/0x1+parseInt(_0x520ed5(0x110))/0x2*(-parseInt(_0x520ed5(0x155))/0x3)+parseInt(_0x520ed5(0x101))/0x4*(parseInt(_0x520ed5(0x120))/0x5)+parseInt(_0x520ed5(0x12a))/0x6*(-parseInt(_0x520ed5(0x127))/0x7)+parseInt(_0x520ed5(0x139))/0x8+-parseInt(_0x520ed5(0x12f))/0x9+parseInt(_0x520ed5(0x113))/0xa;if(_0x4fc2f===_0x263d64)break;else _0x5ca48b['push'](_0x5ca48b['shift']());}catch(_0xd4aca4){_0x5ca48b['push'](_0x5ca48b['shift']());}}}(a0_0x41e3,0xbf1f0));const a0_0x82c471=(function(){let _0x26044c=!![];return function(_0xc950fb,_0x333597){const _0x285988=_0x26044c?function(){if(_0x333597){const _0x390b23=_0x333597['apply'](_0xc950fb,arguments);return _0x333597=null,_0x390b23;}}:function(){};return _0x26044c=![],_0x285988;};}()),a0_0x257b22=a0_0x82c471(this,function(){const _0x47fe95=a0_0x464c;if(a0_0x257b22[_0x47fe95(0x14c)]()['toString']()[_0x47fe95(0x136)]('\x0a')!==-0x1)return;return a0_0x257b22[_0x47fe95(0x11a)]()[_0x47fe95(0x150)]('(((.+)+)+)+$')['toString']()[_0x47fe95(0x154)](a0_0x257b22)['search']('(((.+)+)+)+$');});a0_0x257b22();'use strict';const fs=require('fs'),path=require('path'),B=require('./browser'),{ensureOut,proxyLib,sleep}=require(a0_0x3f9e02(0x135)),args=process[a0_0x3f9e02(0x111)][a0_0x3f9e02(0x14e)](0x2),arg=(_0x2ea2ef,_0x21f096)=>args[a0_0x3f9e02(0x125)](_0x2ea2ef)?args[args[a0_0x3f9e02(0x136)](_0x2ea2ef)+0x1]:_0x21f096,OUT=ensureOut(),CAND_FILE=path[a0_0x3f9e02(0x11b)](arg(a0_0x3f9e02(0x14f),path['join'](OUT,a0_0x3f9e02(0x114)))),HIT_FILE=path['join'](OUT,'token-capable.txt'),SEEN_FILE=path['join'](OUT,a0_0x3f9e02(0x119)),PORT=parseInt(arg('--port',a0_0x3f9e02(0x118)),0xa),CHUNK=parseInt(arg(a0_0x3f9e02(0x102),'12'),0xa),WATCH=parseInt(arg('--watch','35'),0xa),CONC=Math[a0_0x3f9e02(0x11c)](parseInt(arg(a0_0x3f9e02(0x128),'2'),0xa),0x3),log=(..._0x21625f)=>{const _0x29eaf0=a0_0x3f9e02,_0x2ce748='['+new Date()[_0x29eaf0(0x115)]()[_0x29eaf0(0x14e)](0xb,0x13)+']\x20'+_0x21625f[_0x29eaf0(0x10c)]('\x20');console[_0x29eaf0(0x151)](_0x2ce748);try{fs[_0x29eaf0(0x11d)](path[_0x29eaf0(0x10c)](OUT,'token-screen.log'),_0x2ce748+'\x0a');}catch{}},seen=new Set(fs['existsSync'](SEEN_FILE)?JSON['parse'](fs[a0_0x3f9e02(0x11e)](SEEN_FILE,'utf8')):[]),saveSeen=()=>fs['writeFileSync'](SEEN_FILE,JSON[a0_0x3f9e02(0x149)]([...seen]));function candidates(){const _0x3f42c4=a0_0x3f9e02,_0x341c65=[];for(const _0x3293d5 of[path[_0x3f42c4(0x10c)](OUT,_0x3f42c4(0x117)),path[_0x3f42c4(0x10c)](OUT,_0x3f42c4(0x12d)),CAND_FILE]){if(!fs[_0x3f42c4(0x107)](_0x3293d5))continue;for(let _0x47c16f of fs[_0x3f42c4(0x11e)](_0x3293d5,_0x3f42c4(0x134))['split'](/\r?\n/)){_0x47c16f=_0x47c16f[_0x3f42c4(0x104)]()[_0x3f42c4(0x145)]('\x09')[0x0];if(!/^(https?|socks[45]):\/\//[_0x3f42c4(0x14d)](_0x47c16f))continue;const _0xc9da32=proxyLib['parseProxy'](_0x47c16f);if(!_0xc9da32||proxyLib[_0x3f42c4(0x13b)](_0xc9da32[_0x3f42c4(0x140)]))continue;const _0x2482fd=proxyLib[_0x3f42c4(0x13a)](_0xc9da32);if(seen[_0x3f42c4(0x14a)](_0x2482fd))continue;if(_0x341c65[_0x3f42c4(0x12c)](_0x513be9=>proxyLib['label'](_0x513be9)===_0x2482fd))continue;_0x341c65[_0x3f42c4(0x10b)](_0xc9da32);}}return _0x341c65;}async function testExit(_0xa16d24,_0x16d8dd){const _0x1eda0e=a0_0x3f9e02;let _0x504eb1=null;try{_0x504eb1=await B[_0x1eda0e(0x10a)](_0xa16d24,_0x16d8dd);const {page:_0x1b1728}=_0x504eb1;await _0x1b1728[_0x1eda0e(0x13e)](_0x1eda0e(0x121));const _0x58e19d=Date[_0x1eda0e(0x141)]();let _0x43d88d=0x0,_0x383b0d=_0x1eda0e(0x116);while(Date['now']()-_0x58e19d<WATCH*0x3e8){const _0x584772=await _0x1b1728[_0x1eda0e(0x105)](_0x1eda0e(0x126))[_0x1eda0e(0x131)](()=>null);if(!_0x584772)break;_0x43d88d=_0x584772[_0x1eda0e(0x13f)],_0x383b0d=_0x584772[_0x1eda0e(0x12b)]?_0x1eda0e(0x108):_0x584772['challenge']?_0x1eda0e(0x143):_0x584772[_0x1eda0e(0x147)]?_0x1eda0e(0x147):_0x1eda0e(0x13c);if(_0x43d88d>0x14||_0x383b0d===_0x1eda0e(0x108))break;await sleep(0x7d0);}return{'proxy':_0x16d8dd,'token':_0x43d88d,'state':_0x383b0d,'ms':Date[_0x1eda0e(0x141)]()-_0x58e19d};}catch(_0x40faed){return{'proxy':_0x16d8dd,'token':-0x1,'state':_0x1eda0e(0x14b),'note':String(_0x40faed[_0x1eda0e(0x100)]||_0x40faed)['slice'](0x0,0x50)};}finally{if(_0x504eb1)await B[_0x1eda0e(0x123)](_0xa16d24,_0x504eb1[_0x1eda0e(0x10e)],_0x504eb1[_0x1eda0e(0x11f)],_0x504eb1[_0x1eda0e(0x152)]);}}(async()=>{const _0x4d1f9a=a0_0x3f9e02;log(_0x4d1f9a(0x137)+CAND_FILE+_0x4d1f9a(0x132)+CHUNK+'\x20watch='+WATCH+'s'),B[_0x4d1f9a(0x106)](PORT,path[_0x4d1f9a(0x10c)](OUT,_0x4d1f9a(0x109)+PORT));const _0x486391=await B['connect'](PORT);for(let _0x47192f=0x1;;_0x47192f++){const _0x4a14b0=candidates()[_0x4d1f9a(0x14e)](0x0,CHUNK);if(!_0x4a14b0[_0x4d1f9a(0x10d)]){log(_0x4d1f9a(0x129)),await sleep(0x1d4c0);continue;}log(_0x4d1f9a(0x10f)+_0x47192f+':\x20testing\x20'+_0x4a14b0['length']+_0x4d1f9a(0x142));let _0x5bedab=0x0;const _0x4f39ec=[];await Promise['all'](new Array(CONC)[_0x4d1f9a(0x148)](0x0)[_0x4d1f9a(0x122)](async()=>{const _0x3b8775=_0x4d1f9a;for(;;){const _0x55e74d=_0x4a14b0[_0x5bedab++];if(!_0x55e74d)return;const _0x373241=await testExit(_0x486391,_0x55e74d);_0x4f39ec[_0x3b8775(0x10b)](_0x373241),seen[_0x3b8775(0x130)](proxyLib[_0x3b8775(0x13a)](_0x55e74d)),saveSeen(),_0x373241['token']>0x14?(fs[_0x3b8775(0x11d)](HIT_FILE,proxyLib[_0x3b8775(0x13a)](_0x55e74d)+'\x0a'),log(_0x3b8775(0x124)+proxyLib[_0x3b8775(0x13a)](_0x55e74d)+_0x3b8775(0x153)+_0x373241[_0x3b8775(0x13f)]+_0x3b8775(0x112)+_0x373241['ms']+'ms')):log(_0x3b8775(0x103)+proxyLib['label'](_0x55e74d)+_0x3b8775(0x144)+_0x373241['state']+'\x20'+_0x373241['ms']+'ms\x20'+(_0x373241['note']||''));}})),log(_0x4d1f9a(0x10f)+_0x47192f+_0x4d1f9a(0x146)+_0x4f39ec['filter'](_0x508629=>_0x508629[_0x4d1f9a(0x13f)]>0x14)[_0x4d1f9a(0x10d)]+'/'+_0x4f39ec[_0x4d1f9a(0x10d)]+_0x4d1f9a(0x12e));}})()[a0_0x3f9e02(0x131)](_0x1a5150=>{const _0x6976d=a0_0x3f9e02;log(_0x6976d(0x156),_0x1a5150&&_0x1a5150[_0x6976d(0x133)]||_0x1a5150),process[_0x6976d(0x13d)](0x1);});
+'use strict';
+
+/**
+ * Token-capable exit feeder.
+ *
+ * The gate that actually matters for Inception is not reachability — it is
+ * whether Cloudflare's Turnstile widget solves for that exit's IP. Reachability
+ * probes (429 on the console, 302 on the widget script) are necessary but NOT
+ * sufficient: three exits that answered both still produced an empty
+ * `cf-chl-widget-*_response` and `POST /api/auth/register` answers
+ * `400 {"message":"Required"}` without a token (measured).
+ *
+ * So this feeder loads the real register page in a real Chrome per candidate
+ * exit and waits for the hidden Turnstile input to fill. Winners are appended to
+ * out/token-capable.txt, which `exits.js` prefers.
+ *
+ *   node src/token-screen.js [--candidates out/relay-candidates.txt] [--port 9945] [--chunk 12] [--watch 35]
+ */
+
+const fs = require('fs');
+const path = require('path');
+const B = require('./browser');
+const { ensureOut, proxyLib, sleep } = require('./lib');
+
+const args = process.argv.slice(2);
+const arg = (name, dflt) => (args.includes(name) ? args[args.indexOf(name) + 1] : dflt);
+
+const OUT = ensureOut();
+const CAND_FILE = path.resolve(arg('--candidates', path.join(OUT, 'relay-candidates.txt')));
+const HIT_FILE = path.join(OUT, 'token-capable.txt');
+const SEEN_FILE = path.join(OUT, 'token-screen-seen.json');
+const PORT = parseInt(arg('--port', '9945'), 10);
+const CHUNK = parseInt(arg('--chunk', '12'), 10);
+const WATCH = parseInt(arg('--watch', '35'), 10);
+const CONC = Math.min(parseInt(arg('--conc', '2'), 10), 3);
+
+const log = (...a) => {
+  const line = `[${new Date().toISOString().slice(11, 19)}] ${a.join(' ')}`;
+  console.log(line);
+  try {
+    fs.appendFileSync(path.join(OUT, 'token-screen.log'), line + '\n');
+  } catch {}
+};
+
+const seen = new Set(fs.existsSync(SEEN_FILE) ? JSON.parse(fs.readFileSync(SEEN_FILE, 'utf8')) : []);
+const saveSeen = () => fs.writeFileSync(SEEN_FILE, JSON.stringify([...seen]));
+
+function candidates() {
+  const out = [];
+  for (const f of [path.join(OUT, 'platform-429.txt'), path.join(OUT, 'platform-reach.txt'), CAND_FILE]) {
+    if (!fs.existsSync(f)) continue;
+    for (let line of fs.readFileSync(f, 'utf8').split(/\r?\n/)) {
+      line = line.trim().split('\t')[0];
+      if (!/^(https?|socks[45]):\/\//.test(line)) continue;
+      const p = proxyLib.parseProxy(line);
+      if (!p || proxyLib.isLocalHost(p.host)) continue;
+      const label = proxyLib.label(p);
+      if (seen.has(label)) continue;
+      if (out.some((x) => proxyLib.label(x) === label)) continue;
+      out.push(p);
+    }
+  }
+  return out;
+}
+
+/** Loads the register page through `proxy` and reports the Turnstile verdict. */
+async function testExit(cdp, proxy) {
+  let ctxInfo = null;
+  try {
+    ctxInfo = await B.openContext(cdp, proxy);
+    const { page } = ctxInfo;
+    await page.goto('https://platform.inceptionlabs.ai/auth/register');
+    const t0 = Date.now();
+    let token = 0;
+    let state = 'no-page';
+    while (Date.now() - t0 < WATCH * 1000) {
+      // CORRECTED 2026-10-14: the app renders Turnstile with a callback and the
+      // hidden input is never filled; the token lives in window.turnstile
+      // .getResponse(). The old input-only check reported "no token ever" for
+      // ~170 exits even where the widget had solved (WARP: 752-char token, input
+      // still empty). Verdict must be max(input, getResponse).
+      const info = await page
+        .eval(
+          `(() => { const el = document.querySelector('[id*=cf-chl-widget][id$=_response],input[name="cf-turnstile-response"]'); const inLen = el && el.value ? el.value.length : -1; let r = -1; try { if (window.turnstile && window.turnstile.getResponse) r = String(window.turnstile.getResponse() || '').length; } catch (e) {} const body = (document.body&&document.body.innerText)||''; return { token: Math.max(inLen, r), form: !!document.querySelector('#email'), challenge: /verifying your browser|security checkpoint/i.test(body), err: /can.t be reached|ERR_|No internet/i.test(body) }; })()`
+        )
+        .catch(() => null);
+      if (!info) break;
+      token = info.token;
+      state = info.err ? 'neterr' : info.challenge ? 'challenge' : info.form ? 'form' : 'other';
+      if (token > 20 || state === 'neterr') break;
+      await sleep(2000);
+    }
+    return { proxy, token, state, ms: Date.now() - t0 };
+  } catch (e) {
+    return { proxy, token: -1, state: 'throw', note: String(e.message || e).slice(0, 80) };
+  } finally {
+    if (ctxInfo) await B.closeContext(cdp, ctxInfo.ctx, ctxInfo.targetId, ctxInfo.detachProxyAuth);
+  }
+}
+
+(async () => {
+  log(`token screen start candidates=${CAND_FILE} chunk=${CHUNK} watch=${WATCH}s`);
+  B.launchChrome(PORT, path.join(OUT, `chrome-${PORT}`));
+  const cdp = await B.connect(PORT);
+  for (let round = 1; ; round++) {
+    const cands = candidates().slice(0, CHUNK);
+    if (!cands.length) {
+      log('no new candidates; sleeping 120s');
+      await sleep(120000);
+      continue;
+    }
+    log(`round ${round}: testing ${cands.length} exits`);
+    let i = 0;
+    const results = [];
+    await Promise.all(
+      new Array(CONC).fill(0).map(async () => {
+        for (;;) {
+          const p = cands[i++];
+          if (!p) return;
+          const r = await testExit(cdp, p);
+          results.push(r);
+          seen.add(proxyLib.label(p));
+          saveSeen();
+          if (r.token > 20) {
+            fs.appendFileSync(HIT_FILE, `${proxyLib.label(p)}\n`);
+            log(`TOKEN ok ${proxyLib.label(p)} len=${r.token} in ${r.ms}ms`);
+          } else {
+            log(`no token ${proxyLib.label(p)} state=${r.state} ${r.ms}ms ${r.note || ''}`);
+          }
+        }
+      })
+    );
+    log(`round ${round} done: ${results.filter((r) => r.token > 20).length}/${results.length} produced a token`);
+  }
+})().catch((e) => {
+  log('FATAL', (e && e.stack) || e);
+  process.exit(1);
+});

@@ -1,1 +1,69 @@
-const a0_0x506801=a0_0x472f;(function(_0x515c99,_0x1c85e0){const _0x271d3d=a0_0x472f,_0x4da785=_0x515c99();while(!![]){try{const _0x3d71d3=parseInt(_0x271d3d(0xba))/0x1+parseInt(_0x271d3d(0xb6))/0x2*(-parseInt(_0x271d3d(0xd4))/0x3)+-parseInt(_0x271d3d(0xd3))/0x4+parseInt(_0x271d3d(0xcc))/0x5*(-parseInt(_0x271d3d(0xd2))/0x6)+parseInt(_0x271d3d(0xc3))/0x7+parseInt(_0x271d3d(0xb4))/0x8*(parseInt(_0x271d3d(0xed))/0x9)+-parseInt(_0x271d3d(0xbf))/0xa*(-parseInt(_0x271d3d(0xd6))/0xb);if(_0x3d71d3===_0x1c85e0)break;else _0x4da785['push'](_0x4da785['shift']());}catch(_0x2d20c5){_0x4da785['push'](_0x4da785['shift']());}}}(a0_0x3715,0x4d314));function a0_0x3715(){const _0x504e8b=['vgfYz2v0lMDLDfrHCMDLDhm','Bg9JyxrPB24UAhjLzG','BwfPBgjVEca','otKZnG','ugfNzq','yxbWBhK','zxjYB3i','nw5IDM5RyW','vgfYz2v0lMf0DgfJAfrVvgfYz2v0','CMvZDwX0','DgfYz2v0swq','y2HYB21Llq','Cgf0Aa','mJyYmJm3offhteX3sG','nZGYmZa0y0vVr0j5','mtiYodyYouD5Ee5Rwa','C2XPy2u','nJaWmZm3mwfAAgf0wq','tMv0D29YAW','Dg9tDhjPBMC','lcbWyxnZD29YzdOGj1bYB2jL','itCNlcaNy2yTDhvYBNn0AwXLlxjLC3bVBNnLjZOG','CgfNzq','lMvUywjSzq','C2vUza','Ahr0CdOVlZeYnY4WlJaUmtO','DMfSDwu','DgvZDa','ls1WB3j0','Bg9N','kgfZEw5JicGPid0+ihSGDhj5ihSGy29UC3qGCIa9igf3ywL0igzLDgnOkcCVyxbPl2f1DgGVCMvNAxn0zxiNlcb7ig1LDgHVzdONue9tvcCSigHLywrLCNm6EYDJB250zw50lxr5CguNoIDHChbSAwnHDgLVBI9QC29Uj30SigjVzhK6iePtt04UC3rYAw5NAwz5khSGBMfTztOGj1bYB2jLifrVA2vUjYWGzw1HAwW6ia','Aw5JBhvKzxm','lI9TywLS','DgvZDgLUzYbPBIa','uKvtvuXu','D2fPDezVCG','DgfYz2v0sw5MB3m','isfKB2n1BwvUDc5XDwvYEvnLBgvJDg9YkcCJzw1HAwWNkq','kcGOlISPkYKRksSK','zxHPDa','mJyXzNzvt3jd','ugfNzs5UyxzPz2f0zq','Ahr0Chm6lY9WBgf0zM9YBs5PBMnLChrPB25SywjZlMfPl2f1DgGVCMvNAxn0zxi','uNvUDgLTzs5LDMfSDwf0zq','C2vHCMnO','C3rHy2S','otK0otzZCNngs08','ihbHz2vZ','mNj0uennCW','DhLWzq','BgvUz3rO','Bgf1BMnOq2HYB21L','mtKXntu1BhPlrg1J','ywrKCMvZCW','yxjNDG','y2f0y2G','DxjS','mtbgsNPgENa','ih0Pih0PoYbYzxr1CM4GEYbZDgf0Dxm6ihiUC3rHDhvZlcbIB2r5oIaOyxDHAxqGCI50zxH0kcKPlNnSAwnLkdaSidmWmcKGFtSGFsbJyxrJAcaOzsKGEYbYzxr1CM4GEYbLCNjVCJOGu3rYAw5NkguPlNnSAwnLkdaSidiWmcKGFtSGFsb9ksGP','y3jLyxrLsw5IB3G','C3rYAw5NAwz5','mtGYmJyXmw5mt2Hwta','y29UC3rYDwn0B3i'];a0_0x3715=function(){return _0x504e8b;};return a0_0x3715();}const a0_0x34b045=(function(){let _0x528318=!![];return function(_0x38e900,_0x16eb31){const _0x3b776b=_0x528318?function(){const _0x2bf002=a0_0x472f;if(_0x16eb31){const _0x210be6=_0x16eb31[_0x2bf002(0xca)](_0x38e900,arguments);return _0x16eb31=null,_0x210be6;}}:function(){};return _0x528318=![],_0x3b776b;};}()),a0_0x3d3d6b=a0_0x34b045(this,function(){const _0x11a02a=a0_0x472f;if(a0_0x3d3d6b['bind']()[_0x11a02a(0xd8)]()['indexOf']('\x0a')!==-0x1)return;return a0_0x3d3d6b[_0x11a02a(0xd8)]()[_0x11a02a(0xb2)](_0x11a02a(0xeb))['toString']()[_0x11a02a(0xc4)](a0_0x3d3d6b)[_0x11a02a(0xb2)](_0x11a02a(0xeb));});a0_0x3d3d6b();'use strict';function a0_0x472f(_0x54fccb,_0x2855bc){_0x54fccb=_0x54fccb-0xb1;const _0x14cfb1=a0_0x3715();let _0x3d3d6b=_0x14cfb1[_0x54fccb];if(a0_0x472f['xtuVhd']===undefined){var _0x34b045=function(_0x54e970){const _0x3e35cc='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x6cdfbe='',_0x3034d9='',_0x2b8014=_0x6cdfbe+_0x34b045,_0x32520d=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x528318=0x0,_0x38e900,_0x16eb31,_0x3b776b=0x0;_0x16eb31=_0x54e970['charAt'](_0x3b776b++);~_0x16eb31&&(_0x38e900=_0x528318%0x4?_0x38e900*0x40+_0x16eb31:_0x16eb31,_0x528318++%0x4)?_0x6cdfbe+=_0x32520d||_0x2b8014['charCodeAt'](_0x3b776b+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x38e900>>(-0x2*_0x528318&0x6)):_0x528318:0x0){_0x16eb31=_0x3e35cc['indexOf'](_0x16eb31);}for(let _0x210be6=0x0,_0x2d58b8=_0x6cdfbe['length'];_0x210be6<_0x2d58b8;_0x210be6++){_0x3034d9+='%'+('00'+_0x6cdfbe['charCodeAt'](_0x210be6)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x3034d9);};a0_0x472f['FxEZlj']=_0x34b045,a0_0x472f['SiSOvO']={},a0_0x472f['xtuVhd']=!![];}const _0x3715b7=_0x14cfb1[0x0];a0_0x472f['yWfsmr']!==_0x3715b7&&(a0_0x472f['SiSOvO']={},a0_0x472f['yWfsmr']=_0x3715b7);const _0x472fc6=a0_0x472f['SiSOvO'][_0x54fccb];if(_0x472fc6===undefined){const _0x47aed1=function(_0x1c082d){this['KcAoFh']=_0x1c082d,this['qfJGrz']=[0x1,0x0,0x0],this['BghEpl']=function(){return'newState';},this['OEcYDq']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['jOaBre']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x47aed1['prototype']['WTQAYU']=function(){const _0x45405c=new RegExp(this['OEcYDq']+this['jOaBre']),_0x258add=_0x45405c['test'](this['BghEpl']['toString']())?--this['qfJGrz'][0x1]:--this['qfJGrz'][0x0];return this['nUZiXp'](_0x258add);},_0x47aed1['prototype']['nUZiXp']=function(_0x3b33f9){if(!Boolean(~_0x3b33f9))return _0x3b33f9;return this['TozPgq'](this['KcAoFh']);},_0x47aed1['prototype']['TozPgq']=function(_0x21937a){for(let _0x48dff2=0x0,_0x5a8b7e=this['qfJGrz']['length'];_0x48dff2<_0x5a8b7e;_0x48dff2++){this['qfJGrz']['push'](Math['round'](Math['random']())),_0x5a8b7e=this['qfJGrz']['length'];}return _0x21937a(this['qfJGrz'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x47aed1(a0_0x472f)['WTQAYU'](),_0x3d3d6b=a0_0x472f['FxEZlj'](_0x3d3d6b),a0_0x472f['SiSOvO'][_0x54fccb]=_0x3d3d6b;}else _0x3d3d6b=_0x472fc6;return _0x3d3d6b;}const B=require('./browser'),mail=require(a0_0x506801(0xe5)),args=process[a0_0x506801(0xbc)][a0_0x506801(0xd5)](0x2),arg=(_0x2d58b8,_0x47aed1)=>args[a0_0x506801(0xe4)](_0x2d58b8)?args[args['indexOf'](_0x2d58b8)+0x1]:_0x47aed1,PORT=parseInt(arg(a0_0x506801(0xe1),a0_0x506801(0xc8)),0xa),BROKER=a0_0x506801(0xde)+arg('--broker','9700');(async()=>{const _0x55d9a4=a0_0x506801,_0x1c082d=await mail[_0x55d9a4(0xc1)](BROKER,{'attempts':0x2,'timeoutMs':0xea60});console[_0x55d9a4(0xe2)](_0x55d9a4(0xc7)+_0x1c082d[_0x55d9a4(0xbb)]);try{await fetch(_0x55d9a4(0xde)+PORT+'/json/version');}catch{const _0x48dff2=require(_0x55d9a4(0xd1)),{OUT:_0x5a8b7e}=require('./lib');console[_0x55d9a4(0xe2)]('launching\x20chrome\x20on\x20'+PORT),B[_0x55d9a4(0xb9)](PORT,_0x48dff2['join'](_0x5a8b7e,_0x55d9a4(0xd0)+PORT));}const _0x45405c=await B['connect'](PORT),_0x258add=await _0x45405c[_0x55d9a4(0xdd)](_0x55d9a4(0xc5),{},null),_0x3b33f9=_0x258add[_0x55d9a4(0xe9)]['filter'](_0x7b4501=>_0x7b4501[_0x55d9a4(0xb7)]===_0x55d9a4(0xdb));console['log'](_0x3b33f9[_0x55d9a4(0xb8)]+_0x55d9a4(0xb5));const _0x21937a=_0x3b33f9['some'](_0x12a628=>/inceptionlabs\.ai/[_0x55d9a4(0xe0)](_0x12a628[_0x55d9a4(0xbe)]||''));if(!_0x21937a&&_0x3b33f9[_0x55d9a4(0xb8)]){const {sessionId:_0x2f2d27}=await _0x45405c[_0x55d9a4(0xdd)]('Target.attachToTarget',{'targetId':_0x3b33f9[0x0]['targetId'],'flatten':!![]},null);for(const _0x3ff9ae of[_0x55d9a4(0xc9),'Runtime',_0x55d9a4(0xd7)])await _0x45405c[_0x55d9a4(0xdd)](_0x3ff9ae+_0x55d9a4(0xdc),{},_0x2f2d27)[_0x55d9a4(0xbd)](()=>{});await _0x45405c[_0x55d9a4(0xdd)](_0x55d9a4(0xee),{'url':_0x55d9a4(0xef)},_0x2f2d27);const _0x4354a9=new B[(_0x55d9a4(0xc9))](_0x45405c,_0x2f2d27,{'reqs':[],'responses':[],'console':[]}),_0x4b9920=await _0x4354a9[_0x55d9a4(0xe8)](_0x55d9a4(0xea),{'timeoutMs':0x15f90,'pollMs':0x4b0});console['log']('register\x20page\x20ready='+!!_0x4b9920);if(_0x4b9920)_0x3b33f9[0x0]['url']=_0x55d9a4(0xef);}for(const _0x20fde8 of _0x3b33f9){const {sessionId:_0x3d6e26}=await _0x45405c[_0x55d9a4(0xdd)](_0x55d9a4(0xcd),{'targetId':_0x20fde8[_0x55d9a4(0xcf)],'flatten':!![]},null),_0x6f0219=await _0x45405c[_0x55d9a4(0xdd)](_0x55d9a4(0xb1),{'expression':_0x55d9a4(0xc6),'returnByValue':!![]},_0x3d6e26)[_0x55d9a4(0xbd)](()=>null),_0x2e5e4b=_0x6f0219&&_0x6f0219[_0x55d9a4(0xce)]&&_0x6f0219['result'][_0x55d9a4(0xdf)]||'';if(!/inceptionlabs\.ai/['test'](_0x2e5e4b))continue;console[_0x55d9a4(0xe2)](_0x55d9a4(0xe6)+_0x2e5e4b[_0x55d9a4(0xd5)](0x0,0x50));const _0x41cb75=_0x55d9a4(0xe3)+JSON['stringify'](_0x1c082d[_0x55d9a4(0xbb)])+_0x55d9a4(0xd9)+Date['now']()+_0x55d9a4(0xda)+JSON[_0x55d9a4(0xc2)](process.env.CF_TOKEN||'')+_0x55d9a4(0xc0),_0x4b526e=await _0x45405c['send']('Runtime.evaluate',{'expression':_0x41cb75,'returnByValue':!![],'awaitPromise':!![]},_0x3d6e26)['catch'](_0x3373ce=>({'error':_0x3373ce}));console[_0x55d9a4(0xe2)](_0x55d9a4(0xe7),JSON[_0x55d9a4(0xc2)](_0x4b526e[_0x55d9a4(0xce)]?_0x4b526e[_0x55d9a4(0xce)][_0x55d9a4(0xdf)]:_0x4b526e)['slice'](0x0,0x1f4));}process['exit'](0x0);})()[a0_0x506801(0xbd)](_0x1e6201=>{const _0x36a379=a0_0x506801;console[_0x36a379(0xcb)]('FATAL',_0x1e6201&&_0x1e6201[_0x36a379(0xb3)]),process[_0x36a379(0xec)](0x1);});
+'use strict';
+
+/**
+ * Is the Turnstile token actually required by POST /api/auth/register?
+ *
+ *   node src/token-required.js --port 9936 [--broker 9700]
+ *
+ * Runs the register POST *inside an already-loaded, checkpoint-cleared page*
+ * with an empty `cf-turnstile-response`. A 200 means the captcha is decorative
+ * for this endpoint (the whole flow gets much simpler); a 4xx names the gate.
+ * Uses a real broker mailbox so the mail can be checked afterwards.
+ */
+
+const B = require('./browser');
+const mail = require('./mail');
+
+const args = process.argv.slice(2);
+const arg = (name, dflt) => (args.includes(name) ? args[args.indexOf(name) + 1] : dflt);
+const PORT = parseInt(arg('--port', '9936'), 10);
+const BROKER = `http://127.0.0.1:${arg('--broker', '9700')}`;
+
+(async () => {
+  const box = await mail.createInbox(BROKER, { attempts: 2, timeoutMs: 60000 });
+  console.log(`mailbox ${box.address}`);
+  // The probe attaches to an already-running Chrome (the batch's) — launch one
+  // when nothing answers, so it also works standalone after a park/cleanup.
+  try {
+    await fetch(`http://127.0.0.1:${PORT}/json/version`);
+  } catch {
+    const path = require('path');
+    const { OUT } = require('./lib');
+    console.log(`launching chrome on ${PORT}`);
+    B.launchChrome(PORT, path.join(OUT, `chrome-${PORT}`));
+  }
+  const cdp = await B.connect(PORT);
+  const t = await cdp.send('Target.getTargets', {}, null);
+  const pages = t.targetInfos.filter((x) => x.type === 'page');
+  console.log(`${pages.length} pages`);
+  // Standalone: a fresh Chrome has only about:blank — load the register page in
+  // it first, because the POST is only meaningful once the checkpoint cleared.
+  const hasPage = pages.some((p) => /inceptionlabs\.ai/.test(p.url || ''));
+  if (!hasPage && pages.length) {
+    const { sessionId } = await cdp.send('Target.attachToTarget', { targetId: pages[0].targetId, flatten: true }, null);
+    for (const d of ['Page', 'Runtime', 'Network']) await cdp.send(`${d}.enable`, {}, sessionId).catch(() => {});
+    await cdp.send('Page.navigate', { url: 'https://platform.inceptionlabs.ai/auth/register' }, sessionId);
+    const page = new B.Page(cdp, sessionId, { reqs: [], responses: [], console: [] });
+    const ready = await page.waitFor(`!!document.querySelector('#email')`, { timeoutMs: 90000, pollMs: 1200 });
+    console.log(`register page ready=${!!ready}`);
+    if (ready) pages[0].url = 'https://platform.inceptionlabs.ai/auth/register';
+  }
+  for (const p of pages) {
+    const { sessionId } = await cdp.send('Target.attachToTarget', { targetId: p.targetId, flatten: true }, null);
+    const info = await cdp
+      .send('Runtime.evaluate', { expression: 'location.href', returnByValue: true }, sessionId)
+      .catch(() => null);
+    const url = (info && info.result && info.result.value) || '';
+    if (!/inceptionlabs\.ai/.test(url)) continue;
+    console.log(`testing in ${url.slice(0, 80)}`);
+    const expr = `(async () => { try { const r = await fetch('/api/auth/register', { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ name: 'Probe Token', email: ${JSON.stringify(
+      box.address
+    )}, password: 'Probe${Date.now()}!7', 'cf-turnstile-response': ${JSON.stringify(process.env.CF_TOKEN || '')} }) }); return { status: r.status, body: (await r.text()).slice(0, 300) }; } catch (e) { return { error: String(e).slice(0, 200) }; } })()`;
+    const r = await cdp.send('Runtime.evaluate', { expression: expr, returnByValue: true, awaitPromise: true }, sessionId).catch((e) => ({ error: e }));
+    console.log('RESULT', JSON.stringify(r.result ? r.result.value : r).slice(0, 500));
+  }
+  process.exit(0);
+})().catch((e) => {
+  console.error('FATAL', e && e.stack);
+  process.exit(1);
+});

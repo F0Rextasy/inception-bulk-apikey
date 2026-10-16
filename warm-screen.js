@@ -1,1 +1,84 @@
-const a0_0x21c2a3=a0_0x4c11;(function(_0x16c376,_0x5ba688){const _0x4fbe3f=a0_0x4c11,_0x2998ea=_0x16c376();while(!![]){try{const _0x43a48f=parseInt(_0x4fbe3f(0x214))/0x1*(-parseInt(_0x4fbe3f(0x1f8))/0x2)+parseInt(_0x4fbe3f(0x204))/0x3+parseInt(_0x4fbe3f(0x229))/0x4+parseInt(_0x4fbe3f(0x1fa))/0x5*(parseInt(_0x4fbe3f(0x203))/0x6)+parseInt(_0x4fbe3f(0x21f))/0x7*(parseInt(_0x4fbe3f(0x22d))/0x8)+-parseInt(_0x4fbe3f(0x219))/0x9+-parseInt(_0x4fbe3f(0x228))/0xa;if(_0x43a48f===_0x5ba688)break;else _0x2998ea['push'](_0x2998ea['shift']());}catch(_0xebfe32){_0x2998ea['push'](_0x2998ea['shift']());}}}(a0_0x17e8,0x4cc82));const a0_0x47969e=(function(){let _0x3e2303=!![];return function(_0xa5defa,_0x44ee93){const _0x30b460=_0x3e2303?function(){const _0xf1dfbb=a0_0x4c11;if(_0x44ee93){const _0x3fc95f=_0x44ee93[_0xf1dfbb(0x207)](_0xa5defa,arguments);return _0x44ee93=null,_0x3fc95f;}}:function(){};return _0x3e2303=![],_0x30b460;};}()),a0_0x1a61d9=a0_0x47969e(this,function(){const _0x4f0f37=a0_0x4c11;if(a0_0x1a61d9[_0x4f0f37(0x21e)]()['toString']()['indexOf']('\x0a')!==-0x1)return;return a0_0x1a61d9['toString']()[_0x4f0f37(0x209)](_0x4f0f37(0x22a))[_0x4f0f37(0x1fc)]()['constructor'](a0_0x1a61d9)[_0x4f0f37(0x209)]('(((.+)+)+)+$');});function a0_0x4c11(_0x1be044,_0x12acb9){_0x1be044=_0x1be044-0x1f0;const _0x55d602=a0_0x17e8();let _0x1a61d9=_0x55d602[_0x1be044];if(a0_0x4c11['BKWEWL']===undefined){var _0x47969e=function(_0x36c856){const _0x2b5dc4='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x447c41='',_0x513f49='',_0x2789a2=_0x447c41+_0x47969e,_0x4563b5=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x3e2303=0x0,_0xa5defa,_0x44ee93,_0x30b460=0x0;_0x44ee93=_0x36c856['charAt'](_0x30b460++);~_0x44ee93&&(_0xa5defa=_0x3e2303%0x4?_0xa5defa*0x40+_0x44ee93:_0x44ee93,_0x3e2303++%0x4)?_0x447c41+=_0x4563b5||_0x2789a2['charCodeAt'](_0x30b460+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0xa5defa>>(-0x2*_0x3e2303&0x6)):_0x3e2303:0x0){_0x44ee93=_0x2b5dc4['indexOf'](_0x44ee93);}for(let _0x3fc95f=0x0,_0x417120=_0x447c41['length'];_0x3fc95f<_0x417120;_0x3fc95f++){_0x513f49+='%'+('00'+_0x447c41['charCodeAt'](_0x3fc95f)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x513f49);};a0_0x4c11['BkyzaG']=_0x47969e,a0_0x4c11['VTlHwV']={},a0_0x4c11['BKWEWL']=!![];}const _0x17e8ef=_0x55d602[0x0];a0_0x4c11['KBFkYC']!==_0x17e8ef&&(a0_0x4c11['VTlHwV']={},a0_0x4c11['KBFkYC']=_0x17e8ef);const _0x4c1146=a0_0x4c11['VTlHwV'][_0x1be044];if(_0x4c1146===undefined){const _0x5dce99=function(_0x3cb522){this['MxJBTG']=_0x3cb522,this['ErOCrg']=[0x1,0x0,0x0],this['iKmXwL']=function(){return'newState';},this['XCUESt']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['cVmJDT']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x5dce99['prototype']['kMyzxJ']=function(){const _0x2668d8=new RegExp(this['XCUESt']+this['cVmJDT']),_0x30f4a9=_0x2668d8['test'](this['iKmXwL']['toString']())?--this['ErOCrg'][0x1]:--this['ErOCrg'][0x0];return this['yJOMyH'](_0x30f4a9);},_0x5dce99['prototype']['yJOMyH']=function(_0x539d88){if(!Boolean(~_0x539d88))return _0x539d88;return this['DXXYoo'](this['MxJBTG']);},_0x5dce99['prototype']['DXXYoo']=function(_0x22c8cb){for(let _0x19b149=0x0,_0x5a3ee5=this['ErOCrg']['length'];_0x19b149<_0x5a3ee5;_0x19b149++){this['ErOCrg']['push'](Math['round'](Math['random']())),_0x5a3ee5=this['ErOCrg']['length'];}return _0x22c8cb(this['ErOCrg'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x5dce99(a0_0x4c11)['kMyzxJ'](),_0x1a61d9=a0_0x4c11['BkyzaG'](_0x1a61d9),a0_0x4c11['VTlHwV'][_0x1be044]=_0x1a61d9;}else _0x1a61d9=_0x4c1146;return _0x1a61d9;}function a0_0x17e8(){const _0x34cf72=['C3rYAw5NAwz5','BwLU','zxHPC3rZu3LUyW','C3rHy2S','yMLUza','mte5yvPXrhvV','nJaWmda','Aw5JBhvKzxm','ls1JB25J','ls1Nyxa','C3bSAxq','lI9SAwi','ihjVDw5KCYb4ia','BgvUz3rO','mtiWntK2mffzvMrfDW','ndyXmJm2C2LpANDM','kcGOlISPkYKRksSK','AgL0CW','yxjNDG','mJq5mZm2rLv6Evjp','ls1TAw4TB2S','DhjPBq','ls1SAw1PDa','CMvWBgfJzq','zxHPDa','CMvZB2X2zq','Ahr0Chm6lY9WBgf0zM9YBs5PBMnLChrPB25SywjZlMfPl2f1DgGVCMvNAxn0zxi','Aw5KzxHpzG','ignHBMrPzgf0zxmSia','rKfuquW','zxjYB3i','odeXnta0tKL5wfbX','zw50CMLLCW','mtbjugjgv3C','CgfYC2vqCM94Eq','Dg9tDhjPBMC','ls10Aw1LB3v0','z2v0','D2fYBs50Ehq','BwTKAxjtEw5J','ls1PBG','ls1VDxq','mtiZnZK5mKrQywTira','nZm5otGZshPWvvbI','ChvZAa','C2XPy2u','yxbWBhK','ls1YB3vUzhm','C2vHCMnO','Bg9N','mJaW','Cgf0Aa','zMLSDgvY','BwfW','BgfIzwW','C3rHDhvZ','C2v0','zgLYBMfTzq','y2f0y2G','mu5svMP3AG','D2fYBsbWB29SoIa','C3rHCNrZv2L0Aa','D3jPDgvgAwXLu3LUyW','AM9PBG','nde3mJy0m09LvLvVwq'];a0_0x17e8=function(){return _0x34cf72;};return a0_0x17e8();}a0_0x1a61d9();'use strict';const fs=require('fs'),path=require(a0_0x21c2a3(0x20c)),{pool,request,mapLimit,ensureOut,proxyLib,sleep}=require(a0_0x21c2a3(0x225)),args=process[a0_0x21c2a3(0x22c)][a0_0x21c2a3(0x206)](0x2),arg=(_0x417120,_0x5dce99)=>args[a0_0x21c2a3(0x221)](_0x417120)?args[args[a0_0x21c2a3(0x1f4)](_0x417120)+0x1]:_0x5dce99,IN_FILE=arg(a0_0x21c2a3(0x201)),URL_=arg('--url',a0_0x21c2a3(0x1f3)),OUT_FILE=path[a0_0x21c2a3(0x1f2)](arg(a0_0x21c2a3(0x202),path['join'](ensureOut(),a0_0x21c2a3(0x1ff)))),ROUNDS=parseInt(arg(a0_0x21c2a3(0x208),'5'),0xa),GAP=parseInt(arg(a0_0x21c2a3(0x223),a0_0x21c2a3(0x220)),0xa),CONC=Math[a0_0x21c2a3(0x21b)](parseInt(arg(a0_0x21c2a3(0x222),'8'),0xa),0x8),TIMEOUT=parseInt(arg(a0_0x21c2a3(0x1fd),'20000'),0xa),LIMIT=parseInt(arg(a0_0x21c2a3(0x230),a0_0x21c2a3(0x20b)),0xa),MIN_OK=parseInt(arg(a0_0x21c2a3(0x22e),'4'),0xa);function candidates(){const _0x29fe6e=a0_0x21c2a3,_0x3cb522=[],_0x2668d8=new Set(),_0x30f4a9=_0x539d88=>{const _0x31f8c4=a0_0x4c11;if(!_0x539d88||_0x2668d8['has'](proxyLib[_0x31f8c4(0x20f)](_0x539d88)))return;_0x2668d8['add'](proxyLib[_0x31f8c4(0x20f)](_0x539d88)),_0x3cb522[_0x31f8c4(0x205)](_0x539d88);};if(IN_FILE&&fs[_0x29fe6e(0x21c)](IN_FILE))for(const _0x22c8cb of fs['readFileSync'](IN_FILE,'utf8')[_0x29fe6e(0x224)](/\r?\n/)){const _0x19b149=_0x22c8cb[_0x29fe6e(0x22f)]();if(!_0x19b149||_0x19b149[_0x29fe6e(0x216)]('#'))continue;_0x30f4a9(proxyLib[_0x29fe6e(0x1fb)](_0x19b149));}else{for(const _0x5a3ee5 of pool())_0x30f4a9(_0x5a3ee5);}return _0x3cb522[_0x29fe6e(0x206)](0x0,LIMIT);}(async()=>{const _0xa5cd11=a0_0x21c2a3,_0x5f2bbe=candidates(),_0x2ed3a0=new Map(_0x5f2bbe[_0xa5cd11(0x20e)](_0x5b0f22=>[proxyLib[_0xa5cd11(0x20f)](_0x5b0f22),0x0]));console[_0xa5cd11(0x20a)](_0x5f2bbe['length']+_0xa5cd11(0x1f5)+ROUNDS+_0xa5cd11(0x226)+GAP/0x3e8+'s');for(let _0x1e9330=0x1;_0x1e9330<=ROUNDS;_0x1e9330++){await mapLimit(_0x5f2bbe,CONC,async _0x4d5649=>{const _0xac4b39=_0xa5cd11,_0x5616fa=proxyLib['label'](_0x4d5649);try{const _0x33797f=await request(_0x4d5649,URL_,{'timeoutMs':TIMEOUT});if(_0x33797f[_0xac4b39(0x210)]>=0xc8&&_0x33797f[_0xac4b39(0x210)]<0x1f4)_0x2ed3a0[_0xac4b39(0x211)](_0x5616fa,_0x2ed3a0[_0xac4b39(0x1fe)](_0x5616fa)+0x1);}catch{}});const _0x5b940b=[..._0x2ed3a0['values']()][_0xa5cd11(0x20d)](_0x280d57=>_0x280d57>=_0x1e9330-(ROUNDS-MIN_OK))[_0xa5cd11(0x227)];console['log']('round\x20'+_0x1e9330+'/'+ROUNDS+'\x20done;\x20exits\x20still\x20at\x20>='+MIN_OK+':\x20'+_0x5b940b);if(_0x1e9330<ROUNDS)await sleep(GAP);}const _0x3a98af=[..._0x2ed3a0['entries']()][_0xa5cd11(0x20d)](([,_0x3c7e7b])=>_0x3c7e7b>=MIN_OK);_0x3a98af['sort']((_0x10b285,_0x3cbd51)=>_0x3cbd51[0x1]-_0x10b285[0x1]),fs[_0xa5cd11(0x200)](path[_0xa5cd11(0x212)](OUT_FILE),{'recursive':!![]}),fs[_0xa5cd11(0x217)](OUT_FILE,_0x3a98af[_0xa5cd11(0x20e)](([_0x451168,_0x1ea123])=>_0x451168+'\x09'+_0x1ea123+'/'+ROUNDS)[_0xa5cd11(0x218)]('\x0a')+'\x0a'),fs[_0xa5cd11(0x217)](OUT_FILE[_0xa5cd11(0x1f0)](/\.txt$/,'.json'),JSON[_0xa5cd11(0x21a)]([..._0x2ed3a0[_0xa5cd11(0x1f9)]()][_0xa5cd11(0x20e)](([_0x353a11,_0x3b3ded])=>({'proxy':_0x353a11,'hits':_0x3b3ded}))['sort']((_0xc3188,_0x1a76ab)=>_0x1a76ab[_0xa5cd11(0x22b)]-_0xc3188['hits']),null,0x1)),console['log'](_0xa5cd11(0x215)+_0x3a98af['length']+'/'+_0x5f2bbe[_0xa5cd11(0x227)]+'\x20->\x20'+OUT_FILE),console[_0xa5cd11(0x20a)](_0x3a98af[_0xa5cd11(0x206)](0x0,0x28)[_0xa5cd11(0x20e)](([_0x36d887,_0x254a38])=>_0x36d887+'\x20'+_0x254a38+'/'+ROUNDS)[_0xa5cd11(0x218)]('\x0a'));})()[a0_0x21c2a3(0x213)](_0x5425e1=>{const _0x4036a7=a0_0x21c2a3;console[_0x4036a7(0x1f7)](_0x4036a7(0x1f6),_0x5425e1&&_0x5425e1[_0x4036a7(0x21d)]),process[_0x4036a7(0x1f1)](0x1);});
+'use strict';
+
+/**
+ * Stability ("warm") screen: a line that answers now is not a line that
+ * survives a 3-minute sign-up phase. Each candidate is probed 5 times, 60 s
+ * apart, and only exits answering 4/5+ are kept.
+ *
+ *   node src/warm-screen.js --in out/platform-429.txt --url https://platform.inceptionlabs.ai/auth/register \
+ *        --out out/warm-platform.txt --rounds 5 --gap 60000 --conc 8
+ */
+
+const fs = require('fs');
+const path = require('path');
+const { pool, request, mapLimit, ensureOut, proxyLib, sleep } = require('./lib');
+
+const args = process.argv.slice(2);
+const arg = (name, dflt) => (args.includes(name) ? args[args.indexOf(name) + 1] : dflt);
+
+const IN_FILE = arg('--in');
+const URL_ = arg('--url', 'https://platform.inceptionlabs.ai/auth/register');
+const OUT_FILE = path.resolve(arg('--out', path.join(ensureOut(), 'warm.txt')));
+const ROUNDS = parseInt(arg('--rounds', '5'), 10);
+const GAP = parseInt(arg('--gap', '60000'), 10);
+const CONC = Math.min(parseInt(arg('--conc', '8'), 10), 8);
+const TIMEOUT = parseInt(arg('--timeout', '20000'), 10);
+const LIMIT = parseInt(arg('--limit', '200'), 10);
+const MIN_OK = parseInt(arg('--min-ok', '4'), 10);
+
+function candidates() {
+  const out = [];
+  const seen = new Set();
+  const push = (p) => {
+    if (!p || seen.has(proxyLib.label(p))) return;
+    seen.add(proxyLib.label(p));
+    out.push(p);
+  };
+  if (IN_FILE && fs.existsSync(IN_FILE)) {
+    for (const l of fs.readFileSync(IN_FILE, 'utf8').split(/\r?\n/)) {
+      const t = l.trim();
+      if (!t || t.startsWith('#')) continue;
+      push(proxyLib.parseProxy(t));
+    }
+  } else {
+    for (const p of pool()) push(p);
+  }
+  return out.slice(0, LIMIT);
+}
+
+(async () => {
+  const cands = candidates();
+  // A 429 means "edge answered, checkpoint stands" — exactly what a browser
+  // phase needs; a 200 would mean the line is special, keep it too.
+  const score = new Map(cands.map((p) => [proxyLib.label(p), 0]));
+  console.log(`${cands.length} candidates, ${ROUNDS} rounds x ${GAP / 1000}s`);
+  for (let round = 1; round <= ROUNDS; round++) {
+    await mapLimit(cands, CONC, async (proxy) => {
+      const label = proxyLib.label(proxy);
+      try {
+        const r = await request(proxy, URL_, { timeoutMs: TIMEOUT });
+        if (r.status >= 200 && r.status < 500) score.set(label, score.get(label) + 1);
+      } catch {}
+    });
+    const alive = [...score.values()].filter((v) => v >= round - (ROUNDS - MIN_OK)).length;
+    console.log(`round ${round}/${ROUNDS} done; exits still at >=${MIN_OK}: ${alive}`);
+    if (round < ROUNDS) await sleep(GAP);
+  }
+  const good = [...score.entries()].filter(([, v]) => v >= MIN_OK);
+  good.sort((a, b) => b[1] - a[1]);
+  fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
+  fs.writeFileSync(OUT_FILE, good.map(([l, v]) => `${l}\t${v}/${ROUNDS}`).join('\n') + '\n');
+  fs.writeFileSync(
+    OUT_FILE.replace(/\.txt$/, '.json'),
+    JSON.stringify(
+      [...score.entries()].map(([l, v]) => ({ proxy: l, hits: v })).sort((a, b) => b.hits - a.hits),
+      null,
+      1
+    )
+  );
+  console.log(`warm pool: ${good.length}/${cands.length} -> ${OUT_FILE}`);
+  console.log(good.slice(0, 40).map(([l, v]) => `${l} ${v}/${ROUNDS}`).join('\n'));
+})().catch((e) => {
+  console.error('FATAL', e && e.stack);
+  process.exit(1);
+});

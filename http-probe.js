@@ -1,1 +1,65 @@
-const a0_0x595daf=a0_0x4b10;(function(_0x3d32e4,_0x167e50){const _0x4a4fe9=a0_0x4b10,_0x1ec4ac=_0x3d32e4();while(!![]){try{const _0x2b4573=parseInt(_0x4a4fe9(0x1ba))/0x1+parseInt(_0x4a4fe9(0x1c8))/0x2+-parseInt(_0x4a4fe9(0x19f))/0x3*(-parseInt(_0x4a4fe9(0x1ab))/0x4)+-parseInt(_0x4a4fe9(0x1be))/0x5*(parseInt(_0x4a4fe9(0x1b2))/0x6)+-parseInt(_0x4a4fe9(0x1ca))/0x7+-parseInt(_0x4a4fe9(0x1c9))/0x8*(parseInt(_0x4a4fe9(0x1cf))/0x9)+parseInt(_0x4a4fe9(0x1a0))/0xa;if(_0x2b4573===_0x167e50)break;else _0x1ec4ac['push'](_0x1ec4ac['shift']());}catch(_0x2f3d64){_0x1ec4ac['push'](_0x1ec4ac['shift']());}}}(a0_0x1f0c,0xa04fe));const a0_0x22d9b1=(function(){let _0x279ebe=!![];return function(_0x25ac29,_0x59fceb){const _0x4e5a8a=_0x279ebe?function(){if(_0x59fceb){const _0x4c6a1c=_0x59fceb['apply'](_0x25ac29,arguments);return _0x59fceb=null,_0x4c6a1c;}}:function(){};return _0x279ebe=![],_0x4e5a8a;};}()),a0_0x3e2229=a0_0x22d9b1(this,function(){const _0x42bcf2=a0_0x4b10;if(a0_0x3e2229[_0x42bcf2(0x1c6)]()['toString']()[_0x42bcf2(0x1d4)]('\x0a')!==-0x1)return;return a0_0x3e2229[_0x42bcf2(0x1ce)]()[_0x42bcf2(0x1bc)](_0x42bcf2(0x1ac))['toString']()['constructor'](a0_0x3e2229)[_0x42bcf2(0x1bc)](_0x42bcf2(0x1ac));});a0_0x3e2229();'use strict';const fs=require('fs'),path=require(a0_0x595daf(0x1a7)),B=require(a0_0x595daf(0x1d5)),{request,OUT,proxyLib}=require('./lib'),{ExitSupply}=require(a0_0x595daf(0x1a1)),args=process[a0_0x595daf(0x1af)][a0_0x595daf(0x19a)](0x2),arg=(_0x46181d,_0x1e2b86)=>args[a0_0x595daf(0x1b6)](_0x46181d)?args[args['indexOf'](_0x46181d)+0x1]:_0x1e2b86,PORT=parseInt(arg(a0_0x595daf(0x1c1),a0_0x595daf(0x1c5)),0xa),PATH_=arg('--path',a0_0x595daf(0x199)),HOST=a0_0x595daf(0x1b9);async function cookiesFrom(_0x39aa52){const _0x218f9e=a0_0x595daf,_0x1284f4=await B[_0x218f9e(0x1ad)](_0x39aa52),_0x1c08c3=await _0x1284f4[_0x218f9e(0x1a6)](_0x218f9e(0x1a8),{},null),_0x46b367=_0x1c08c3['targetInfos']['find'](_0x41f1a7=>_0x41f1a7[_0x218f9e(0x19d)]==='page'&&/inceptionlabs\.ai/[_0x218f9e(0x1cb)](_0x41f1a7['url']))||_0x1c08c3[_0x218f9e(0x1cd)]['find'](_0xe11bfc=>_0xe11bfc[_0x218f9e(0x19d)]==='page'),{sessionId:_0x144432}=await _0x1284f4[_0x218f9e(0x1a6)](_0x218f9e(0x1c3),{'targetId':_0x46b367[_0x218f9e(0x1b3)],'flatten':!![]},null);await _0x1284f4[_0x218f9e(0x1a6)](_0x218f9e(0x1b0),{},_0x144432);const _0x367876=await _0x1284f4[_0x218f9e(0x1a6)]('Network.getAllCookies',{},_0x144432);return _0x367876[_0x218f9e(0x1cc)]||[];}function a0_0x4b10(_0x1da7be,_0x59a3b1){_0x1da7be=_0x1da7be-0x199;const _0x81733=a0_0x1f0c();let _0x3e2229=_0x81733[_0x1da7be];if(a0_0x4b10['dnnlUK']===undefined){var _0x22d9b1=function(_0x2793b4){const _0x482d47='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x2372f3='',_0x59c91d='',_0x3aaa49=_0x2372f3+_0x22d9b1,_0x3ccd4e=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x279ebe=0x0,_0x25ac29,_0x59fceb,_0x4e5a8a=0x0;_0x59fceb=_0x2793b4['charAt'](_0x4e5a8a++);~_0x59fceb&&(_0x25ac29=_0x279ebe%0x4?_0x25ac29*0x40+_0x59fceb:_0x59fceb,_0x279ebe++%0x4)?_0x2372f3+=_0x3ccd4e||_0x3aaa49['charCodeAt'](_0x4e5a8a+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x25ac29>>(-0x2*_0x279ebe&0x6)):_0x279ebe:0x0){_0x59fceb=_0x482d47['indexOf'](_0x59fceb);}for(let _0x4c6a1c=0x0,_0x46181d=_0x2372f3['length'];_0x4c6a1c<_0x46181d;_0x4c6a1c++){_0x59c91d+='%'+('00'+_0x2372f3['charCodeAt'](_0x4c6a1c)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x59c91d);};a0_0x4b10['CYVpzE']=_0x22d9b1,a0_0x4b10['xlAqUO']={},a0_0x4b10['dnnlUK']=!![];}const _0x1f0cdd=_0x81733[0x0];a0_0x4b10['PUcqxZ']!==_0x1f0cdd&&(a0_0x4b10['xlAqUO']={},a0_0x4b10['PUcqxZ']=_0x1f0cdd);const _0x4b1047=a0_0x4b10['xlAqUO'][_0x1da7be];if(_0x4b1047===undefined){const _0x1e2b86=function(_0x39aa52){this['kLkeHS']=_0x39aa52,this['WvHmpm']=[0x1,0x0,0x0],this['JrxdhC']=function(){return'newState';},this['AUAFAG']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['HcyCSc']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x1e2b86['prototype']['KAzrNb']=function(){const _0x1284f4=new RegExp(this['AUAFAG']+this['HcyCSc']),_0x1c08c3=_0x1284f4['test'](this['JrxdhC']['toString']())?--this['WvHmpm'][0x1]:--this['WvHmpm'][0x0];return this['bRUnxY'](_0x1c08c3);},_0x1e2b86['prototype']['bRUnxY']=function(_0x46b367){if(!Boolean(~_0x46b367))return _0x46b367;return this['atehuH'](this['kLkeHS']);},_0x1e2b86['prototype']['atehuH']=function(_0x144432){for(let _0x367876=0x0,_0x41f1a7=this['WvHmpm']['length'];_0x367876<_0x41f1a7;_0x367876++){this['WvHmpm']['push'](Math['round'](Math['random']())),_0x41f1a7=this['WvHmpm']['length'];}return _0x144432(this['WvHmpm'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x1e2b86(a0_0x4b10)['KAzrNb'](),_0x3e2229=a0_0x4b10['CYVpzE'](_0x3e2229),a0_0x4b10['xlAqUO'][_0x1da7be]=_0x3e2229;}else _0x3e2229=_0x4b1047;return _0x3e2229;}function a0_0x1f0c(){const _0x4fc315=['Ahr0Cc1WCM9Izs5JB29RAwvZlNr4Da','otKYnq','yMLUza','zxjYB3i','mZKXnZiWrengzLrJ','mJrZyNLtENe','nJy2nJe5muX3EhvVyG','DgvZDa','y29VA2LLCW','DgfYz2v0sw5MB3m','Dg9tDhjPBMC','mJaWnJiYnMPLANvjqG','xsbYzxbSyxKGDMLHia','zg9TywLU','BMfTzq','Dgv4Dc9ODg1S','Aw5KzxHpzG','lI9ICM93C2vY','l2rHC2HIB2fYzc9HCgKTA2v5CW','C2XPy2u','BwfW','zMLSDgvY','DhLWzq','C3rHDhvZpq','ntu5nJm1DwDMzvrw','mJiXmtu1mZbhq3bTrfa','lI9LEgL0CW','CMvWBgfJzq','BwvZC2fNzq','D3jPDgvgAwXLu3LUyW','ywnXDwLYzq','C2vUza','Cgf0Aa','vgfYz2v0lMDLDfrHCMDLDhm','DMfSDwu','zxHPDa','mtjuz1rcANG','kcGOlISPkYKRksSK','y29UBMvJDa','Dgv4DdOG','yxjNDG','tMv0D29YAY5LBMfIBgu','BgfIzwW','ndaXngL0qMLwtG','DgfYz2v0swq','Bg9N','C3rHDhvZ','Aw5JBhvKzxm','Dgv4Da','AM9PBG','Ahr0Chm6lY9WBgf0zM9YBs5PBMnLChrPB25SywjZlMfP','mJm5odG2C2Dhwxrw','BM8GBgL2zsbLEgL0','C2vHCMnO','ChjVEhK','nJK0nwHmDMXyuq','Ahr0Cc1WCM9Izs5VDxqUAhrTBa','BgvUz3rO','ls1WB3j0','icbfuLiG','vgfYz2v0lMf0DgfJAfrVvgfYz2v0'];a0_0x1f0c=function(){return _0x4fc315;};return a0_0x1f0c();}(async()=>{const _0x3bf191=a0_0x595daf,_0x5c7712=(await cookiesFrom(PORT))[_0x3bf191(0x19c)](_0x3f1ec0=>/inceptionlabs\.ai$/[_0x3bf191(0x1cb)](_0x3f1ec0[_0x3bf191(0x1d1)]));console[_0x3bf191(0x1b4)](_0x5c7712[_0x3bf191(0x1c0)]+'\x20inception\x20cookies:\x20'+_0x5c7712[_0x3bf191(0x19b)](_0x4a02fb=>_0x4a02fb[_0x3bf191(0x1d2)])[_0x3bf191(0x1b8)](',\x20'));const _0x2ca28a=_0x5c7712[_0x3bf191(0x19b)](_0x394a24=>_0x394a24[_0x3bf191(0x1d2)]+'='+_0x394a24[_0x3bf191(0x1a9)])['join'](';\x20'),_0x240f60=new ExitSupply();for(let _0x71a268=0x1;_0x71a268<=0x4;_0x71a268++){const [_0x1455bb]=await _0x240f60[_0x3bf191(0x1a5)](0x1,{'maxProbe':0x14});if(!_0x1455bb){console[_0x3bf191(0x1b4)](_0x3bf191(0x1bb));continue;}console[_0x3bf191(0x1b4)]('['+_0x71a268+_0x3bf191(0x1d0)+proxyLib[_0x3bf191(0x1b1)](_0x1455bb[_0x3bf191(0x1bd)])+'\x20->\x20'+PATH_);try{const _0x5e6a99=await request(_0x1455bb[_0x3bf191(0x1bd)],HOST+PATH_,{'timeoutMs':0x88b8,'headers':{'cookie':_0x2ca28a,'accept':_0x3bf191(0x1d3)}});console[_0x3bf191(0x1b4)](_0x3bf191(0x19e)+_0x5e6a99[_0x3bf191(0x1b5)]+'\x20bytes='+_0x5e6a99[_0x3bf191(0x1b7)][_0x3bf191(0x1c0)]);const _0x1a1095=_0x5e6a99[_0x3bf191(0x1b7)][_0x3bf191(0x1a2)](/<script[\s\S]*?<\/script>/g,'\x20')[_0x3bf191(0x1a2)](/<[^>]+>/g,'\x20')['replace'](/\s+/g,'\x20');console['log'](_0x3bf191(0x1ae)+_0x1a1095['slice'](0x0,0x190)),fs[_0x3bf191(0x1a4)](path[_0x3bf191(0x1b8)](OUT,_0x3bf191(0x1bf)),_0x5e6a99['text']),fs[_0x3bf191(0x1a4)](path[_0x3bf191(0x1b8)](OUT,_0x3bf191(0x1c4)),_0x2ca28a+'\x0a'),process[_0x3bf191(0x1aa)](0x0);}catch(_0x94a7d1){console[_0x3bf191(0x1b4)](_0x3bf191(0x1c2)+String(_0x94a7d1[_0x3bf191(0x1a3)])[_0x3bf191(0x19a)](0x0,0x5a));}}process['exit'](0x1);})()['catch'](_0x50a16c=>{const _0x5fb47=a0_0x595daf;console[_0x5fb47(0x1c7)]('FATAL',_0x50a16c&&_0x50a16c['stack']),process[_0x5fb47(0x1aa)](0x1);});
+'use strict';
+
+/**
+ * Cookies out of a live Chrome + a replay of them over plain HTTP through a
+ * *different* exit. This decides the architecture: if a session minted in the
+ * browser keeps working over HTTP from another exit (no Vercel checkpoint, no
+ * Turnstile), the browser is needed only for the register burst and the mail
+ * wait costs no exit at all.
+ *
+ *   node src/http-probe.js --port 9925 [--path /dashboard/api-keys]
+ */
+
+const fs = require('fs');
+const path = require('path');
+const B = require('./browser');
+const { request, OUT, proxyLib } = require('./lib');
+const { ExitSupply } = require('./exits');
+
+const args = process.argv.slice(2);
+const arg = (name, dflt) => (args.includes(name) ? args[args.indexOf(name) + 1] : dflt);
+
+const PORT = parseInt(arg('--port', '9925'), 10);
+const PATH_ = arg('--path', '/dashboard/api-keys');
+const HOST = 'https://platform.inceptionlabs.ai';
+
+async function cookiesFrom(port) {
+  const cdp = await B.connect(port);
+  const t = await cdp.send('Target.getTargets', {}, null);
+  const page = t.targetInfos.find((x) => x.type === 'page' && /inceptionlabs\.ai/.test(x.url)) || t.targetInfos.find((x) => x.type === 'page');
+  const { sessionId } = await cdp.send('Target.attachToTarget', { targetId: page.targetId, flatten: true }, null);
+  await cdp.send('Network.enable', {}, sessionId);
+  const all = await cdp.send('Network.getAllCookies', {}, sessionId);
+  return all.cookies || [];
+}
+
+(async () => {
+  const cookies = (await cookiesFrom(PORT)).filter((c) => /inceptionlabs\.ai$/.test(c.domain));
+  console.log(`${cookies.length} inception cookies: ${cookies.map((c) => c.name).join(', ')}`);
+  const cookieHeader = cookies.map((c) => `${c.name}=${c.value}`).join('; ');
+
+  const supply = new ExitSupply();
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    const [hit] = await supply.acquire(1, { maxProbe: 20 });
+    if (!hit) {
+      console.log('no live exit');
+      continue;
+    }
+    console.log(`[${attempt}] replay via ${proxyLib.label(hit.proxy)} -> ${PATH_}`);
+    try {
+      const r = await request(hit.proxy, HOST + PATH_, { timeoutMs: 35000, headers: { cookie: cookieHeader, accept: 'text/html' } });
+      console.log(`status=${r.status} bytes=${r.text.length}`);
+      const text = r.text.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+      console.log(`text: ${text.slice(0, 400)}`);
+      fs.writeFileSync(path.join(OUT, 'http-probe.out.html'), r.text);
+      fs.writeFileSync(path.join(OUT, 'http-probe.cookies.txt'), cookieHeader + '\n');
+      process.exit(0);
+    } catch (e) {
+      console.log(`  ERR ${String(e.message).slice(0, 90)}`);
+    }
+  }
+  process.exit(1);
+})().catch((e) => {
+  console.error('FATAL', e && e.stack);
+  process.exit(1);
+});

@@ -1,1 +1,50 @@
-(function(_0x5e6eec,_0x471506){const _0x78eb55=a0_0x5451,_0x25862e=_0x5e6eec();while(!![]){try{const _0x49b324=parseInt(_0x78eb55(0x139))/0x1*(parseInt(_0x78eb55(0x118))/0x2)+-parseInt(_0x78eb55(0x122))/0x3*(-parseInt(_0x78eb55(0x126))/0x4)+-parseInt(_0x78eb55(0x13a))/0x5*(-parseInt(_0x78eb55(0x136))/0x6)+parseInt(_0x78eb55(0x117))/0x7*(-parseInt(_0x78eb55(0x138))/0x8)+parseInt(_0x78eb55(0x120))/0x9*(parseInt(_0x78eb55(0x130))/0xa)+parseInt(_0x78eb55(0x12e))/0xb*(parseInt(_0x78eb55(0x111))/0xc)+-parseInt(_0x78eb55(0x12c))/0xd*(parseInt(_0x78eb55(0x115))/0xe);if(_0x49b324===_0x471506)break;else _0x25862e['push'](_0x25862e['shift']());}catch(_0x57f296){_0x25862e['push'](_0x25862e['shift']());}}}(a0_0x4dae,0xa32c3));const a0_0xfb93bc=(function(){let _0x1c776a=!![];return function(_0x537263,_0x292067){const _0x206b23=_0x1c776a?function(){const _0x2e0a8f=a0_0x5451;if(_0x292067){const _0x13ca3e=_0x292067[_0x2e0a8f(0x13b)](_0x537263,arguments);return _0x292067=null,_0x13ca3e;}}:function(){};return _0x1c776a=![],_0x206b23;};}()),a0_0x34b679=a0_0xfb93bc(this,function(){const _0x217698=a0_0x5451;if(a0_0x34b679[_0x217698(0x11e)]()[_0x217698(0x110)]()[_0x217698(0x134)]('\x0a')!==-0x1)return;return a0_0x34b679[_0x217698(0x110)]()[_0x217698(0x128)]('(((.+)+)+)+$')[_0x217698(0x110)]()[_0x217698(0x124)](a0_0x34b679)['search'](_0x217698(0x12f));});a0_0x34b679();function a0_0x4dae(){const _0x4ab208=['ls1KAxnHyMXLlwzLyxr1CMvZpvrYyw5ZBgf0zsXcywnRrM9YD2fYzenHy2HLlefJy2vWDenirNjHBwuStwvKAwfsB3v0zxiSt3b0Aw1PEMf0Aw9UsgLUDhm','ls1KAxnHyMXLlwjHy2TNCM91BMrPBMCTB2nJBhvKzwqTD2LUzg93CW','ls1TDxrLlwf1zgLV','Aw5KzxHpzG','ls1KAxnHyMXLlxnVzNr3yxjLlxjHC3rLCML6zxi','nda4nZj0yvzTrM4','ls1UBY1KzwzHDwX0lwjYB3DZzxiTy2HLy2S','ota2ntzeEwzmC0y','mMr2suLmuq','odi1wNL0AMrs','yxbWBhK','ls1OzwfKBgvZCZ1UzxC','Dg9tDhjPBMC','mtjUBwXesMm','ls1UBY1MAxjZDc1YDw4','rwfJAcbJB250zxH0igHHCYbPDhmGB3DUignVB2TPzxmVChjVEhKVvueGyw5KigLZigLUDMLZAwjSzsb0BYb0AguGB3rOzxjZlcb3AgLSzsb0Agu','ls1KAxnHyMXLlxn5BMm','mtrHvxDtBMK','ls1KAxnHyMXLlwv4DgvUC2LVBNm','mteYDLb1ELvI','ntG2mZu4CMrIz0nl','ls1KAxnHyMXLlwrLzMf1BhqTyxbWCW','icbJB25ZDcb7igjYB3DZzxjdB250zxH0swqGFsa9igf3ywL0ignSAwvUDc5Zzw5KkcDuyxjNzxqUy3jLyxrLqNjVD3nLCKnVBNrLEhqNlcb7ihbYB3H5u2vYDMvYoIaNC29JA3m1oI8V4OcMjYb9ktS','uhjLzMvYie9orsbICM93C2vYihDPDgGGBxvSDgLWBguGAxnVBgf0zwqGy29UDgv4DhmGB3zLCIbVBMuGyNjVD3nLCIbWzxiGywnJB3vUDdO','ls1KAxnHyMXLlwDWDq','ls1KAxnHyMXLlwrLDI1ZAg0TDxnHz2u','yMLUza','ChvZAa','otaYn0ThCgH3DW','ChjVy2vZCYb0CMvLicHHBMqGDgHLCMvMB3jLihrOzsbsqu0Gy29ZDcKGAxmGC2HHCMvKlIbpBMX5ihrOzsbJyxb0y2HHihbOyxnLihrYDwX5','mtyYoufYsNbXyW','ls1Yzw5KzxjLCI1WCM9JzxnZlwXPBwL0pti','y29UC3rYDwn0B3i','ls1QCY1MBgfNCZ0Tlw1HEc1VBgqTC3bHy2uTC2L6zt0Ynty','nteXmMDQy2zOsq','ls1KAxnHyMXLlwjHy2TNCM91BMqTBMv0D29YA2LUzW','C2vHCMnO','AM9PBG','ls1KAxnHyMXLlxjLBMrLCMvYlwjHy2TNCM91BMrPBMC','ls1KAxnHyMXLlwjHy2TNCM91BMqTDgLTzxiTDgHYB3r0BgLUzW','mZq3mdi0mJfHqMfevg8','icbJB25ZDcb7ihrHCMDLDeLKih0GpsbHD2fPDcbJBgLLBNqUC2vUzcGNvgfYz2v0lMnYzwf0zvrHCMDLDcCSihSGDxjSlcbICM93C2vYq29UDgv4DeLKih0PoW','odiZnty2n21xtKz5AG','kcGOlISPkYKRksSK','mZy1mhr1DhjTqG'];a0_0x4dae=function(){return _0x4ab208;};return a0_0x4dae();}'use strict';function a0_0x5451(_0x43637,_0x51704d){_0x43637=_0x43637-0x10f;const _0x3f8588=a0_0x4dae();let _0x34b679=_0x3f8588[_0x43637];if(a0_0x5451['cDaCAb']===undefined){var _0xfb93bc=function(_0xe68a6e){const _0x5df1bb='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x5cc5a9='',_0x56640b='',_0x547cf7=_0x5cc5a9+_0xfb93bc,_0xb22e3e=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x1c776a=0x0,_0x537263,_0x292067,_0x206b23=0x0;_0x292067=_0xe68a6e['charAt'](_0x206b23++);~_0x292067&&(_0x537263=_0x1c776a%0x4?_0x537263*0x40+_0x292067:_0x292067,_0x1c776a++%0x4)?_0x5cc5a9+=_0xb22e3e||_0x547cf7['charCodeAt'](_0x206b23+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x537263>>(-0x2*_0x1c776a&0x6)):_0x1c776a:0x0){_0x292067=_0x5df1bb['indexOf'](_0x292067);}for(let _0x13ca3e=0x0,_0x44adef=_0x5cc5a9['length'];_0x13ca3e<_0x44adef;_0x13ca3e++){_0x56640b+='%'+('00'+_0x5cc5a9['charCodeAt'](_0x13ca3e)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x56640b);};a0_0x5451['tJMeZe']=_0xfb93bc,a0_0x5451['ToDdKZ']={},a0_0x5451['cDaCAb']=!![];}const _0x4daec3=_0x3f8588[0x0];a0_0x5451['fMbzFy']!==_0x4daec3&&(a0_0x5451['ToDdKZ']={},a0_0x5451['fMbzFy']=_0x4daec3);const _0x545177=a0_0x5451['ToDdKZ'][_0x43637];if(_0x545177===undefined){const _0x3c3a85=function(_0x449a6c){this['tnJbVw']=_0x449a6c,this['GOnrVl']=[0x1,0x0,0x0],this['iUYEeA']=function(){return'newState';},this['hpnbMU']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['mcYUwX']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x3c3a85['prototype']['dDSNjV']=function(){const _0x4870e8=new RegExp(this['hpnbMU']+this['mcYUwX']),_0x57c793=_0x4870e8['test'](this['iUYEeA']['toString']())?--this['GOnrVl'][0x1]:--this['GOnrVl'][0x0];return this['TugWes'](_0x57c793);},_0x3c3a85['prototype']['TugWes']=function(_0x2938a5){if(!Boolean(~_0x2938a5))return _0x2938a5;return this['eGqWbM'](this['tnJbVw']);},_0x3c3a85['prototype']['eGqWbM']=function(_0x3cbf26){for(let _0x4a64c5=0x0,_0x481eeb=this['GOnrVl']['length'];_0x4a64c5<_0x481eeb;_0x4a64c5++){this['GOnrVl']['push'](Math['round'](Math['random']())),_0x481eeb=this['GOnrVl']['length'];}return _0x3cbf26(this['GOnrVl'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x3c3a85(a0_0x5451)['dDSNjV'](),_0x34b679=a0_0x5451['tJMeZe'](_0x34b679),a0_0x5451['ToDdKZ'][_0x43637]=_0x34b679;}else _0x34b679=_0x545177;return _0x34b679;}function leanArgs({headless:headless=![],extra:extra=[]}={}){const _0x2cac19=a0_0x5451,_0x44adef=[_0x2cac19(0x11c),_0x2cac19(0x135),_0x2cac19(0x11d),_0x2cac19(0x116),_0x2cac19(0x127),_0x2cac19(0x12b),_0x2cac19(0x132),_0x2cac19(0x12a),_0x2cac19(0x119),_0x2cac19(0x114),_0x2cac19(0x131),_0x2cac19(0x123),_0x2cac19(0x125),_0x2cac19(0x112),_0x2cac19(0x137),_0x2cac19(0x133),...extra];if(headless)_0x44adef[_0x2cac19(0x11f)](_0x2cac19(0x10f));return _0x44adef;}function sharedBrowserNote(){const _0x3acaf1=a0_0x5451;return[_0x3acaf1(0x11b),_0x3acaf1(0x11a),_0x3acaf1(0x12d),_0x3acaf1(0x113),_0x3acaf1(0x121),'needs\x20a\x20visible,\x20dedicated\x20window.'][_0x3acaf1(0x129)]('\x0a');}module['exports']={'leanArgs':leanArgs,'sharedBrowserNote':sharedBrowserNote};
+// Shared lean launch flags for every CDP browser the toolchain opens.
+//
+// Measured 2026-10-14: 97 chrome.exe processes across the tool’s profiles cost
+// 7.42 GB of RAM (~6.55 GB free left). Each profile spawns ~8-12 processes
+// (browser + renderers + GPU + utility). Two levers matter, in this order:
+//   1) fewer concurrent profiles (the biggest win by far),
+//   2) lean flags per profile — GPU/utility/renderer trimming is worth ~30-40 %.
+//
+// Usage:  const { leanArgs } = require('./chrome-flags');
+//         puppeteer.launch({ args: [...leanArgs(), '--user-data-dir=…'], … })
+'use strict';
+
+/** Flags that cut memory without touching JS execution or rendering fidelity. */
+function leanArgs({ headless = false, extra = [] } = {}) {
+  const args = [
+    '--disable-gpu',
+    '--disable-software-rasterizer',
+    '--disable-dev-shm-usage',
+    '--disable-extensions',
+    '--disable-background-networking',
+    '--disable-background-timer-throttling',
+    '--disable-backgrounding-occluded-windows',
+    '--disable-renderer-backgrounding',
+    '--disable-default-apps',
+    '--disable-sync',
+    '--disable-features=Translate,BackForwardCache,AcceptCHFrame,MediaRouter,OptimizationHints',
+    '--renderer-process-limit=2',
+    '--js-flags=--max-old-space-size=256',
+    '--no-first-run',
+    '--no-default-browser-check',
+    '--mute-audio',
+    ...extra,
+  ];
+  if (headless) args.push('--headless=new');
+  return args;
+}
+
+/** A realistic lower bound: one browser with several isolated contexts. */
+function sharedBrowserNote() {
+  return [
+    'Prefer ONE browser with multiple isolated contexts over one browser per account:',
+    "  const { browserContextId } = await client.send('Target.createBrowserContext', { proxyServer: 'socks5://…' });",
+    "  const { targetId } = await client.send('Target.createTarget', { url, browserContextId });",
+    'Each context has its own cookies/proxy/UA and is invisible to the others, while the',
+    'process tree (and therefore the RAM cost) is shared. Only the captcha phase truly',
+    'needs a visible, dedicated window.',
+  ].join('\n');
+}
+
+module.exports = { leanArgs, sharedBrowserNote };
