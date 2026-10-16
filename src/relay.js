@@ -15,9 +15,10 @@ const fs = require('fs');
 const path = require('path');
 const { parseProxyText, openTunnel } = require('./proxy.js');
 
+const ROOT = path.resolve(__dirname, '..');
 const PORT = parseInt(process.argv[2] || '18130', 10);
-const LIST = process.argv[3] || path.join(__dirname, 'out', 'relay-candidates.txt');
-const OUT_WARM = path.join(__dirname, 'out', 'relay-warm.txt');
+const LIST = process.argv[3] || path.join(ROOT, 'out', 'relay-candidates.txt');
+const OUT_WARM = path.join(ROOT, 'out', 'relay-warm.txt');
 const CONNECT_TIMEOUT_MS = 8000;
 const BUDGET_MS = 25000;
 const BATCH = 3;

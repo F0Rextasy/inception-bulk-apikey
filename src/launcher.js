@@ -3,7 +3,8 @@
 
 /**
  * Interactive launcher for inception-bulk-apikey — a menu over the task modules.
- * Settings persist in launcher.config.json next to this file.
+ * Settings persist in launcher.config.json at the checkout root (beside
+ * proxies.txt and keys.txt).
  */
 
 const fs = require('fs');
@@ -12,10 +13,11 @@ const readline = require('readline');
 const { spawnSync } = require('child_process');
 const { connect9Router, connectKeysFile, readKeys, defaultKeysFile } = require('./connect-9router.js');
 
-const HERE = __dirname;
-const CONFIG = path.join(HERE, 'launcher.config.json');
-const POOL = path.join(HERE, 'proxies.txt');
-const KEYS = path.join(HERE, 'keys.txt');
+const HERE = __dirname; // the task modules live beside this launcher
+const ROOT = path.resolve(__dirname, '..');
+const CONFIG = path.join(ROOT, 'launcher.config.json');
+const POOL = path.join(ROOT, 'proxies.txt');
+const KEYS = path.join(ROOT, 'keys.txt');
 
 const defaults = { count: 30, conc: 2 };
 let cfg = { ...defaults };
@@ -27,12 +29,12 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 const ask = (q, fb) => new Promise((r) => rl.question(q + (fb !== undefined ? ' [' + fb + ']' : '') + ': ', (a) => r(String(a).trim() || fb)));
 
 const LOGO = String.raw`
-  ███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗████████╗ █████╗ ███████╗██╗   ██╗
-  ██╔════╝██╔═████╗██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔════╝╚██╗ ██╔╝
-  █████╗  ██║██╔██║██████╔╝█████╗   ╚███╔╝    ██║   ███████║███████╗ ╚████╔╝
-  ██╔══╝  ██║████╔╝██╔══██╗██╔══╝   ██╔██╗    ██║   ██╔══██║╚════██║  ╚██╔╝
-  ██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗   ██║   ██║  ██║███████║   ██║
-  ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝   ╚═╝`;
+  ██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+  ██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+  ██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
+  ██║██║╚██╗██║██║     ██╔══╝  ██╔═══╝    ██║   ██║██║   ██║██║╚██╗██║
+  ██║██║ ╚████║╚██████╗███████╗██║        ██║   ██║╚██████╔╝██║ ╚████║
+  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝`;
 
 function banner() {
   const w = 78;
@@ -47,7 +49,7 @@ function banner() {
 const count = (f) => { try { return fs.readFileSync(f, 'utf8').split(/\r?\n/).filter((l) => l.trim() && !l.trim().startsWith('#')).length; } catch (e) { return 0; } };
 
 function run(args) {
-  console.log('\n▶ node ' + args.join(' ') + '\n');
+  console.log('\n▶ node src/' + args.join(' ') + '\n');
   const r = spawnSync(process.execPath, args, { windowsHide: true, cwd: HERE, stdio: 'inherit' });
   if (r.status !== 0) console.log('\n⚠ exited with code ' + r.status);
 }

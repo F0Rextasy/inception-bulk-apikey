@@ -11,10 +11,9 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { request, ensureOut, proxyLib, mapLimit, sleep } = require('./lib');
+const { ROOT, request, ensureOut, proxyLib, mapLimit, sleep } = require('./lib');
 
-const HERE = path.join(__dirname);
-const KEYS_FILE = path.join(HERE, 'keys.txt');
+const KEYS_FILE = path.join(ROOT, 'keys.txt');
 const OUT = ensureOut();
 const API = 'https://api.inceptionlabs.ai/v1';
 
@@ -25,7 +24,7 @@ const CHAT_LIMIT = parseInt(arg('--chat', '30'), 10);
 
 function apiExits() {
   const out = [];
-  for (const f of [path.join(__dirname, 'proxies.txt'), path.join(OUT, 'api-live.txt'), path.join(OUT, 'api-live.jsonl')]) {
+  for (const f of [path.join(ROOT, 'proxies.txt'), path.join(OUT, 'api-live.txt'), path.join(OUT, 'api-live.jsonl')]) {
     if (!fs.existsSync(f)) continue;
     for (const line of fs.readFileSync(f, 'utf8').split(/\r?\n/)) {
       const p = line.split('\t')[0].trim();

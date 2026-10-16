@@ -16,7 +16,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { request, ensureOut, proxyLib } = require('./lib');
+const { ROOT, request, ensureOut, proxyLib } = require('./lib');
 
 const OUT = ensureOut();
 const STATE_FILE = path.join(OUT, 'exit-state.json');
@@ -25,11 +25,10 @@ const STATE_FILE = path.join(OUT, 'exit-state.json');
 // reachers stay as the fallback tail. `token-capable` first is unchanged.
 const RES_FILES = [
   process.env.RESIDENTIAL_PROXIES,
-  path.join(__dirname, 'out', 'residential-proxies.txt'),
   path.join(OUT, 'residential-proxies.txt'),
 ].filter((f) => f && fs.existsSync(f));
 const POOL_FILES = [
-  path.join(__dirname, 'proxies.txt'),
+  path.join(ROOT, 'proxies.txt'),
   ...RES_FILES,
   path.join(OUT, 'token-capable.txt'), // exits where the Turnstile widget actually solved (rarest, best)
   path.join(OUT, 'platform-429.txt'), // router-injected reachers + own screen hits

@@ -11,12 +11,12 @@
  * or connection is reused), and 9Router load-balances across the keys of a node.
  *
  * Usage:
- *   node connect-9router.js \
+ *   node src/connect-9router.js \
  *     --base http://localhost:20128 --password 123456 \
  *     --api-key sk-xxxx [--name "Inception Labs"] [--prefix inception]
  *
- *   node connect-9router.js                  # register every key in keys.txt
- *   node connect-9router.js --model <id>     # pin the connection's default model
+ *   node src/connect-9router.js                  # register every key in keys.txt
+ *   node src/connect-9router.js --model <id>     # pin the connection's default model
  *
  * Options:
  *   --base <url>       9Router base URL         (default http://localhost:20128)
@@ -145,13 +145,9 @@ async function connect9Router(opts = {}) {
   return connection;
 }
 
-/** `keys.txt` beside this file, else one level up (the layout the tools run in). */
+/** `keys.txt` at the checkout root — the file mint.js and launcher.js use. */
 function defaultKeysFile() {
-  const beside = path.join(__dirname, 'keys.txt');
-  if (fs.existsSync(beside)) return beside;
-  const up = path.join(__dirname, '..', 'keys.txt');
-  if (fs.existsSync(up)) return up;
-  return beside;
+  return path.join(path.resolve(__dirname, '..'), 'keys.txt');
 }
 
 function readKeys(keysFile = defaultKeysFile()) {

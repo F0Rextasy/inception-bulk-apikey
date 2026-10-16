@@ -28,13 +28,12 @@ const crypto = require('crypto');
 const B = require('./browser');
 const mail = require('./mail');
 const { ExitSupply } = require('./exits');
-const { ensureOut, proxyLib, sleep, request, mapLimit } = require('./lib');
+const { ROOT, ensureOut, proxyLib, sleep, request, mapLimit } = require('./lib');
 
-const HERE = path.join(__dirname);
 const OUT = ensureOut();
-const KEYS_FILE = path.join(HERE, 'keys.txt');
+const KEYS_FILE = path.join(ROOT, 'keys.txt');
 const MIRROR_FILE = path.join(os.homedir(), 'inception-keys.txt');
-const ACCOUNTS_FILE = path.join(HERE, 'accounts.json');
+const ACCOUNTS_FILE = path.join(ROOT, 'accounts.json');
 const STATE_FILE = path.join(OUT, 'mint-state.json');
 const LOG_FILE = path.join(OUT, 'mint.log');
 

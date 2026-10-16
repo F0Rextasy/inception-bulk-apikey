@@ -6,14 +6,15 @@
  */
 const fs = require('fs');
 const path = require('path');
-const OUT = path.join(__dirname, 'out');
+const ROOT = path.resolve(__dirname, '..');
+const OUT = path.join(ROOT, 'out');
 const FILES = [
-  '../proxies.txt',
+  path.join(ROOT, 'proxies.txt'),
   path.join(OUT, 'platform-429.txt'),
   path.join(OUT, 'api-live.txt'),
   path.join(OUT, 'warm-platform.txt'),
-  path.join(__dirname, 'out', 'union-live.txt'),
-  path.join(__dirname, 'out', 'router.tsv'),
+  path.join(OUT, 'union-live.txt'),
+  path.join(OUT, 'router.tsv'),
 ];
 const seen = new Set();
 const out = [];

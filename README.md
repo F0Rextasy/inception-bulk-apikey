@@ -1,12 +1,12 @@
 <div align="center">
 
 ```
-███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗████████╗ █████╗ ███████╗██╗   ██╗
-██╔════╝██╔═████╗██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔════╝╚██╗ ██╔╝
-█████╗  ██║██╔██║██████╔╝█████╗   ╚███╔╝    ██║   ███████║███████╗ ╚████╔╝
-██╔══╝  ██║████╔╝██╔══██╗██╔══╝   ██╔██╗    ██║   ██╔══██║╚════██║  ╚██╔╝
-██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗   ██║   ██║  ██║███████║   ██║
-╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝   ╚═╝
+██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
+██║██║╚██╗██║██║     ██╔══╝  ██╔═══╝    ██║   ██║██║   ██║██║╚██╗██║
+██║██║ ╚████║╚██████╗███████╗██║        ██║   ██║╚██████╔╝██║ ╚████║
+╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
  ┌────────────────────────────────────────────────────────────────────────┐
  │ inception-bulk-apikey contributors   ·   one account → one key          │
  └────────────────────────────────────────────────────────────────────────┘
@@ -14,7 +14,7 @@
 
 # inception-bulk-apikey
 
-**Bulk-create [Inception Labs](https://platform.inceptionlabs.ai) (Mercury) accounts with auto-generated API keys — OpenAI-compatible inference + 9Router connector.**
+**Bulk-create [Inception Labs](https://platform.inceptionlabs.ai) (Mercury) accounts with auto-generated API keys — OpenAI-compatible inference + [9Router](https://9router.com) connector.**
 
 [![Node](https://img.shields.io/badge/Node-%E2%89%A518-3DA639?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-blue?style=for-the-badge)](#)
@@ -96,11 +96,11 @@ printf 'socks5://127.0.0.1:1080\n' > proxies.txt
 # 2) a mailbox broker on loopback — default 127.0.0.1:9700, fallback :9701 (contract below)
 
 # 3) go
-node launcher.js                 # interactive menu: mint / finish / verify / screen / settings
+node src/launcher.js                 # interactive menu: mint / finish / verify / screen / settings
 # or drive it directly:
-node cli.js mint   --count 30    # fresh accounts, one key each
-node cli.js verify --chat        # re-verify keys.txt (models + one chat completion each)
-node cli.js screen --limit 400   # keep only proxy exits that reach the provider right now
+node src/cli.js mint   --count 30    # fresh accounts, one key each
+node src/cli.js verify --chat        # re-verify keys.txt (models + one chat completion each)
+node src/cli.js screen --limit 400   # keep only proxy exits that reach the provider right now
 ```
 
 What lands on disk while it runs:
@@ -140,7 +140,7 @@ A key is written to `keys.txt` only after the live API answers with it:
 | real generation | `POST https://api.inceptionlabs.ai/v1/chat/completions` (`mercury-2.5`) | `200` |
 
 The verifier gates on both `200`s — a `401`/`403` on either call fails the key immediately, and
-anything else (network, other statuses) retries on another exit, up to 6 attempts. `node cli.js
+anything else (network, other statuses) retries on another exit, up to 6 attempts. `node src/cli.js
 verify --chat` reproduces exactly that check for your own file at any time.
 
 ### Finishing or rescuing an account by hand
@@ -149,14 +149,14 @@ verify --chat` reproduces exactly that check for your own file at any time.
 # drive the key half for one already-created account (verify link → sign-in → /dashboard/api-keys →
 # create key), dumping each step's DOM + screenshot + wire log into out/ — the create-key response
 # carries the plaintext key
-node cli.js finish --email <addr> --password <pw> [--verify "<link>"]
+node src/cli.js finish --email <addr> --password <pw> [--verify "<link>"]
 
 # the password-reset rescue for an account whose password was lost mid-flow:
 # forgot-password → mail → single-use reset link → new password → sign-in → create key
-node rescue-reset.js --email <addr> --box <broker box> [--exit "<line>"] [--port 9967]
+node src/rescue-reset.js --email <addr> --box <broker box> [--exit "<line>"] [--port 9967]
 
 # attach a second CDP client to the still-open mint browser and finish "Create API Key" on it
-node rescue-ui.js --port <mint port> [--create]
+node src/rescue-ui.js --port <mint port> [--create]
 ```
 
 ## 🧭 How it works
@@ -186,11 +186,11 @@ Operational notes:
 ## ⚙️ Options
 
 ```bash
-node cli.js mint   --count 30       # fresh accounts, one key each
-node cli.js finish --email … --password …   # the key half for one existing account
-node cli.js verify --chat           # re-check keys.txt (models + chat)
-node cli.js screen --limit 400      # exits that reach the provider right now
-node cli.js help                    # tasks and flags
+node src/cli.js mint   --count 30       # fresh accounts, one key each
+node src/cli.js finish --email … --password …   # the key half for one existing account
+node src/cli.js verify --chat           # re-check keys.txt (models + chat)
+node src/cli.js screen --limit 400      # exits that reach the provider right now
+node src/cli.js help                    # tasks and flags
 ```
 
 | task | flags |
@@ -200,11 +200,11 @@ node cli.js help                    # tasks and flags
 | `verify` | `--model <id>` (`mercury-2.5`) · `--chat N` (the first N keys also get a chat completion, `30`) · `--only <key>` (check one key instead of the whole file) |
 | `screen` | `--url <page>` (`https://platform.inceptionlabs.ai/login`) · `--out <file>` · `--concurrency N` (`8`) · `--timeout N` ms (`30000`) · `--limit N` (`1000`) · `--ok-min` / `--ok-max` (`200` / `399`) |
 
-Every task prints its own flags — ask it directly: `node mint.js --help`. `node launcher.js` drives
+Every task prints its own flags — ask it directly: `node src/mint.js --help`. `node src/launcher.js` drives
 the same tasks with a menu and stores what you answer in `launcher.config.json`.
 
 Any task also takes `--connect-9router`: when it finishes, every key in `keys.txt` is registered
-into a running 9Router (`node connect-9router.js --help`).
+into a running 9Router (`node src/connect-9router.js --help`).
 
 ## 🛰️ Behind a proxy
 
@@ -238,7 +238,7 @@ OpenAI-compatible endpoint (`https://api.inceptionlabs.ai/v1`), so register it o
 you minted becomes a connection under one provider-node — 9Router load-balances across them:
 
 ```bash
-node connect-9router.js \
+node src/connect-9router.js \
   --base http://localhost:20128 --password 123456 \
   --api-key sk-xxxxxxxx
 ```
@@ -257,8 +257,8 @@ inception/mercury-2
 inception/mercury-decide
 ```
 
-`node cli.js verify --chat --connect-9router` re-checks `keys.txt` and registers it in one pass, and
-`node launcher.js` drives the same flow from its menu. Registering a key does not touch the account,
+`node src/cli.js verify --chat --connect-9router` re-checks `keys.txt` and registers it in one pass, and
+`node src/launcher.js` drives the same flow from its menu. Registering a key does not touch the account,
 the mailbox or the exit — the connector only talks to 9Router.
 
 ## 🐞 Issues

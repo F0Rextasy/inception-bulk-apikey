@@ -14,10 +14,10 @@ const http = require('http');
 const { URL } = require('url');
 const proxyLib = require('./proxy');
 
-const HERE = __dirname;
-const OUT = path.join(HERE, '..', 'out');
-
-const WAKE = path.join(__dirname, 'out');
+// Everything user-facing (proxies.txt, keys.txt, accounts.json, out/) lives at
+// the checkout root, one level above src/.
+const ROOT = path.resolve(__dirname, '..');
+const OUT = path.join(ROOT, 'out');
 
 /**
  * Private-proxy class support: when a purchased list lands (RESIDENTIAL_PROXIES
@@ -26,14 +26,13 @@ const WAKE = path.join(__dirname, 'out');
  */
 function residentialFiles() {
   const fs = require('fs');
-  const cands = [process.env.RESIDENTIAL_PROXIES, path.join(WAKE, 'residential-proxies.txt'), path.join(OUT, 'residential-proxies.txt')];
+  const cands = [process.env.RESIDENTIAL_PROXIES, path.join(OUT, 'residential-proxies.txt')];
   return cands.filter((f) => f && fs.existsSync(f));
 }
 
 function poolFiles({ includeRouter = true } = {}) {
-  const files = [
-  path.join(__dirname, 'proxies.txt'),...residentialFiles(), path.join(WAKE, 'union-live.txt')];
-  if (includeRouter) files.push(path.join(WAKE, 'router.tsv'));
+  const files = [path.join(ROOT, 'proxies.txt'), ...residentialFiles(), path.join(OUT, 'union-live.txt')];
+  if (includeRouter) files.push(path.join(OUT, 'router.tsv'));
   return files;
 }
 
@@ -141,4 +140,4 @@ function ensureOut() {
   return OUT;
 }
 
-module.exports = { HERE, OUT, pool, request, sleep, mapLimit, ensureOut, proxyLib };
+module.exports = { ROOT, OUT, pool, request, sleep, mapLimit, ensureOut, proxyLib };
