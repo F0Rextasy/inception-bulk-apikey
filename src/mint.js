@@ -29,6 +29,8 @@ const B = require('./browser');
 const mail = require('./mail');
 const { ExitSupply } = require('./exits');
 const { ROOT, ensureOut, proxyLib, sleep, request, mapLimit } = require('./lib');
+const fp = require('./fp');
+const { presetArgv, resolvePreset } = require('./preset');
 
 const OUT = ensureOut();
 const KEYS_FILE = path.join(ROOT, 'keys.txt');
@@ -41,9 +43,29 @@ const argv = process.argv.slice(2);
 const arg = (name, dflt) => (argv.includes(name) ? argv[argv.indexOf(name) + 1] : dflt);
 
 const COUNT = parseInt(arg('--count', '30'), 10);
-const WORKERS = Math.max(1, Math.min(parseInt(arg('--workers', '3'), 10), 4));
+// Run shape (operator standard v3): `--preset` sets how many accounts run at a
+// time and the pause between them; an explicit --workers/--conc/--gap wins, and
+// with no --preset the run keeps its measured 3 workers (cap 4: one Chrome).
+const eqArg = (n) => {
+  const h = argv.find((a) => a.startsWith(`${n}=`));
+  return h ? h.slice(n.length + 1) : null;
+};
+const SHAPE = resolvePreset({
+  preset: presetArgv(argv) || arg('--preset', null),
+  conc: arg('--conc', null) || eqArg('--conc'),
+  gap: arg('--gap', null) || eqArg('--gap'),
+  defaultConc: 3,
+  defaultGap: 0,
+});
+const WORKERS = Math.max(1, Math.min(parseInt(arg('--workers', String(SHAPE.conc)), 10), 4));
+const GAP_MS = Math.max(0, Math.round((SHAPE.gap == null ? 0 : SHAPE.gap) * 1000));
+// Headless stays opt-in: this flow was measured headed (Vercel checkpoint +
+// self-solving Turnstile). `--headless` (or SD_HEADLESS=1) switches the bursts
+// over, and every context still carries its own UA/viewport/timezone/locale.
+const HEADLESS = !process.argv.includes('--headed') && (process.argv.includes('--headless') || /^(1|true|yes)$/i.test(process.env.SD_HEADLESS || ''));
 const START = parseInt(arg('--start', '0'), 10);
 const PORT = parseInt(arg('--port', '9930'), 10);
+const PROFILE_DIR = path.join(OUT, `chrome-${PORT}`);
 const BROKER = `http://127.0.0.1:${arg('--broker', '9700')}`;
 const FALLBACK_BROKER = `http://127.0.0.1:${arg('--fallback-broker', '9701')}`;
 const MAIL_WAIT = parseInt(arg('--mail-wait', '300000'), 10);
@@ -158,11 +180,17 @@ function withTimeout(promise, ms, label) {
 const REUSE_MAX = parseInt(process.env.INCEPTION_REUSE_MAX || '3', 10);
 const recentGood = [];
 
+// Every Chrome context of a run gets its own combination (spec §3): one run-wide
+// sequence keeps the first 256 contexts distinct, `SD_UA`/`SD_UA_POOL` pin it.
+let fpSeq = 0;
+const nextFingerprint = () => fp.forIndex(++fpSeq);
+
 async function freshContext(supply, cdp, { exclude, rounds = 3 } = {}) {
+  const fingerprint = nextFingerprint();
   if (FIXED_EXIT) {
     const pinned = proxyLib.parseProxy(FIXED_EXIT);
     if (pinned) {
-      const info = await B.openContext(cdp, pinned);
+      const info = await B.openContext(cdp, pinned, { fingerprint });
       info.exit = { proxy: pinned, status: 'relay', ms: 0 };
       return info;
     }
@@ -180,14 +208,14 @@ async function freshContext(supply, cdp, { exclude, rounds = 3 } = {}) {
       continue;
     }
     entry.uses++;
-    const info = await B.openContext(cdp, entry.proxy);
+    const info = await B.openContext(cdp, entry.proxy, { fingerprint });
     info.exit = { ...hit, reused: entry.uses };
     return info;
   }
   for (let i = 1; i <= rounds; i++) {
     const [hit] = await supply.acquire(1, { maxProbe: 40, exclude });
     if (hit) {
-      const info = await B.openContext(cdp, hit.proxy);
+      const info = await B.openContext(cdp, hit.proxy, { fingerprint });
       info.exit = hit;
       return info;
     }
@@ -669,7 +697,7 @@ const PENDING_FILE = path.join(OUT, 'pending.json');
 
 (async () => {
   log(`mint start count=${COUNT} workers=${WORKERS} start=${START} chrome=${PORT} broker=${BROKER}`);
-  B.launchChrome(PORT, path.join(OUT, `chrome-${PORT}`));
+  const chromePid = B.launchChrome(PORT, PROFILE_DIR, { headless: HEADLESS });
   const cdp = await B.connect(PORT);
   const supply = new ExitSupply();
 
@@ -768,12 +796,18 @@ const PENDING_FILE = path.join(OUT, 'pending.json');
       if (idx === undefined) return;
       attempted++;
       const t0 = Date.now();
+      console.log(`… #${idx} başladı (${FIXED_EXIT ? proxyLib.label(proxyLib.parseProxy(FIXED_EXIT)) : 'pool exits'})`);
       const r = await withTimeout(runAccount(supply, cdp, slot), 600000, 'account').catch((e) => ({ status: 'hang', note: String(e.message || e).slice(0, 160) }));
       if (r.status === 'hang' || r.status === 'throw') {
         const reaped = await B.reapOrphans(cdp).catch(() => 0);
         log(`slot${slot}: reaped ${reaped} leaked context(s)`);
       }
-      if (r.status === 'ok') ok++;
+      if (r.status === 'ok') {
+        ok++;
+        console.log(`✓ #${idx} KEY ALINDI: ${(r.record && r.record.keyPrefix) || '(key)'} [${ok} ok / ${attempted} deneme]`);
+      } else {
+        console.log(`✗ #${idx} key yok: ${r.status}`);
+      }
       if (r.status === 'pending-mail' && r.pending) {
         pending.push(r.pending);
         savePending();
@@ -786,6 +820,7 @@ const PENDING_FILE = path.join(OUT, 'pending.json');
       log(`progress: slot${slot} idx=${idx} ${r.status} ok=${ok}/${attempted} pending=${pending.length} ${Math.round((Date.now() - t0) / 1000)}s`);
       // Between registrations, collect whatever mail already landed.
       await sweepPending(slot).catch((e) => log(`sweep error: ${String((e && e.message) || e).slice(0, 120)}`));
+      if (GAP_MS) await sleep(GAP_MS);
     }
   };
 
@@ -800,7 +835,18 @@ const PENDING_FILE = path.join(OUT, 'pending.json');
   }
 
   log(`mint done: ok=${ok} attempted=${attempted} pending-left=${pending.length}`);
+  console.log(`INCEPTION ${ok}/${attempted} OK`);
   for (const r of results) log(`  ${r.idx} ${r.status} ${r.record ? r.record.email : r.note || ''}`);
+  // Clean close (spec §3): stop the Chrome this run started and drop its profile.
+  if (!process.argv.includes('--keep-profile')) {
+    try {
+      process.kill(chromePid);
+    } catch {}
+    await sleep(800);
+    try {
+      fs.rmSync(PROFILE_DIR, { recursive: true, force: true });
+    } catch {}
+  }
   process.exit(0);
 })().catch((e) => {
   log(`FATAL ${(e && e.stack) || e}`);

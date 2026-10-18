@@ -19,13 +19,17 @@ const { spawn } = require('child_process');
 const { CDP } = require('./cdp');
 const proxyLib = require('./proxy');
 
-const CHROME = process.env.CHROME_PATH || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+const CHROME = process.env.SD_CHROME || process.env.CHROME_PATH || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function launchChrome(port, profileDir, { headless = false } = {}) {
   fs.mkdirSync(profileDir, { recursive: true });
   const flags = [
     headless ? '--headless=new' : '--start-maximized',
+    '--renderer-process-limit=2',
+    '--js-flags=--max-old-space-size=256',
+    '--disable-gpu',
+    '--disable-dev-shm-usage',
     '--disable-features=Translate,MediaRouter,OptimizationHints',
     '--disable-background-networking',
     '--disable-component-update',
@@ -44,9 +48,25 @@ function launchChrome(port, profileDir, { headless = false } = {}) {
     `--user-data-dir=${profileDir}`,
     'about:blank',
   ];
-  const child = spawn(CHROME, flags, { detached: true, stdio: 'ignore', windowsHide: true });
+  // `chrome-headless-shell` is optional: point SD_CHROME_HEADLESS_SHELL at it.
+  const bin = headless && process.env.SD_CHROME_HEADLESS_SHELL ? process.env.SD_CHROME_HEADLESS_SHELL : CHROME;
+  const child = spawn(bin, flags, { detached: true, stdio: 'ignore', windowsHide: true });
   child.unref();
   return child.pid;
+}
+
+/**
+ * Per-context emulation so every account of a run carries its own UA, viewport,
+ * timezone and locale (spec §3: no two contexts share a combination).
+ */
+async function applyFingerprint(cdp, sessionId, fp) {
+  if (!fp) return;
+  await cdp
+    .send('Network.setUserAgentOverride', { userAgent: fp.ua, acceptLanguage: fp.languages.join(','), platform: fp.platform }, sessionId)
+    .catch(() => {});
+  await cdp.send('Emulation.setDeviceMetricsOverride', { width: fp.width, height: fp.height, deviceScaleFactor: 1, mobile: false }, sessionId).catch(() => {});
+  await cdp.send('Emulation.setTimezoneOverride', { timezoneId: fp.timezone }, sessionId).catch(() => {});
+  await cdp.send('Emulation.setLocaleOverride', { locale: fp.languages[0] }, sessionId).catch(() => {});
 }
 
 async function waitForPort(port, timeoutMs = 60000) {
@@ -233,13 +253,15 @@ class Page {
  * buffer (`net.reqs` = every request with its status, `net.responses` bodies
  * fetched on demand).
  */
-async function openContext(cdp, proxy, { capture = /.*/, blockAnalytics = true } = {}) {
+async function openContext(cdp, proxy, { capture = /.*/, blockAnalytics = true, fingerprint = null } = {}) {
   const ctx = await cdp.createBrowserContext(proxy ? { proxyServer: proxyLib.browserUrl(proxy) } : {});
   liveContexts.add(ctx);
   const { targetId, sessionId } = await cdp.newPage({ browserContextId: ctx, url: 'about:blank' });
   for (const domain of ['Page', 'Runtime', 'Network', 'DOM']) {
     await cdp.send(`${domain}.enable`, {}, sessionId);
   }
+  // Every context carries its own UA/viewport/timezone/locale (spec §3).
+  await applyFingerprint(cdp, sessionId, fingerprint);
   if (blockAnalytics) {
     // Third-party analytics are pure noise for a 30 s burst on a flaky exit —
     // and they must not leak out of the exit, so they are blocked, not bypassed.
@@ -349,4 +371,4 @@ async function reapOrphans(cdp) {
   return reaped;
 }
 
-module.exports = { CHROME, launchChrome, waitForPort, connect, openContext, closeContext, reapOrphans, liveContexts, Page, sleep };
+module.exports = { CHROME, launchChrome, waitForPort, connect, openContext, closeContext, reapOrphans, liveContexts, Page, sleep, applyFingerprint };
