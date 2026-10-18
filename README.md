@@ -24,6 +24,12 @@
 
 </div>
 
+<div align="center">
+
+**English** · [Türkçe](README.tr.md) · [中文](README.cn.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
+
+</div>
+
 ---
 
 ## ✨ Why this exists
@@ -68,11 +74,9 @@ node src/cli.js verify --chat 30     # every key in keys.txt is re-tested (model
 
 `models.json` is the live `GET /v1/models` answer of a minted key — **3 ids**:
 
-| id | note |
-| --- | --- |
-| `mercury-2` | the first diffusion LLM; 128k context, 50k max output; tools / JSON mode / structured outputs |
-| `mercury-2.5` | 260k context, 64k max output; **the verifier's default chat model** |
-| `mercury-decide` | typed-decision preview; `decisions` endpoint only — not chat |
+|Model|✓|
+|---|---|
+|`mercury-2.5`|✓|
 
 Live probe of one key (exactly what the verifier does):
 
@@ -184,7 +188,7 @@ node src/cli.js help                    # tasks and flags
 
 | task | flags |
 | --- | --- |
-| `mint` | `--count N` (`30`) · `--workers N` (default `3`, max `4`) · `--broker N` (`9700`) · `--fallback-broker N` (`9701`) · `--mail-wait N` ms (`300000`) · `--pending-total N` ms (`2400000`) · `--burst-wait N` ms (`75000`) · `--model <id>` (`mercury-2.5`) · `--stop-keys N` (stop once `keys.txt` holds N; `0` = run the whole count) · `--exit-relay <url>` (pin every burst on one fixed exit) · `--port N` (Chrome CDP port, `9930`) |
+| `mint` | `--count 30·--workers 3 (max 4)·--broker 9700·--fallback-broker 9701·--mail-wait 300000ms·--pending-total 2400000ms·--burst-wait 75000ms·--model mercury-2.5·--stop-keys N (0 = whole count)·--exit-relay (pins bursts to one exit)·--port 9930 (CDP)` |
 | `finish` | `--email <addr>` · `--password <pw>` · `--verify <link>` (consume the verify link first; omit to go straight to sign-in) · `--tag <name>` (dump prefix, `f1`) · `--port N` (`9925`) |
 | `verify` | `--model <id>` (`mercury-2.5`) · `--chat N` (the first N keys also get a chat completion, `30`) · `--only <key>` (check one key instead of the whole file) |
 | `screen` | `--url <page>` (`https://platform.inceptionlabs.ai/login`) · `--out <file>` · `--concurrency N` (`8`) · `--timeout N` ms (`30000`) · `--limit N` (`1000`) · `--ok-min` / `--ok-max` (`200` / `399`) |
