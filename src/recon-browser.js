@@ -5,7 +5,7 @@
  * and what does the register page actually want? Dumps DOM, network trace,
  * cookies and a screenshot so the HTTP-only path (if any) can be derived.
  *
- *   node src/recon-browser.js --proxy http://1.2.3.4:8080 [--url .../auth/register]
+ *   node src/recon-browser.js [--proxy http://1.2.3.4:8080] [--url .../auth/register]
  */
 
 const fs = require('fs');
@@ -24,8 +24,7 @@ const OUT = ensureOut();
 const TAG = arg('--tag', 'r1');
 
 (async () => {
-  if (!PROXY) throw new Error('--proxy required');
-  const proxy = proxyLib.parseProxy(PROXY);
+  const proxy = PROXY ? proxyLib.parseProxy(PROXY) : null; // no --proxy = direct
   const profile = path.join(OUT, `chrome-${PORT}`);
   console.log(`launching chrome port=${PORT} profile=${profile}`);
   B.launchChrome(PORT, profile, { headless: args.includes('--headless') });

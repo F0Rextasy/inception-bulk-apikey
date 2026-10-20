@@ -44,7 +44,10 @@ const done = doneSet();
 const all = pool();
 const todo = all.filter((p) => !done.has(proxyLib.label(p))).slice(0, LIMIT);
 
-console.log(`pool=${all.length} already=${done.size} probing=${todo.length} -> ${OUT_FILE}`);
+// No pool on disk = DIRECT mode: measure the direct route instead of nothing
+// (`null` is the direct sentinel, exactly as in exits.js).
+const QUEUE = all.length ? todo : [null];
+console.log(`pool=${all.length} already=${done.size} probing=${todo.length}${all.length ? '' : ' (no pool — screening the direct route)'} -> ${OUT_FILE}`);
 
 const append = (file, text) => fs.appendFileSync(file, text);
 
@@ -53,7 +56,7 @@ let fail = 0;
 
 (async () => {
   const t0 = Date.now();
-  await mapLimit(todo, CONC, async (proxy, i) => {
+  await mapLimit(QUEUE, CONC, async (proxy, i) => {
     const label = proxyLib.label(proxy);
     try {
       const res = await request(proxy, URL_, { timeoutMs: TIMEOUT, connectTimeoutMs: 8000, headers: { accept: 'text/html' } });
@@ -74,7 +77,7 @@ let fail = 0;
       append(LOG_FILE, JSON.stringify({ proxy: label, error: String(e.message || e).slice(0, 160), ms: Date.now() - t0 }) + '\n');
     }
   });
-  console.log(`DONE ok=${ok} fail=${fail} of ${todo.length} in ${Math.round((Date.now() - t0) / 1000)}s`);
+  console.log(`DONE ok=${ok} fail=${fail} of ${QUEUE.length} in ${Math.round((Date.now() - t0) / 1000)}s`);
 })().catch((e) => {
   console.error('FATAL', e);
   process.exit(1);

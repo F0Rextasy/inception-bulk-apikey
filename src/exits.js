@@ -10,6 +10,11 @@
  * that has *just* been probed at the point of use; dead lines cost one 20 s
  * probe, never a phase.
  *
+ * The pool is OPTIONAL: when no pool file carries a usable exit, the supply
+ * hands out a single `{ proxy: null }` hit, which every caller reads as "run
+ * without a proxy (direct)". A pool is recommended at scale (per-IP limits,
+ * bans) but nothing here requires one.
+ *
  * State (probes, burns, per-exit outcomes) is persisted so a restart keeps the
  * knowledge and does not re-probe known corpses.
  */
@@ -55,6 +60,9 @@ function saveState(state) {
     fs.writeFileSync(STATE_FILE, JSON.stringify(state));
   } catch {}
 }
+
+/** `{ proxy: null }` is the direct sentinel: no pool, so the browser goes out untunnelled. */
+const directHit = () => ({ proxy: null, status: 'direct', ms: 0 });
 
 function readPool() {
   const seen = new Set();
@@ -154,6 +162,7 @@ class ExitSupply {
 
   /** Probes until an exit answers the platform host; returns { proxy, status, ms }. */
   async probeOne(proxy, url = PROBE_URL) {
+    if (!proxy) return directHit(); // no pool = direct mode
     const t0 = Date.now();
     try {
       const r = await request(proxy, url, { timeoutMs: this.probeTimeoutMs, connectTimeoutMs: 8000 });
@@ -189,6 +198,9 @@ class ExitSupply {
    */
   async acquire(need = 1, { maxProbe = 12, exclude = new Set(), conc = 6 } = {}) {
     this.reload();
+    // No pool on disk = DIRECT mode: open the browser untunnelled instead of
+    // failing the run. Put exits in proxies.txt (or pass --pool) to rotate.
+    if (!this.pool.length) return [directHit()];
     const cands = this.candidates({ exclude }).slice(0, maxProbe);
     const found = [];
     let i = 0;

@@ -517,7 +517,9 @@ async function verifyKey(key, { attempts = 6 } = {}) {
   const exits = apiExits();
   // The api host (CloudFront, no checkpoint) is the one place WARP is always
   // healthy, and the stored api-live pool goes stale within hours. Try WARP
-  // first, then the pool. INCEPTION_VERIFY_EXIT overrides the fixed exit.
+  // first, then the pool. INCEPTION_VERIFY_EXIT overrides the fixed exit, and a
+  // call with no exit at all (no WARP, no pool line) goes out directly — the
+  // pool is optional here.
   const fixed = proxyLib.parseProxy(process.env.INCEPTION_VERIFY_EXIT || 'socks5://127.0.0.1:40000');
   const order = fixed ? [fixed] : [];
   const errors = [];
@@ -796,7 +798,7 @@ const PENDING_FILE = path.join(OUT, 'pending.json');
       if (idx === undefined) return;
       attempted++;
       const t0 = Date.now();
-      console.log(`… #${idx} başladı (${FIXED_EXIT ? proxyLib.label(proxyLib.parseProxy(FIXED_EXIT)) : 'pool exits'})`);
+      console.log(`… #${idx} başladı (${FIXED_EXIT ? proxyLib.label(proxyLib.parseProxy(FIXED_EXIT)) : 'pool/DIRECT exits'})`);
       const r = await withTimeout(runAccount(supply, cdp, slot), 600000, 'account').catch((e) => ({ status: 'hang', note: String(e.message || e).slice(0, 160) }));
       if (r.status === 'hang' || r.status === 'throw') {
         const reaped = await B.reapOrphans(cdp).catch(() => 0);

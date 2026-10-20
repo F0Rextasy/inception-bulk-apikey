@@ -4,8 +4,9 @@
  * Standalone re-verifier: every key in keys.txt gets `GET /v1/models` and one
  * tiny chat completion through api.inceptionlabs.ai (CloudFront — no Vercel
  * checkpoint on this host, so plain HTTP through an api-capable exit works).
+ * The proxy pool is OPTIONAL: without one the calls leave this machine
+ * directly (a pool is recommended at scale).
  *
- *   node src/verify-keys.js [--model mercury-2] [--only <key>] [--chat 30]
  */
 
 const fs = require('fs');
@@ -38,11 +39,12 @@ function apiExits() {
 
 async function withExit(fn, { attempts = 8 } = {}) {
   const exits = apiExits();
-  // A fixed exit via INCEPTION_VERIFY_EXIT wins; otherwise everything goes through
-  // the pool in proxies.txt. No implicit local exit.
+  // A fixed exit via INCEPTION_VERIFY_EXIT wins; otherwise everything goes
+  // through the pool in proxies.txt. With neither, the call goes out directly —
+  // a pool is recommended at scale, but nothing here requires one.
   const fixed = process.env.INCEPTION_VERIFY_EXIT ? proxyLib.parseProxy(process.env.INCEPTION_VERIFY_EXIT) : null;
   const order = fixed ? [fixed] : [];
-  if (!order.length && !exits.length) throw new Error('no exits: add proxy lines to proxies.txt or set INCEPTION_VERIFY_EXIT');
+  if (!order.length && !exits.length) console.log('no exit list — verifying WITHOUT a proxy (direct)');
   let lastErr = null;
   for (let i = 0; i < attempts; i++) {
     const proxy = order.length ? order.shift() : exits.length ? exits[crypto.randomInt(0, exits.length)] : null;
@@ -87,7 +89,7 @@ async function checkKey(key, { chat }) {
 (async () => {
   const only = arg('--only');
   const keys = (only ? [only] : fs.readFileSync(KEYS_FILE, 'utf8').split(/\r?\n/)).map((s) => s.trim()).filter(Boolean);
-  console.log(`${keys.length} keys to verify; exits=${apiExits().length}; model=${MODEL}`);
+  console.log(`${keys.length} keys to verify; exits=${apiExits().length || 'direct'}; model=${MODEL}`);
   let i = 0;
   const results = await mapLimit(keys, 4, async (key) => {
     const idx = i++;

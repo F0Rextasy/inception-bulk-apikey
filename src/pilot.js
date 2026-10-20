@@ -7,7 +7,7 @@
  * out/pilot-<tag>-* so the batch minter can be written from measurements
  * instead of guesses.
  *
- *   node src/pilot.js --proxy <line> --port 9920 --tag p1
+ *   node src/pilot.js [--proxy <line>] --port 9920 --tag p1
  */
 
 const fs = require('fs');
@@ -47,8 +47,7 @@ async function snap(page, name) {
 }
 
 (async () => {
-  if (!PROXY) throw new Error('--proxy required');
-  const proxy = proxyLib.parseProxy(PROXY);
+  const proxy = PROXY ? proxyLib.parseProxy(PROXY) : null; // no --proxy = direct
   log(`launch chrome port=${PORT} exit=${proxyLib.label(proxy)}`);
   B.launchChrome(PORT, path.join(OUT, `chrome-${PORT}`));
   const cdp = await B.connect(PORT);

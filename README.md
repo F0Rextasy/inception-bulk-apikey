@@ -114,8 +114,8 @@ curl https://api.inceptionlabs.ai/v1/chat/completions \
 git clone https://github.com/F0Rextasy/inception-bulk-apikey.git
 cd inception-bulk-apikey
 
-# 1) your proxy list, one exit per line (http://, socks5://, socks4:// or bare host:port)
-printf 'socks5://127.0.0.1:1080\n' > proxies.txt
+# 1) your proxy list, one exit per line (http://, socks5://, socks4:// or bare host:port) — optional, see below
+printf 'socks5://127.0.0.1:1080\n' > proxies.txt   # optional — without it the tool runs direct
 
 # 2) a mailbox broker on loopback — default 127.0.0.1:9700, fallback :9701 (contract below)
 
@@ -195,6 +195,10 @@ node src/cli.js help                    # tasks and flags
 
 ## 🛰️ Behind a proxy
 
+**Optional — recommended at scale (per-IP limits, bans).** The tool works without a proxy too.
+
+With no usable line in `proxies.txt`, the browser opens untunnelled and the HTTP calls leave this machine directly — sign-up, key creation and verification all run the same way. A pool is what you scale with, not what the tool requires.
+
 `proxies.txt`, one exit per line. Accepted shapes (blank lines and `#` / `//` comments are skipped; localhost/private ranges are rejected):
 
 ```
@@ -206,7 +210,7 @@ user:pass@10.0.0.2:1080          # defaults to http://
 10.0.0.5:3128                    # bare host:port defaults to http://
 ```
 
-* **Point-of-use probe, two legs:** the register page plus the Turnstile script host. Probe outcomes are persisted in `out/exit-state.json`, and known-bad exits sort last.
+* **Point-of-use probe, two legs:** the register page plus the Turnstile script host. Probe outcomes are persisted in `out/exit-state.json`, and known-bad exits sort last. With no pool there is nothing to probe — the direct route is used as-is.
 * **Private proxies first when they exist:** `RESIDENTIAL_PROXIES=<file>` (or a `residential-proxies.txt` beside the tool's `out/`) is preferred for the register phase the moment the file exists; any api-reachable exit is fine for the cheap HTTP work.
 * **Credentialed HTTP proxies work everywhere;** a `socks5://user:pass@…` line cannot be used for the browser steps (Chrome cannot answer a SOCKS auth prompt), but it still works for `screen` and `verify`.
 
@@ -218,7 +222,7 @@ user:pass@10.0.0.2:1080          # defaults to http://
 | `accounts.json` | one record per account: mailbox, password, register status, key prefix + model ids — git-ignored |
 | [`models.json`](models.json) | `GET /v1/models` as answered by a minted key (3 ids) |
 | `out/` | run log (`mint.log`), exit state, the pending queue, per-step DOM/network/screenshot dumps — git-ignored |
-| `proxies.txt` | your exit pool, one proxy per line — git-ignored |
+| `proxies.txt` | your exit pool, one proxy per line (optional) — git-ignored |
 
 ## 🔌 Connect to 9Router
 
