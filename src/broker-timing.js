@@ -6,7 +6,7 @@
  *   node src/broker-timing.js
  *
  * The batch's slowest step is the verify mail: the register burst is 30 s on
- * WARP but the mail pipeline (SES -> Mailtrap/inboxes.com -> local broker)
+ * proxy but the mail pipeline (SES -> Mailtrap/inboxes.com -> local broker)
  * took >5 min for the pilot account. This measures /create and empty /list on
  * both brokers, plus /read of one known message, so the batch picks the fast
  * family and the right poll cadence.

@@ -77,7 +77,7 @@ async function testExit(cdp, proxy) {
       // CORRECTED 2026-10-14: the app renders Turnstile with a callback and the
       // hidden input is never filled; the token lives in window.turnstile
       // .getResponse(). The old input-only check reported "no token ever" for
-      // ~170 exits even where the widget had solved (WARP: 752-char token, input
+      // ~170 exits even where the widget had solved (proxy: 752-char token, input
       // still empty). Verdict must be max(input, getResponse).
       const info = await page
         .eval(

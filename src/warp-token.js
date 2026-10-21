@@ -1,12 +1,12 @@
 'use strict';
 
 /**
- * WARP Turnstile probe: can the shared WARP exit produce a cf-turnstile token?
+ * proxy Turnstile probe: can the shared proxy exit produce a cf-turnstile token?
  *
  *   node src/warp-token.js [--exit socks5://127.0.0.1:40000] [--port 9942] [--watch 240]
  *
  * Differences from token-screen.js: (1) localhost proxy addresses are allowed
- * (it is the WARP SOCKS endpoint, not a pool exit), (2) it interacts like a
+ * (it is the proxy SOCKS endpoint, not a pool exit), (2) it interacts like a
  * user (mouse moves, scroll, typing) because the widget is "managed" and gives
  * far more tokens when the page sees activity, (3) at t=45 s it calls
  * turnstile.reset() once and re-waits, (4) it logs the Cloudflare widget state
@@ -141,7 +141,7 @@ const STATE_EXPR = `(() => {
     if (token > 20) {
       const tok = await page.eval(`(() => { const i = document.querySelector('[id*=cf-chl-widget][id$=_response],input[name="cf-turnstile-response"]'); return i ? i.value : ''; })()`);
       fs.writeFileSync(path.join(OUT, 'warp-token-ok.txt'), tok + '\n');
-      log(`WARP TOKEN OK len=${(tok || '').length}`);
+      log(`proxy TOKEN OK len=${(tok || '').length}`);
     }
     log('cf responses: ' + JSON.stringify(cf.slice(-18)));
     await page.screenshot(path.join(OUT, 'warp-token.png'));

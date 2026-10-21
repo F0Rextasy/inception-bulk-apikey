@@ -7,12 +7,12 @@
  *   1. the free exits can reach the Vercel-hosted console but usually CANNOT
  *      reach challenges.cloudflare.com (net::ERR_TIMED_OUT measured), so the
  *      Turnstile widget never solves and the sign-up POST has no token;
- *   2. Cloudflare's own WARP egress (socks5://127.0.0.1:40000) reaches
- *      challenges.cloudflare.com fine, but a single shared WARP exit is not
+ *   2. Cloudflare's own proxy egress (socks5://127.0.0.1:40000) reaches
+ *      challenges.cloudflare.com fine, but a single shared proxy exit is not
  *      where account traffic should live.
  *
  * So Chrome talks to this relay only, and the relay picks the upstream per
- * destination: `*.cloudflare.com` → WARP, everything else → a raced free exit.
+ * destination: `*.cloudflare.com` → proxy, everything else → a raced free exit.
  * Nothing ever leaves through the host's own line.
  *
  * Usage: node src/split-relay.js [port] [listFile]
@@ -31,7 +31,7 @@ const CONNECT_TIMEOUT_MS = 8000;
 const BUDGET_MS = 25000;
 const BATCH = 3;
 
-const WARP = { protocol: 'socks5', host: '127.0.0.1', port: 40000, raw: 'socks5://127.0.0.1:40000' };
+const proxy = { protocol: 'socks5', host: '127.0.0.1', port: 40000, raw: 'socks5://127.0.0.1:40000' };
 const CF_HOST = /(^|\.)cloudflare\.com$/i;
 const PROBE_HOST = 'platform.inceptionlabs.ai';
 
@@ -162,7 +162,7 @@ async function raceFreeExit(host, port) {
 
 async function upstream(host, port) {
   if (CF_HOST.test(host)) {
-    const sock = await openTunnel(WARP, { host, port, timeoutMs: CONNECT_TIMEOUT_MS });
+    const sock = await openTunnel(proxy, { host, port, timeoutMs: CONNECT_TIMEOUT_MS });
     return { sock, via: 'warp' };
   }
   return raceFreeExit(host, port);

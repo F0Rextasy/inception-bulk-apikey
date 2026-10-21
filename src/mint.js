@@ -329,7 +329,7 @@ async function registerBurst(supply, cdp, acc, slot, { keepContext = false } = {
     }
     if (!outcome) {
       // A timeout is ambiguous: the POST may have answered 200 (mail sent,
-      // account created) while the client never navigated (measured on WARP at
+      // account created) while the client never navigated (measured on proxy at
       // 19:33Z — the pilot's identical flow navigated at 18:32Z). Log what the
       // wire actually shows so the run is diagnosable, and let runAccount queue
       // the account as pending-mail: the mailbox is the ground truth.
@@ -515,10 +515,10 @@ function apiExits() {
 /** Live check: models list + a one-token chat completion. */
 async function verifyKey(key, { attempts = 6 } = {}) {
   const exits = apiExits();
-  // The api host (CloudFront, no checkpoint) is the one place WARP is always
-  // healthy, and the stored api-live pool goes stale within hours. Try WARP
+  // The api host (CloudFront, no checkpoint) is the one place proxy is always
+  // healthy, and the stored api-live pool goes stale within hours. Try proxy
   // first, then the pool. INCEPTION_VERIFY_EXIT overrides the fixed exit, and a
-  // call with no exit at all (no WARP, no pool line) goes out directly — the
+  // call with no exit at all (no proxy, no pool line) goes out directly — the
   // pool is optional here.
   const fixed = proxyLib.parseProxy(process.env.INCEPTION_VERIFY_EXIT || 'socks5://127.0.0.1:40000');
   const order = fixed ? [fixed] : [];
