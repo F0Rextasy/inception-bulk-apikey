@@ -86,7 +86,7 @@ function request(proxy, url, { method = 'GET', headers = {}, body, timeoutMs = 2
     let agent;
     if (proxy) {
       const p = { ...proxy, connectTimeoutMs, timeoutMs };
-      agent = proxyLib.createAgent(p);
+      agent = proxyLib.agentFor(p, url);
     }
     const req = lib.request(
       {

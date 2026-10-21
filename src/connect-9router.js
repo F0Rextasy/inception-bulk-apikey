@@ -53,8 +53,11 @@ async function login9router(base, password) {
     headers: { 'Content-Type': 'application/json', 'User-Agent': UA },
     body: JSON.stringify({ password: password ?? DEFAULTS.password }),
   });
-  const sc = typeof res.headers.getSetCookie === 'function' ? res.headers.getSetCookie() : [];
-  const cookie = sc.map((c) => c.split(';')[0]).join('; ');
+  // getSetCookie ships with undici 5.19 (Node >= 18.14); on an older 18.x the
+  // jar would stay empty and every later call would come back 401.
+  const raw = typeof res.headers.getSetCookie === 'function' ? res.headers.getSetCookie() : null;
+  const sc = raw || (res.headers.get('set-cookie') ? [res.headers.get('set-cookie')] : []);
+  const cookie = sc.map((c) => String(c).split(';')[0]).join('; ');
   return { ok: res.ok, cookie, body: (await res.text()).slice(0, 200) };
 }
 

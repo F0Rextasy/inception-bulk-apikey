@@ -58,10 +58,30 @@ async function withExit(fn, { attempts = 8 } = {}) {
   throw lastErr || new Error('no exit');
 }
 
+/**
+ * 401/403 is the only answer that says the key itself is bad. Every other
+ * non-200 (429, 5xx, a challenge page) is the exit's or the provider's
+ * problem: it is thrown so `withExit` retries on another exit, and if it never
+ * clears the key is reported as unchecked, not as a failed key.
+ */
+function answerFor(label) {
+  return (r) => {
+    if (r.status === 200 || r.status === 401 || r.status === 403) return r;
+    throw new Error(`${label} ${r.status} ${String(r.text || '').slice(0, 90)}`);
+  };
+}
+
 async function checkKey(key, { chat }) {
-  const models = await withExit((proxy) =>
-    request(proxy, `${API}/models`, { timeoutMs: 25000, headers: { authorization: `Bearer ${key}`, accept: 'application/json' } })
-  );
+  let models;
+  try {
+    models = await withExit((proxy) =>
+      request(proxy, `${API}/models`, { timeoutMs: 25000, headers: { authorization: `Bearer ${key}`, accept: 'application/json' } }).then(
+        answerFor('models')
+      )
+    );
+  } catch (e) {
+    return { key, ok: false, unchecked: true, note: `models unchecked: ${String(e.message || e).slice(0, 120)}` };
+  }
   if (models.status !== 200) return { key, ok: false, note: `models ${models.status} ${models.text.slice(0, 120)}` };
   let list = [];
   try {
@@ -69,14 +89,19 @@ async function checkKey(key, { chat }) {
   } catch {}
   let sample = null;
   if (chat) {
-    const r = await withExit((proxy) =>
-      request(proxy, `${API}/chat/completions`, {
-        method: 'POST',
-        timeoutMs: 60000,
-        headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
-        body: { model: MODEL, messages: [{ role: 'user', content: 'Reply with the single word: ok' }], max_tokens: 8, temperature: 0 },
-      })
-    );
+    let r;
+    try {
+      r = await withExit((proxy) =>
+        request(proxy, `${API}/chat/completions`, {
+          method: 'POST',
+          timeoutMs: 60000,
+          headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
+          body: { model: MODEL, messages: [{ role: 'user', content: 'Reply with the single word: ok' }], max_tokens: 8, temperature: 0 },
+        }).then(answerFor('chat'))
+      );
+    } catch (e) {
+      return { key, ok: false, unchecked: true, note: `chat unchecked: ${String(e.message || e).slice(0, 120)}`, models: list.map((m) => m.id) };
+    }
     if (r.status !== 200) return { key, ok: false, note: `chat ${r.status} ${r.text.slice(0, 140)}`, models: list.map((m) => m.id) };
     try {
       const j = JSON.parse(r.text);
@@ -94,12 +119,18 @@ async function checkKey(key, { chat }) {
   const results = await mapLimit(keys, 4, async (key) => {
     const idx = i++;
     const r = await checkKey(key, { chat: idx < CHAT_LIMIT }).catch((e) => ({ key, ok: false, note: `throw ${String(e.message).slice(0, 80)}` }));
-    console.log(`${r.ok ? 'OK  ' : 'FAIL'} ${key.slice(0, 4)}…${key.slice(-4)} ${r.ok ? `${(r.models || []).length} models | ${r.sample ?? ''}` : r.note}`);
+    console.log(
+      `${r.ok ? 'OK  ' : r.unchecked ? 'UNCHECKED' : 'FAIL'} ${key.slice(0, 4)}…${key.slice(-4)} ${r.ok ? `${(r.models || []).length} models | ${r.sample ?? ''}` : r.note}`
+    );
     return r;
   });
   const okCount = results.filter((r) => r.ok).length;
-  fs.writeFileSync(path.join(OUT, 'verify-report.json'), JSON.stringify({ at: new Date().toISOString(), model: MODEL, ok: okCount, total: results.length, results }, null, 1));
-  console.log(`verified ${okCount}/${results.length}`);
+  const unchecked = results.filter((r) => r.unchecked).length;
+  fs.writeFileSync(
+    path.join(OUT, 'verify-report.json'),
+    JSON.stringify({ at: new Date().toISOString(), model: MODEL, ok: okCount, unchecked, total: results.length, results }, null, 1)
+  );
+  console.log(`verified ${okCount}/${results.length}${unchecked ? ` · ${unchecked} unchecked (no exit answered)` : ''}`);
   process.exit(okCount === results.length ? 0 : 1);
 })().catch((e) => {
   console.error('FATAL', e && e.stack);

@@ -28,13 +28,12 @@ const crypto = require('crypto');
 const B = require('./browser');
 const mail = require('./mail');
 const { ExitSupply } = require('./exits');
-const { ROOT, ensureOut, proxyLib, sleep, request, mapLimit } = require('./lib');
+const { ROOT, ensureOut, proxyLib, sleep, request, mapLimit, pool } = require('./lib');
 const fp = require('./fp');
 const { presetArgv, resolvePreset } = require('./preset');
 
 const OUT = ensureOut();
 const KEYS_FILE = path.join(ROOT, 'keys.txt');
-const MIRROR_FILE = path.join(os.homedir(), 'inception-keys.txt');
 const ACCOUNTS_FILE = path.join(ROOT, 'accounts.json');
 const STATE_FILE = path.join(OUT, 'mint-state.json');
 const LOG_FILE = path.join(OUT, 'mint.log');
@@ -103,16 +102,18 @@ function writeJson(file, value) {
   fs.writeFileSync(file, JSON.stringify(value, null, 1));
 }
 
+/**
+ * The key list. A file that exists but cannot be read is an error: `recordKey`
+ * rewrites the whole file from what it read, so falling back to an empty list
+ * would drop every key already on disk.
+ */
 function readKeys() {
-  try {
-    return fs
-      .readFileSync(KEYS_FILE, 'utf8')
-      .split(/\r?\n/)
-      .map((s) => s.trim())
-      .filter(Boolean);
-  } catch {
-    return [];
-  }
+  if (!fs.existsSync(KEYS_FILE)) return [];
+  return fs
+    .readFileSync(KEYS_FILE, 'utf8')
+    .split(/\r?\n/)
+    .map((s) => s.trim())
+    .filter(Boolean);
 }
 
 function recordKey(key) {
@@ -126,8 +127,17 @@ function recordKey(key) {
   return keys.length;
 }
 
+/**
+ * The account ledger holds the only copy of each mailbox password and its key,
+ * and it is rewritten whole on every account. A file that is there but does not
+ * parse must stop the run — treating it as empty would overwrite every account
+ * recorded so far.
+ */
 function readAccounts() {
-  return readJson(ACCOUNTS_FILE, []);
+  if (!fs.existsSync(ACCOUNTS_FILE)) return [];
+  const all = JSON.parse(fs.readFileSync(ACCOUNTS_FILE, 'utf8'));
+  if (!Array.isArray(all)) throw new Error(`${ACCOUNTS_FILE} is not a JSON array`);
+  return all;
 }
 
 function recordAccount(acc) {
@@ -214,6 +224,13 @@ async function freshContext(supply, cdp, { exclude, rounds = 3 } = {}) {
   }
   for (let i = 1; i <= rounds; i++) {
     const [hit] = await supply.acquire(1, { maxProbe: 40, exclude });
+    // Chrome cannot answer a SOCKS auth prompt, so a `socks5://user:pass@…`
+    // line would burn a burst for nothing (the probe already cost its seconds).
+    if (hit && hit.proxy && !proxyLib.usableInBrowser(hit.proxy)) {
+      exclude = exclude || new Set();
+      exclude.add(proxyLib.label(hit.proxy));
+      continue;
+    }
     if (hit) {
       const info = await B.openContext(cdp, hit.proxy, { fingerprint });
       info.exit = hit;
@@ -499,8 +516,9 @@ async function finishBurst(supply, cdp, acc, verifyLink, slot) {
 // ---------------------------------------------------------------- key verification
 
 function apiExits() {
+  let fromApi = [];
   try {
-    return fs
+    fromApi = fs
       .readFileSync(API_FILE, 'utf8')
       .split(/\r?\n/)
       .map((s) => s.split('\t')[0].trim())
@@ -508,19 +526,21 @@ function apiExits() {
       .map((s) => proxyLib.parseProxy(s))
       .filter(Boolean);
   } catch {
-    return [];
+    fromApi = [];
   }
+  // The api-live list is the good one (CloudFront, no checkpoint) but it goes
+  // stale within hours; without it the configured pool is what keeps the two
+  // verification calls off this machine's own address.
+  return fromApi.length ? fromApi : pool();
 }
 
 /** Live check: models list + a one-token chat completion. */
 async function verifyKey(key, { attempts = 6 } = {}) {
   const exits = apiExits();
-  // The api host (CloudFront, no checkpoint) is the one place proxy is always
-  // healthy, and the stored api-live pool goes stale within hours. Try proxy
-  // first, then the pool. INCEPTION_VERIFY_EXIT overrides the fixed exit, and a
-  // call with no exit at all (no proxy, no pool line) goes out directly — the
-  // pool is optional here.
-  const fixed = proxyLib.parseProxy(process.env.INCEPTION_VERIFY_EXIT || 'socks5://127.0.0.1:40000');
+  // INCEPTION_VERIFY_EXIT pins one exit for the first attempt; without it the
+  // api-live list (or the pool) carries the check, and only a run with no exit
+  // at all goes out directly — a pool is recommended, but not required.
+  const fixed = process.env.INCEPTION_VERIFY_EXIT ? proxyLib.parseProxy(process.env.INCEPTION_VERIFY_EXIT) : null;
   const order = fixed ? [fixed] : [];
   const errors = [];
   for (let i = 0; i < attempts; i++) {
@@ -560,7 +580,10 @@ async function verifyKey(key, { attempts = 6 } = {}) {
     }
     await sleep(1200);
   }
-  return { ok: false, note: `unreachable: ${errors.slice(0, 4).join(' | ')}` };
+  // Every attempt failed on an exit or a non-401 status (429, 5xx, a challenge
+  // page): that is not the key being wrong, so it is reported as unchecked and
+  // not written off as a bad key.
+  return { ok: false, unreachable: true, note: `unreachable: ${errors.slice(0, 4).join(' | ')}` };
 }
 
 // ---------------------------------------------------------------- one account
@@ -682,10 +705,14 @@ async function registerWithRetries(supply, cdp, acc, slot, { keepContext = false
 /** Live-verifies a key and records it; shared by the combined and burst paths. */
 async function verifyAndRecord(supply, acc, record, fin) {
   const v = await verifyKey(fin.key);
-  log(`verify -> ${v.ok ? 'OK' : 'FAIL'} ${v.ok ? `${(v.models || []).slice(0, 3).join(',')} | ${v.sample}` : v.note}`);
+  log(`verify -> ${v.ok ? 'OK' : v.unreachable ? 'UNCHECKED' : 'FAIL'} ${v.ok ? `${(v.models || []).slice(0, 3).join(',')} | ${v.sample}` : v.note}`);
   if (!v.ok) {
-    recordAccount({ ...record, status: 'failed-verify', key: fin.key, note: v.note });
-    return { status: 'verify-failed', record };
+    // A key whose check never reached the api is kept in accounts.json as
+    // unchecked (re-run `verify --only <key>` or `finish` for the account)
+    // instead of being stamped as a key the api rejected.
+    const status = v.unreachable ? 'unchecked-verify' : 'failed-verify';
+    recordAccount({ ...record, status, key: fin.key, note: v.note });
+    return { status: v.unreachable ? 'verify-unchecked' : 'verify-failed', record };
   }
   const n = recordKey(fin.key);
   recordAccount({ ...record, status: 'ok', keyPrefix: `${fin.key.slice(0, 4)}…${fin.key.slice(-4)}`, models: v.models, keys: n });
@@ -837,7 +864,9 @@ const PENDING_FILE = path.join(OUT, 'pending.json');
   }
 
   log(`mint done: ok=${ok} attempted=${attempted} pending-left=${pending.length}`);
-  console.log(`INCEPTION ${ok}/${attempted} OK`);
+  // A run that minted nothing is a failure, not an "OK": the launcher and any
+  // wrapper read this exit code.
+  console.log(`INCEPTION ${ok}/${attempted}${ok > 0 ? ' OK' : ' NOTHING MINTED'}`);
   for (const r of results) log(`  ${r.idx} ${r.status} ${r.record ? r.record.email : r.note || ''}`);
   // Clean close (spec §3): stop the Chrome this run started and drop its profile.
   if (!process.argv.includes('--keep-profile')) {
@@ -849,7 +878,7 @@ const PENDING_FILE = path.join(OUT, 'pending.json');
       fs.rmSync(PROFILE_DIR, { recursive: true, force: true });
     } catch {}
   }
-  process.exit(0);
+  process.exit(ok > 0 ? 0 : 1);
 })().catch((e) => {
   log(`FATAL ${(e && e.stack) || e}`);
   process.exit(1);
