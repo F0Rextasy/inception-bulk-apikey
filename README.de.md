@@ -1,6 +1,7 @@
 <div align="center">
 
 ```
+
 ██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
 ██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
 ██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
@@ -39,6 +40,7 @@ Inception Labs stellt **Mercury** bereit — die Diffusion-LLM-Reihe (`mercury-2
 Das Tool durchläuft den gesamten Pfad in einem echten Chrome und zeichnet einen Schlüssel erst auf, nachdem die Live-API geantwortet hat:
 
 ```
+
 proxies.txt ─▶ Exit-Auswahl + Probe am Nutzungspunkt (Registrierungsseite + challenges.cloudflare.com)
                    │
                    ▼
@@ -121,6 +123,7 @@ printf 'socks5://127.0.0.1:1080\n' > proxies.txt
 
 # 3) go
 node src/launcher.js                 # interactive menu: mint / finish / verify / screen / settings
+
 # or drive it directly:
 node src/cli.js mint   --count 30    # fresh accounts, one key each
 node src/cli.js verify --chat 30     # re-verify keys.txt (models + one chat completion each)

@@ -1,6 +1,7 @@
 <div align="center">
 
 ```
+
 ██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
 ██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
 ██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
@@ -39,6 +40,7 @@ Inception Labs 通过 `api.inceptionlabs.ai/v1` 上兼容 OpenAI 的 API 提供 
 该工具在真实的 Chrome 中走完整个流程，并且只有在实时 API 应答之后才记录密钥：
 
 ```
+
 proxies.txt ─▶ 出口挑选 + 使用点探测（注册页面 + challenges.cloudflare.com）
                    │
                    ▼
@@ -121,6 +123,7 @@ printf 'socks5://127.0.0.1:1080\n' > proxies.txt
 
 # 3) go
 node src/launcher.js                 # interactive menu: mint / finish / verify / screen / settings
+
 # or drive it directly:
 node src/cli.js mint   --count 30    # fresh accounts, one key each
 node src/cli.js verify --chat 30     # re-verify keys.txt (models + one chat completion each)

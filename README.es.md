@@ -1,6 +1,7 @@
 <div align="center">
 
 ```
+
 ██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
 ██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
 ██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
@@ -39,6 +40,7 @@ Inception Labs sirve **Mercury** — la línea de LLM de difusión (`mercury-2`,
 La herramienta recorre todo el camino en un Chrome real y solo registra una clave después de que la API en vivo responde:
 
 ```
+
 proxies.txt ─▶ selección de salida + sondeo en el punto de uso (página de registro + challenges.cloudflare.com)
                    │
                    ▼
@@ -121,6 +123,7 @@ printf 'socks5://127.0.0.1:1080\n' > proxies.txt
 
 # 3) go
 node src/launcher.js                 # interactive menu: mint / finish / verify / screen / settings
+
 # or drive it directly:
 node src/cli.js mint   --count 30    # fresh accounts, one key each
 node src/cli.js verify --chat 30     # re-verify keys.txt (models + one chat completion each)

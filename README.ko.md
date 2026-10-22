@@ -1,6 +1,7 @@
 <div align="center">
 
 ```
+
 ██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
 ██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
 ██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
@@ -39,6 +40,7 @@ Inception Labs는 **Mercury** — 디퓨전 LLM 라인(`mercury-2`, `mercury-2.5
 이 도구는 실제 Chrome에서 전체 경로를 순회하며, 라이브 API가 응답한 뒤에만 키를 기록합니다:
 
 ```
+
 proxies.txt ─▶ 출구 선택 + 사용 시점 프로브 (register 페이지 + challenges.cloudflare.com)
                    │
                    ▼
@@ -121,6 +123,7 @@ printf 'socks5://127.0.0.1:1080\n' > proxies.txt
 
 # 3) go
 node src/launcher.js                 # interactive menu: mint / finish / verify / screen / settings
+
 # or drive it directly:
 node src/cli.js mint   --count 30    # fresh accounts, one key each
 node src/cli.js verify --chat 30     # re-verify keys.txt (models + one chat completion each)
