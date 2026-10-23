@@ -116,6 +116,14 @@ function readKeys() {
     .filter(Boolean);
 }
 
+/** The dead-key audit list: a key the API itself refused (401/403). It sits
+ * beside keys.txt so the operator can drop it in one move. */
+function recordDeadKey(key) {
+  const file = path.join(ROOT, 'keys-dead.txt');
+  const prev = fs.existsSync(file) ? fs.readFileSync(file, 'utf8').split(/\r?\n/).map((s) => s.trim()).filter(Boolean) : [];
+  if (!prev.includes(key)) fs.writeFileSync(file, [...prev, key].join(String.fromCharCode(10)) + String.fromCharCode(10));
+  return prev.includes(key) ? prev.length : prev.length + 1;
+}
 function recordKey(key) {
   const keys = readKeys();
   if (keys.includes(key)) return keys.length;
@@ -256,7 +264,9 @@ function rememberExit(proxy) {
  * `window.turnstile.getResponse()` returns a 700+ char token. Watching the
  * input (the old check) reported "no token" even when the widget had solved.
  */
-const TURNSTILE_LEN = `(() => { try { const el = document.querySelector('[id*=cf-chl-widget][id$=_response],input[name="cf-turnstile-response"]'); const inLen = el && el.value ? el.value.length : 0; let r = 0; if (window.turnstile && window.turnstile.getResponse) { try { r = String(window.turnstile.getResponse() || '').length; } catch (e) {} } return Math.max(inLen, r); } catch (e) { return 0; } })()`;
+// The Turnstile token watch + the readiness expression live in src/solver.js —
+// the same module the --auto entry point uses.
+const { TOKEN_LEN: TURNSTILE_LEN, watchToken } = require('./solver.js');
 
 /** One register attempt: checkpoint -> form -> submit -> /thank-you. */
 async function registerBurst(supply, cdp, acc, slot, { keepContext = false } = {}) {
@@ -281,13 +291,7 @@ async function registerBurst(supply, cdp, acc, slot, { keepContext = false } = {
 
     // Turnstile renders itself; the app consumes the token via its callback and
     // never writes the hidden input, so the readiness signal is getResponse().
-    await page.waitFor(`!!document.querySelector('[id*=cf-chl-widget][id$=_response],input[name="cf-turnstile-response"]')`, { timeoutMs: 25000, pollMs: 800 }).catch(() => null);
-    let token2 = (await page.waitFor(TURNSTILE_LEN, { timeoutMs: 45000, pollMs: 1000 })) || 0;
-    if (token2 < 20) {
-      await page.pokeTurnstile().catch(() => {});
-      await sleep(3000);
-      token2 = (await page.waitFor(TURNSTILE_LEN, { timeoutMs: 20000, pollMs: 1000 })) || 0;
-    }
+    const token2 = await watchToken(page, { log });
     if (token2 < 20) {
       // No token after ~70 s of watching: on a pool exit this will never come
       // and typing the form just burns the exit's remaining lifetime (measured:
@@ -552,7 +556,10 @@ async function verifyKey(key, { attempts = 6 } = {}) {
       });
       if (models.status !== 200) {
         errors.push(`models ${models.status}`);
-        if (models.status === 401 || models.status === 403) return { ok: false, note: `models ${models.status}` };
+        if (models.status === 401 || models.status === 403) {
+          recordDeadKey(key);
+          return { ok: false, note: `models ${models.status}` };
+        }
         continue;
       }
       let list = [];
@@ -574,7 +581,10 @@ async function verifyKey(key, { attempts = 6 } = {}) {
         return { ok: true, models: list.map((m) => m.id), sample: String(text).slice(0, 60) };
       }
       errors.push(`chat ${chat.status} ${chat.text.slice(0, 80)}`);
-      if (chat.status === 401 || chat.status === 403) return { ok: false, note: `chat ${chat.status} ${chat.text.slice(0, 100)}` };
+      if (chat.status === 401 || chat.status === 403) {
+        recordDeadKey(key);
+        return { ok: false, note: `chat ${chat.status} ${chat.text.slice(0, 100)}` };
+      }
     } catch (e) {
       errors.push(String(e.message || e).slice(0, 60));
     }

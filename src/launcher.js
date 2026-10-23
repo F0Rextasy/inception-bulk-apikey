@@ -105,7 +105,7 @@ async function mintFlow(cfg) {
     console.log('  ! proxies.txt not found — running WITHOUT a proxy (direct)');
     console.log('    (put one exit per line there to route through proxies: http://host:port, socks5://host:port or host:port)');
   }
-  run(['mint', '--count', String(cfg.count), '--model', cfg.model]);
+  run(['mint', '--auto', '--count', String(cfg.count), '--model', cfg.model]);
 }
 
 async function verifyFlow(cfg) {

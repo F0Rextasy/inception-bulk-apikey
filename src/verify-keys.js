@@ -131,6 +131,12 @@ async function checkKey(key, { chat }) {
     JSON.stringify({ at: new Date().toISOString(), model: MODEL, ok: okCount, unchecked, total: results.length, results }, null, 1)
   );
   console.log(`verified ${okCount}/${results.length}${unchecked ? ` · ${unchecked} unchecked (no exit answered)` : ''}`);
+  // 401/403 is the only answer that says the key itself is bad (the rule this
+  // file already follows): the dead-key list the operator audits, beside keys.txt.
+  const deadFile = path.join(ROOT, 'keys-dead.txt');
+  const dead = results.filter((r) => !r.ok && !r.unchecked && /\b(401|403)\b/.test(String(r.note || '')));
+  fs.writeFileSync(deadFile, dead.map((r) => r.key).join('\n') + (dead.length ? '\n' : ''));
+  console.log(`dead keys ${dead.length} -> ${deadFile}`);
   process.exit(okCount === results.length ? 0 : 1);
 })().catch((e) => {
   console.error('FATAL', e && e.stack);
