@@ -22,6 +22,21 @@
  */
 
 const fs = require('fs');
+/** keys-dead.txt standard: key \t reason \t ISO, reason in 401|403|quota|ban.
+ * 429/5xx/transport are transient (retry them — the same key may answer later): never dead. */
+function deadReason(status, text = '') {
+  const s = `${status == null ? '' : status} ${text || ''}`;
+  if (/\b429\b|rate.?limit|\b5\d\d\b|timeout|ECONNRESET|ECONNREFUSED|ETIMEDOUT|EHOSTUNREACH|transport|network/i.test(s)) return null;
+  if (/\b401\b|unauthor/i.test(s)) return '401';
+  if (/\b403\b|forbidden/i.test(s)) return '403';
+  if (/\b402\b|quota|insufficient|no credit|out of credit|balance|exhaust/i.test(s)) return 'quota';
+  if (/banned|suspend|deactivat|disabled/i.test(s)) return 'ban';
+  return null;
+}
+/** The standard line (key \t reason \t ISO), or null when the reason is not final. */
+const deadLine = (key, reason) => (reason ? [key, reason, new Date().toISOString()].join('\t') : null);
+/** The key side of a standard line (dedupe helper). */
+const deadKeyOf = (line) => String(line).split(String.fromCharCode(9))[0];
 const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
@@ -116,13 +131,15 @@ function readKeys() {
     .filter(Boolean);
 }
 
-/** The dead-key audit list: a key the API itself refused (401/403). It sits
- * beside keys.txt so the operator can drop it in one move. */
-function recordDeadKey(key) {
+/** The dead-key audit list: a key the API itself refused (401/403/quota/ban),
+ * one standard line per key beside keys.txt so the operator can drop it in one move. */
+function recordDeadKey(key, reason) {
+  const line = deadLine(key, reason);
+  if (!line) return null;
   const file = path.join(ROOT, 'keys-dead.txt');
   const prev = fs.existsSync(file) ? fs.readFileSync(file, 'utf8').split(/\r?\n/).map((s) => s.trim()).filter(Boolean) : [];
-  if (!prev.includes(key)) fs.writeFileSync(file, [...prev, key].join(String.fromCharCode(10)) + String.fromCharCode(10));
-  return prev.includes(key) ? prev.length : prev.length + 1;
+  if (!prev.some((l) => deadKeyOf(l) === key)) fs.writeFileSync(file, [...prev, line].join(String.fromCharCode(10)) + String.fromCharCode(10));
+  return prev.length;
 }
 function recordKey(key) {
   const keys = readKeys();
@@ -557,7 +574,7 @@ async function verifyKey(key, { attempts = 6 } = {}) {
       if (models.status !== 200) {
         errors.push(`models ${models.status}`);
         if (models.status === 401 || models.status === 403) {
-          recordDeadKey(key);
+          recordDeadKey(key, String(models.status));
           return { ok: false, note: `models ${models.status}` };
         }
         continue;
@@ -582,7 +599,7 @@ async function verifyKey(key, { attempts = 6 } = {}) {
       }
       errors.push(`chat ${chat.status} ${chat.text.slice(0, 80)}`);
       if (chat.status === 401 || chat.status === 403) {
-        recordDeadKey(key);
+        recordDeadKey(key, String(chat.status));
         return { ok: false, note: `chat ${chat.status} ${chat.text.slice(0, 100)}` };
       }
     } catch (e) {

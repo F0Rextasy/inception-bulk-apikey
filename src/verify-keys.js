@@ -14,6 +14,21 @@ const path = require('path');
 const crypto = require('crypto');
 const { ROOT, request, ensureOut, proxyLib, mapLimit, sleep } = require('./lib');
 
+/** keys-dead.txt standard: key \t reason \t ISO, reason in 401|403|quota|ban.
+ * 429/5xx/transport are transient (retry them — the same key may answer later): never dead. */
+function deadReason(status, text = '') {
+  const s = `${status == null ? '' : status} ${text || ''}`;
+  if (/\b429\b|rate.?limit|\b5\d\d\b|timeout|ECONNRESET|ECONNREFUSED|ETIMEDOUT|EHOSTUNREACH|transport|network/i.test(s)) return null;
+  if (/\b401\b|unauthor/i.test(s)) return '401';
+  if (/\b403\b|forbidden/i.test(s)) return '403';
+  if (/\b402\b|quota|insufficient|no credit|out of credit|balance|exhaust/i.test(s)) return 'quota';
+  if (/banned|suspend|deactivat|disabled/i.test(s)) return 'ban';
+  return null;
+}
+/** The standard line (key tab reason tab ISO), or null when the reason is not final. */
+const deadLine = (key, reason) => (reason ? [key, reason, new Date().toISOString()].join(String.fromCharCode(9)) : null);
+
+
 const KEYS_FILE = path.join(ROOT, 'keys.txt');
 const OUT = ensureOut();
 const API = 'https://api.inceptionlabs.ai/v1';
@@ -134,8 +149,12 @@ async function checkKey(key, { chat }) {
   // 401/403 is the only answer that says the key itself is bad (the rule this
   // file already follows): the dead-key list the operator audits, beside keys.txt.
   const deadFile = path.join(ROOT, 'keys-dead.txt');
-  const dead = results.filter((r) => !r.ok && !r.unchecked && /\b(401|403)\b/.test(String(r.note || '')));
-  fs.writeFileSync(deadFile, dead.map((r) => r.key).join('\n') + (dead.length ? '\n' : ''));
+  const dead = results
+    .filter((r) => !r.ok && !r.unchecked)
+    .map((r) => ({ key: r.key, reason: deadReason(null, r.note) }))
+    .filter((d) => d.reason);
+  // keys-dead.txt standard: key \t reason(401|403|quota|ban) \t new Date().toISOString()
+  fs.writeFileSync(deadFile, dead.map((d) => deadLine(d.key, d.reason)).join('\n') + (dead.length ? '\n' : ''));
   console.log(`dead keys ${dead.length} -> ${deadFile}`);
   process.exit(okCount === results.length ? 0 : 1);
 })().catch((e) => {
