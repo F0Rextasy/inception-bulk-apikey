@@ -56,9 +56,10 @@ const BROKER = `http://127.0.0.1:${arg('--broker', '9700')}`;
     const url = (info && info.result && info.result.value) || '';
     if (!/inceptionlabs\.ai/.test(url)) continue;
     console.log(`testing in ${url.slice(0, 80)}`);
+    const probePassword = 'Probe' + Date.now() + '!7';
     const expr = `(async () => { try { const r = await fetch('/api/auth/register', { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ name: 'Probe Token', email: ${JSON.stringify(
       box.address
-    )}, password: 'Probe${Date.now()}!7', 'cf-turnstile-response': ${JSON.stringify(process.env.CF_TOKEN || '')} }) }); return { status: r.status, body: (await r.text()).slice(0, 300) }; } catch (e) { return { error: String(e).slice(0, 200) }; } })()`;
+    )}, password: ${JSON.stringify(probePassword)}, 'cf-turnstile-response': ${JSON.stringify(process.env.CF_TOKEN || '')} }) }); return { status: r.status, body: (await r.text()).slice(0, 300) }; } catch (e) { return { error: String(e).slice(0, 200) }; } })()`;
     const r = await cdp.send('Runtime.evaluate', { expression: expr, returnByValue: true, awaitPromise: true }, sessionId).catch((e) => ({ error: e }));
     console.log('RESULT', JSON.stringify(r.result ? r.result.value : r).slice(0, 500));
   }

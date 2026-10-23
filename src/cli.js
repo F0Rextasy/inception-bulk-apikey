@@ -16,7 +16,7 @@
 
 const path = require('path');
 const { spawnSync } = require('child_process');
-const { connectKeysFile, parseRouterArgs } = require('./connect-9router.js');
+const { parseRouterArgs } = require('./connect-9router.js');
 
 const TASKS = {
   mint: { file: 'mint.js', note: 'create fresh accounts and mint one key each' },
@@ -33,9 +33,9 @@ function help() {
   console.log('\noptions: every task takes its own flags — ask it directly:');
   console.log('  node src/<task-file> --help');
   console.log('  --connect-9router  register the keys in 9Router after the task finishes');
-  console.log('\nproxy pool (optional):');
+  console.log('  --connect-omniroute  register the keys in OmniRoute after the task finishes');
+  console.log('\nproxy pool:');
   console.log('  one exit per line in proxies.txt — scheme://host:port[#comment], user:pass@ supported');
-  console.log('  requests go through your proxy list when one is provided (--pool / env); without a pool the tool connects directly');
   console.log('\nno options? run the interactive launcher:  node src/launcher.js');
 }
 
@@ -52,20 +52,25 @@ if (!entry) {
   process.exit(1);
 }
 const rest = argv.slice(1);
-const connect = rest.includes('--connect-9router');
+const connect9 = rest.includes('--connect-9router');
+const connectOr = rest.includes('--connect-omniroute');
 const child = spawnSync(process.execPath, [path.join(__dirname, entry.file), ...rest], {
   windowsHide: true,
   stdio: 'inherit',
   env: process.env,
 });
 const status = child.status === null ? 1 : child.status;
-if (!connect) process.exit(status);
-connectKeysFile(parseRouterArgs(rest)).then(
+if (!connect9 && !connectOr) process.exit(status);
+const connectKeysFile = connectOr
+  ? require('./connect-omniroute.js').connectKeysFile
+  : require('./connect-9router.js').connectKeysFile;
+const flags = rest.filter((a) => a !== '--connect-9router' && a !== '--connect-omniroute');
+connectKeysFile(parseRouterArgs(flags)).then(
   () => {
     process.exitCode = status;
   },
   (e) => {
-    console.error('[9router] ' + (e && e.message ? e.message : e));
+    console.error('[' + (connectOr ? 'omniroute' : '9router') + '] ' + (e && e.message ? e.message : e));
     process.exitCode = 1;
   }
 );

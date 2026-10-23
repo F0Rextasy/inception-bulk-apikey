@@ -6,7 +6,6 @@ proxies.txt
 keys.json
 *.txt
 accounts.json
-out/
 outputs/
 launcher.config.json
 .env

@@ -18,9 +18,10 @@
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
 [![Models](https://img.shields.io/badge/models-3%20served-412991?style=for-the-badge)](https://platform.inceptionlabs.ai/docs)
 [![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
+[![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Quick start](#-quick-start) · [🎁 Free tier](#-free-tier--how-much-you-get) · [🤖 Models](#-models--all-3-of-them) · [🧪 Use the API](#-how-to-use-the-api) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
+[🛠 Quick start](#-quick-start) · [🎁 Free tier](#-free-tier--how-much-you-get) · [🤖 Models](#-models--all-3-of-them) · [🧪 Use the API](#-how-to-use-the-api) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
 
 </div>
 
@@ -67,16 +68,18 @@ Every account starts on the **Free Tier with 100,000,000 free tokens** — measu
 > 💡 The free tier is set by Inception Labs and can change. Check the live numbers at [platform.inceptionlabs.ai](https://platform.inceptionlabs.ai) — and let the tool's own gate decide:
 
 ```bash
-node src/cli.js verify --chat 30     # every key in keys.txt is re-tested (models + one chat call)
+node src/cli.js verify --chat 30  # every key in keys.txt is re-tested with a real chat call
 ```
 
 ## 🤖 Models — all 3 of them
 
 `models.json` is the live `GET /v1/models` answer of a minted key — **3 ids**:
 
-|Model|✓|
-|---|---|
-|`mercury-2.5`|✓|
+| id | note |
+| --- | --- |
+| `mercury-2` | the first diffusion LLM; 128k context, 50k max output; tools / JSON mode / structured outputs |
+| `mercury-2.5` | 260k context, 64k max output; **the verifier's default chat model** |
+| `mercury-decide` | typed-decision preview; `decisions` endpoint only — not chat |
 
 Live probe of one key (exactly what the verifier does):
 
@@ -114,7 +117,7 @@ curl https://api.inceptionlabs.ai/v1/chat/completions \
 git clone https://github.com/F0Rextasy/inception-bulk-apikey.git
 cd inception-bulk-apikey
 
-# 1) your proxy list, one exit per line (http://, socks5://, socks4:// or bare host:port) — optional, see below
+# 1) your proxy list, one exit per line (http://, socks5://, socks4:// or bare host:port)
 printf 'socks5://127.0.0.1:1080\n' > proxies.txt   # optional — without it the tool runs direct
 
 # 2) a mailbox broker on loopback — default 127.0.0.1:9700, fallback :9701 (contract below)
@@ -156,6 +159,12 @@ The verifier gates on both `200`s — a `401`/`403` on either call fails the key
 node src/cli.js verify --chat 30    # reproduces both checks for your own file at any time
 ```
 
+> **Quality gates.** Every key here passed a live `chat-200` before it was written to `keys.txt`
+> (dead keys are never shipped). Router combos follow the same rule at the model level: an entry is
+> added **only if the model answers `chat-200` and can call tools** — a model without tool support,
+> a dead key or a dead provider is dropped instead of added. Re-run the verify step any time;
+> failures are reported, never hidden.
+
 ## 🧭 How it works
 
 ```
@@ -188,7 +197,7 @@ node src/cli.js help                    # tasks and flags
 
 | task | flags |
 | --- | --- |
-| `mint` | `--count 30·--workers 3 (max 4)·--broker 9700·--fallback-broker 9701·--mail-wait 300000ms·--pending-total 2400000ms·--burst-wait 75000ms·--model mercury-2.5·--stop-keys N (0 = whole count)·--exit-relay (pins bursts to one exit)·--port 9930 (CDP)` |
+| `mint` | `--count N` (`30`) · `--workers N` (default `3`, max `4`) · `--broker N` (`9700`) · `--fallback-broker N` (`9701`) · `--mail-wait N` ms (`300000`) · `--pending-total N` ms (`2400000`) · `--burst-wait N` ms (`75000`) · `--model <id>` (`mercury-2.5`) · `--stop-keys N` (stop once `keys.txt` holds N; `0` = run the whole count) · `--exit-relay <url>` (pin every burst on one fixed exit) · `--port N` (Chrome CDP port, `9930`) |
 | `finish` | `--email <addr>` · `--password <pw>` · `--verify <link>` (consume the verify link first; omit to go straight to sign-in) · `--tag <name>` (dump prefix, `f1`) · `--port N` (`9925`) |
 | `verify` | `--model <id>` (`mercury-2.5`) · `--chat N` (the first N keys also get a chat completion, `30`) · `--only <key>` (check one key instead of the whole file) |
 | `screen` | `--url <page>` (`https://platform.inceptionlabs.ai/login`) · `--out <file>` · `--concurrency N` (`8`) · `--timeout N` ms (`30000`) · `--limit N` (`1000`) · `--ok-min` / `--ok-max` (`200` / `399`) |
@@ -222,7 +231,7 @@ user:pass@10.0.0.2:1080          # defaults to http://
 | `accounts.json` | one record per account: mailbox, password, register status, key prefix + model ids — git-ignored |
 | [`models.json`](models.json) | `GET /v1/models` as answered by a minted key (3 ids) |
 | `out/` | run log (`mint.log`), exit state, the pending queue, per-step DOM/network/screenshot dumps — git-ignored |
-| `proxies.txt` | your exit pool, one proxy per line (optional) — git-ignored |
+| `proxies.txt` | your exit pool, one proxy per line — git-ignored |
 
 ## 🔌 Connect to 9Router
 
@@ -245,6 +254,28 @@ inception/mercury-decide
 ```
 
 `node src/cli.js verify --chat 30 --connect-9router` re-checks `keys.txt` and registers it in one pass, and `node src/launcher.js` drives the same flow from its menu.
+
+## 🔌 Connect to OmniRoute
+
+[OmniRoute](https://omniroute.online) is a self-hosted, OpenAI-compatible router. Inception serves an OpenAI-compatible endpoint (`https://api.inceptionlabs.ai/v1`), so register it once and every key you minted becomes a connection under one provider-node — OmniRoute load-balances across them:
+
+```bash
+node src/connect-omniroute.js \
+  --base http://localhost:20128 --password 123456 \
+  --api-key sk-xxxxxxxx
+```
+
+Run it without `--api-key` to register **every** key in `keys.txt`. Re-running is idempotent: the node is matched by `--prefix inception`, each connection is matched by name (`inception-001`, `inception-002`, …), and an already-registered key is left alone. Defaults: `--base http://localhost:20128`, `--password 123456`, `--name "Inception Labs"`, `--prefix inception`, `--base-url https://api.inceptionlabs.ai/v1`, `--model mercury-2.5`.
+
+Inside OmniRoute the keys are served as:
+
+```
+inception/mercury-2.5
+inception/mercury-2
+inception/mercury-decide
+```
+
+`node src/cli.js verify --chat 30 --connect-omniroute` re-checks `keys.txt` and registers it in one pass, and `node src/launcher.js` drives the same flow from its menu.
 
 ## 🔑 What one key gets you
 

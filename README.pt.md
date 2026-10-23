@@ -1,7 +1,6 @@
 <div align="center">
 
 ```
-
 ██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
 ██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
 ██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
@@ -19,9 +18,10 @@
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
 [![Models](https://img.shields.io/badge/models-3%20served-412991?style=for-the-badge)](https://platform.inceptionlabs.ai/docs)
 [![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
+[![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Início rápido](#-quick-start) · [🎁 Plano gratuito](#-free-tier--how-much-you-get) · [🤖 Modelos](#-models--all-3-of-them) · [🧪 Use a API](#-how-to-use-the-api) · [✅ Verificado](#-verified-working--every-key-is-tested) · [🧭 Como funciona](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Opções](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problemas](#-issues)
+[🛠 Início rápido](#-quick-start) · [🎁 Plano gratuito](#-free-tier--how-much-you-get) · [🤖 Modelos](#-models--all-3-of-them) · [🧪 Use a API](#-how-to-use-the-api) · [✅ Verificado](#-verified-working--every-key-is-tested) · [🧭 Como funciona](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Opções](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problemas](#-issues)
 
 </div>
 
@@ -33,18 +33,17 @@
 
 ---
 
-## ✨ Por que isso existe
+## ✨ Por que isto existe
 
-A Inception Labs serve o **Mercury** — a linha de LLMs de difusão (`mercury-2`, `mercury-2.5`, `mercury-decide`) — por meio de uma API compatível com OpenAI em `api.inceptionlabs.ai/v1`. O console emite chaves **vinculadas a uma conta** (`/dashboard/api-keys`), então a unidade útil é *uma conta por chave* — nunca muitas chaves de uma só conta.
+A Inception Labs serve o **Mercury** — a linha de LLMs de difusão (`mercury-2`, `mercury-2.5`, `mercury-decide`) — por meio de uma API compatível com OpenAI em `api.inceptionlabs.ai/v1`. O console emite chaves **vinculadas a uma conta** (`/dashboard/api-keys`), então a unidade útil é *uma conta por chave* — nunca muitas chaves de uma única conta.
 
 A ferramenta percorre todo o caminho em um Chrome real e só registra uma chave depois que a API ao vivo responde:
 
 ```
-
 proxies.txt ─▶ escolha de saída + sondagem no ponto de uso (página de registro + challenges.cloudflare.com)
                    │
                    ▼
-  contexto isolado do Chrome ─▶ platform.inceptionlabs.ai/auth/register
+  contexto Chrome isolado ─▶ platform.inceptionlabs.ai/auth/register
                              └─ formulário de registro ─▶ enviar
                                 └─ POST /api/auth/register → 200 → /thank-you
                                    └─ e-mail: "Verify your email address" (link de uso único)
@@ -57,28 +56,30 @@ proxies.txt ─▶ escolha de saída + sondagem no ponto de uso (página de regi
 
 ## 🎁 Plano gratuito — quanto você recebe
 
-Toda conta começa no **Plano Gratuito com 100.000.000 de tokens grátis** — medido de duas formas: o console mostra *"You are on the Free Tier — you have used 0 of your 100,000,000 free tokens"*, e `GET /api/usage?quota=1` responde `{"isFreeTier":true,"limits":{"requests":null,"totalTokens":100000000,"inputTokens":100000000,"outputTokens":100000000},"freeTokenGrant":{"total":100000000,"default":100000000,"expiresAt":null}}`. A concessão é **por conta** e não expira, então uma nova conta é uma nova cota de 100M.
+Toda conta começa no **Plano Gratuito com 100.000.000 de tokens gratuitos** — medidos de duas formas: o console mostra *"You are on the Free Tier — you have used 0 of your 100,000,000 free tokens"*, e `GET /api/usage?quota=1` responde `{"isFreeTier":true,"limits":{"requests":null,"totalTokens":100000000,"inputTokens":100000000,"outputTokens":100000000},"freeTokenGrant":{"total":100000000,"default":100000000,"expiresAt":null}}`. A concessão é **por conta** e não expira, então uma nova conta é uma nova cota de 100M.
 
 | O quê | Valor |
 | --- | --- |
 | Concessão de boas-vindas | **100.000.000 de tokens** por conta — sem expiração |
 | Cartão exigido | **Não** |
-| Cadastro | `POST /api/auth/register` em um Chrome real (verificação de navegador + Turnstile) → e-mail de verificação → login |
+| Cadastro | `POST /api/auth/register` em um Chrome real (verificação de navegador + Turnstile) → verificar e-mail → login |
 | A unidade que escala | **uma conta = uma chave** → `--count N` são N concessões de 100M |
 
 > 💡 O plano gratuito é definido pela Inception Labs e pode mudar. Confira os números ao vivo em [platform.inceptionlabs.ai](https://platform.inceptionlabs.ai) — e deixe o próprio gate da ferramenta decidir:
 
 ```bash
-node src/cli.js verify --chat 30     # every key in keys.txt is re-tested (models + one chat call)
+node src/cli.js verify --chat 30  # toda chave em keys.txt é retestada com uma chamada de chat real
 ```
 
 ## 🤖 Modelos — todos os 3
 
 `models.json` é a resposta ao vivo de `GET /v1/models` de uma chave emitida — **3 ids**:
 
-|Model|✓|
-|---|---|
-|`mercury-2.5`|✓|
+| id | observação |
+| --- | --- |
+| `mercury-2` | o primeiro LLM de difusão; contexto de 128k, saída máxima de 50k; tools / modo JSON / saídas estruturadas |
+| `mercury-2.5` | contexto de 260k, saída máxima de 64k; **o modelo de chat padrão do verificador** |
+| `mercury-decide` | prévia de decisão tipada; apenas endpoint `decisions` — não é chat |
 
 Sondagem ao vivo de uma chave (exatamente o que o verificador faz):
 
@@ -117,7 +118,7 @@ git clone https://github.com/F0Rextasy/inception-bulk-apikey.git
 cd inception-bulk-apikey
 
 # 1) your proxy list, one exit per line (http://, socks5://, socks4:// or bare host:port)
-printf 'socks5://127.0.0.1:1080\n' > proxies.txt
+printf 'socks5://127.0.0.1:1080\n' > proxies.txt   # optional — without it the tool runs direct
 
 # 2) a mailbox broker on loopback — default 127.0.0.1:9700, fallback :9701 (contract below)
 
@@ -130,7 +131,7 @@ node src/cli.js verify --chat 30     # re-verify keys.txt (models + one chat com
 node src/cli.js screen --limit 400   # keep only proxy exits that reach the provider right now
 ```
 
-O que fica no disco enquanto ele roda:
+O que fica no disco enquanto ela roda:
 
 | caminho | conteúdo |
 | --- | --- |
@@ -142,7 +143,7 @@ O que fica no disco enquanto ele roda:
 
 ### 🖱️ O launcher
 
-O launcher `src/launcher.js` controla mint / finish / verify / screen (+ 9Router) e armazena `count`/`conc` em `launcher.config.json`. Ele mostra os contadores de `proxies.txt` e `keys.txt` no cabeçalho. `node src/launcher.js --connect-9router` registra as chaves emitidas em um 9Router local.
+O launcher `src/launcher.js` comanda mint / finish / verify / screen (+ 9Router) e armazena `count`/`conc` em `launcher.config.json`. Ele mostra contadores de `proxies.txt` e `keys.txt` no cabeçalho. `node src/launcher.js --connect-9router` registra as chaves emitidas em um 9Router local.
 
 ## ✅ Verificado e funcionando — toda chave é testada
 
@@ -150,14 +151,20 @@ Uma chave só é escrita em `keys.txt` depois que a API ao vivo responde com ela
 
 | verificação | chamada | esperado |
 | --- | --- | --- |
-| auth + lista de modelos | `GET https://api.inceptionlabs.ai/v1/models` | `200` + os ids de modelo da conta (`mercury-2`, `mercury-2.5`, `mercury-decide`) |
+| autenticação + lista de modelos | `GET https://api.inceptionlabs.ai/v1/models` | `200` + os ids de modelo da conta (`mercury-2`, `mercury-2.5`, `mercury-decide`) |
 | geração real | `POST https://api.inceptionlabs.ai/v1/chat/completions` (`mercury-2.5`) | `200` |
 
 O verificador exige ambos os `200`s — um `401`/`403` em qualquer uma das chamadas reprova a chave imediatamente, e qualquer outra coisa (rede, outros status) tenta novamente em outra saída, até 6 tentativas.
 
 ```bash
-node src/cli.js verify --chat 30    # reproduces both checks for your own file at any time
+node src/cli.js verify --chat 30    # reproduz ambas as verificações para o seu próprio arquivo a qualquer momento
 ```
+
+> **Gates de qualidade.** Toda chave aqui passou por um `chat-200` ao vivo antes de ser escrita em `keys.txt`
+> (chaves mortas nunca são entregues). As combinações do roteador seguem a mesma regra no nível do modelo: uma entrada é
+> adicionada **somente se o modelo responder `chat-200` e conseguir chamar tools** — um modelo sem suporte a tools,
+> uma chave morta ou um provedor morto é descartado em vez de adicionado. Reexecute a etapa de verificação a qualquer momento;
+> as falhas são reportadas, nunca escondidas.
 
 ## 🧭 Como funciona
 
@@ -170,13 +177,13 @@ inbox (one address per account)                                  a fresh address
    └─▶ live proof: POST https://api.inceptionlabs.ai/v1/chat/completions → real content = the key is live
 ```
 
-Por conta, um contexto isolado do Chrome (`openContext` dá a cada contexto seu próprio proxy e armazenamento):
+Por conta, um contexto Chrome isolado (`openContext` dá a cada contexto seu próprio proxy e armazenamento):
 
 1. uma caixa de correio nova do broker;
-2. uma saída entregue apenas se ela responder **ambas** as pernas da sondagem no momento — a página de registro deve responder `2xx–4xx` **e** o host do script do Turnstile deve responder `200/301/302` (sem o widget não há token, e sem o token o POST de registro é rejeitado);
+2. uma saída só é entregue se responder **ambas** as pernas da sondagem agora — a página de registro deve responder `2xx–4xx` **e** o host do script do Turnstile deve responder `200/301/302` (sem o widget não há token, e sem o token o POST de registro é rejeitado);
 3. registro: a verificação de navegador do console é aprovada, o formulário é preenchido, o Turnstile invisível produz seu token, e `POST /api/auth/register` encaminha o app para `/thank-you`;
 4. o e-mail de verificação é consumido, depois o login (sem captcha; aplica-se uma pré-verificação com limite de taxa);
-5. `/dashboard/api-keys` → **Create API Key**: a chave em texto puro é lida da revelação de uso único e da resposta de rede da criação de chave;
+5. `/dashboard/api-keys` → **Create API Key**: a chave em texto simples é lida da revelação única e da resposta de rede de criação de chave;
 6. verificação ao vivo (`/v1/models` + uma conclusão de chat) → `keys.txt`.
 
 ## ⚙️ Opções da CLI
@@ -191,12 +198,16 @@ node src/cli.js help                    # tasks and flags
 
 | tarefa | flags |
 | --- | --- |
-| `mint` | `--count 30·--workers 3 (max 4)·--broker 9700·--fallback-broker 9701·--mail-wait 300000ms·--pending-total 2400000ms·--burst-wait 75000ms·--model mercury-2.5·--stop-keys N (0 = whole count)·--exit-relay (pins bursts to one exit)·--port 9930 (CDP)` |
-| `finish` | `--email <addr>` · `--password <pw>` · `--verify <link>` (consume the verify link first; omit to go straight to sign-in) · `--tag <name>` (dump prefix, `f1`) · `--port N` (`9925`) |
-| `verify` | `--model <id>` (`mercury-2.5`) · `--chat N` (the first N keys also get a chat completion, `30`) · `--only <key>` (check one key instead of the whole file) |
+| `mint` | `--count N` (`30`) · `--workers N` (padrão `3`, máx `4`) · `--broker N` (`9700`) · `--fallback-broker N` (`9701`) · `--mail-wait N` ms (`300000`) · `--pending-total N` ms (`2400000`) · `--burst-wait N` ms (`75000`) · `--model <id>` (`mercury-2.5`) · `--stop-keys N` (parar quando `keys.txt` tiver N; `0` = executar toda a contagem) · `--exit-relay <url>` (fixar cada burst em uma saída fixa) · `--port N` (porta CDP do Chrome, `9930`) |
+| `finish` | `--email <addr>` · `--password <pw>` · `--verify <link>` (consumir o link de verificação primeiro; omitir para ir direto ao login) · `--tag <name>` (prefixo do dump, `f1`) · `--port N` (`9925`) |
+| `verify` | `--model <id>` (`mercury-2.5`) · `--chat N` (as primeiras N chaves também recebem uma conclusão de chat, `30`) · `--only <key>` (verificar uma chave em vez do arquivo inteiro) |
 | `screen` | `--url <page>` (`https://platform.inceptionlabs.ai/login`) · `--out <file>` · `--concurrency N` (`8`) · `--timeout N` ms (`30000`) · `--limit N` (`1000`) · `--ok-min` / `--ok-max` (`200` / `399`) |
 
 ## 🛰️ Atrás de um proxy
+
+**Opcional — recomendado em escala (limites por IP, banimentos).** A ferramenta funciona sem proxy também.
+
+Sem nenhuma linha utilizável em `proxies.txt`, o navegador abre sem túnel e as chamadas HTTP saem desta máquina diretamente — cadastro, criação de chave e verificação funcionam da mesma forma. Um pool é com o que você escala, não o que a ferramenta exige.
 
 `proxies.txt`, uma saída por linha. Formatos aceitos (linhas em branco e comentários `#` / `//` são ignorados; localhost/faixas privadas são rejeitados):
 
@@ -209,7 +220,7 @@ user:pass@10.0.0.2:1080          # defaults to http://
 10.0.0.5:3128                    # bare host:port defaults to http://
 ```
 
-* **Sondagem no ponto de uso, duas pernas:** a página de registro mais o host do script do Turnstile. Os resultados da sondagem são persistidos em `out/exit-state.json`, e saídas sabidamente ruins são ordenadas por último.
+* **Sondagem no ponto de uso, duas pernas:** a página de registro mais o host do script do Turnstile. Os resultados da sondagem são persistidos em `out/exit-state.json`, e saídas sabidamente ruins são ordenadas por último. Sem pool não há nada para sondar — a rota direta é usada como está.
 * **Proxies privados primeiro quando existem:** `RESIDENTIAL_PROXIES=<file>` (ou um `residential-proxies.txt` ao lado do `out/` da ferramenta) é preferido para a fase de registro no momento em que o arquivo existe; qualquer saída alcançável pela API serve para o trabalho HTTP barato.
 * **Proxies HTTP com credenciais funcionam em todos os lugares;** uma linha `socks5://user:pass@…` não pode ser usada para as etapas do navegador (o Chrome não consegue responder a um prompt de autenticação SOCKS), mas ainda funciona para `screen` e `verify`.
 
@@ -225,7 +236,7 @@ user:pass@10.0.0.2:1080          # defaults to http://
 
 ## 🔌 Conectar ao 9Router
 
-O [9Router](https://9router.com) é um roteador auto-hospedado e compatível com OpenAI. A Inception serve um endpoint compatível com OpenAI (`https://api.inceptionlabs.ai/v1`), então registre-o uma vez e cada chave que você emitiu se torna uma conexão sob um único nó de provedor — o 9Router faz balanceamento de carga entre elas:
+O [9Router](https://9router.com) é um roteador auto-hospedado e compatível com OpenAI. A Inception serve um endpoint compatível com OpenAI (`https://api.inceptionlabs.ai/v1`), então registre-o uma vez e cada chave que você emitiu se torna uma conexão sob um nó de provedor — o 9Router faz balanceamento de carga entre elas:
 
 ```bash
 node src/connect-9router.js \
@@ -243,21 +254,43 @@ inception/mercury-2
 inception/mercury-decide
 ```
 
-`node src/cli.js verify --chat 30 --connect-9router` reverifica `keys.txt` e o registra em uma só passada, e `node src/launcher.js` controla o mesmo fluxo a partir do seu menu.
+`node src/cli.js verify --chat 30 --connect-9router` reverifica `keys.txt` e o registra em uma única passada, e `node src/launcher.js` comanda o mesmo fluxo a partir do seu menu.
 
-## 🔑 O que uma chave te dá
+## 🔌 Conectar ao OmniRoute
+
+O [OmniRoute](https://omniroute.online) é um roteador auto-hospedado e compatível com OpenAI. A Inception serve um endpoint compatível com OpenAI (`https://api.inceptionlabs.ai/v1`), então registre-o uma vez e cada chave que você emitiu se torna uma conexão sob um nó de provedor — o OmniRoute faz balanceamento de carga entre elas:
+
+```bash
+node src/connect-omniroute.js \
+  --base http://localhost:20128 --password 123456 \
+  --api-key sk-xxxxxxxx
+```
+
+Execute sem `--api-key` para registrar **todas** as chaves em `keys.txt`. Reexecutar é idempotente: o nó é correspondido por `--prefix inception`, cada conexão é correspondida por nome (`inception-001`, `inception-002`, …), e uma chave já registrada é deixada como está. Padrões: `--base http://localhost:20128`, `--password 123456`, `--name "Inception Labs"`, `--prefix inception`, `--base-url https://api.inceptionlabs.ai/v1`, `--model mercury-2.5`.
+
+Dentro do OmniRoute as chaves são servidas como:
+
+```
+inception/mercury-2.5
+inception/mercury-2
+inception/mercury-decide
+```
+
+`node src/cli.js verify --chat 30 --connect-omniroute` reverifica `keys.txt` e o registra em uma única passada, e `node src/launcher.js` comanda o mesmo fluxo a partir do seu menu.
+
+## 🔑 O que uma chave oferece
 
 | | |
 | --- | --- |
 | 🏢 Provedor | **Inception Labs** — [platform.inceptionlabs.ai](https://platform.inceptionlabs.ai) |
-| 🎁 O que o provedor oferece | LLMs de difusão Mercury — toda conta com 100M de tokens grátis, sem expiração, uma conta por chave |
-| 🔑 O que uma chave te dá | uma chave de API vinculada à sua própria conta: os 3 ids de modelo no endpoint abaixo, nos limites do seu plano. A cota fica na **conta**, que é exatamente por isso que esta ferramenta cria uma conta por chave |
+| 🎁 O que o provedor oferece | LLMs de difusão Mercury — toda conta com 100M de tokens gratuitos, sem expiração, uma conta por chave |
+| 🔑 O que uma chave oferece | uma chave de API vinculada à sua própria conta: os 3 ids de modelo no endpoint abaixo, nos limites do seu plano. A cota fica na **conta**, que é exatamente por que esta ferramenta cria uma conta por chave |
 | 🌐 Formato da API | Compatível com OpenAI: `POST https://api.inceptionlabs.ai/v1/chat/completions` |
 | 🔒 Seus dados | apenas platform.inceptionlabs.ai e o backend de caixa de correio que você configurar são contatados; as chaves ficam na sua máquina |
 
 ## 🐞 Problemas
 
-A Inception mudou o fluxo de registro, o widget do Turnstile, as rotas de autenticação ou o endpoint de api-keys? A ferramenta para nessa etapa e avisa. **[Abra uma issue](../../issues)** com o comando que você executou e a saída exata — os dumps por etapa em `out/` (DOM + screenshot + rede) tornam as falhas reproduzíveis sem vazar uma chave. PRs são bem-vindos.
+A Inception mudou o fluxo de registro, o widget Turnstile, as rotas de autenticação ou o endpoint de api-keys? A ferramenta para nessa etapa e avisa. **[Abra uma issue](../../issues)** com o comando que você executou e a saída exata — os dumps por etapa em `out/` (DOM + screenshot + rede) tornam as falhas reproduzíveis sem vazar uma chave. PRs são bem-vindos.
 
 ## 📄 Licença
 

@@ -13,7 +13,7 @@
  * Usage:
  *   node src/connect-9router.js \
  *     --base http://localhost:20128 --password 123456 \
- *     --api-key sk-xxxx [--name "Inception Labs"] [--prefix inception]
+ *     --api-key inception_xxxx [--name "Inception Labs"] [--prefix inception]
  *
  *   node src/connect-9router.js                  # register every key in keys.txt
  *   node src/connect-9router.js --model <id>     # pin the connection's default model
@@ -25,7 +25,7 @@
  *   --name <name>      provider-node name       (default Inception Labs)
  *   --prefix <slug>    provider prefix in 9Router (default inception)
  *   --base-url <url>   provider base URL        (default https://api.inceptionlabs.ai/v1)
- *   --model <id>       connection default model (default mercury-2.5)
+ *   --model <id>       connection default model (default: provider's default model)
  *
  * Zero dependencies. Node.js >= 18.
  */
@@ -33,19 +33,19 @@
 const fs = require('fs');
 const path = require('path');
 
-const UA = 'inception-bulk-9router-connector/1.0';
+const UA = 'inception-bulk-9router-connector/1.0'
 
 const DEFAULTS = {
   base: 'http://localhost:20128',
   password: '123456',
-  name: 'Inception Labs',
-  prefix: 'inception',
-  baseUrl: 'https://api.inceptionlabs.ai/v1',
-  defaultModel: 'mercury-2.5',
+  name: "Inception Labs",
+  prefix: "inception",
+  baseUrl: "https://api.inceptionlabs.ai/v1",
+  defaultModel: "mercury-2.5",
 };
 
 /** Model ids a fresh key lists, as routed under `<prefix>/…` by 9Router. */
-const MODELS = ['mercury-2.5', 'mercury-2', 'mercury-decide'];
+const MODELS = ["mercury-2.5","mercury-2","mercury-decide"];
 
 async function login9router(base, password) {
   const res = await fetch(`${base}/api/auth/login`, {
@@ -53,11 +53,8 @@ async function login9router(base, password) {
     headers: { 'Content-Type': 'application/json', 'User-Agent': UA },
     body: JSON.stringify({ password: password ?? DEFAULTS.password }),
   });
-  // getSetCookie ships with undici 5.19 (Node >= 18.14); on an older 18.x the
-  // jar would stay empty and every later call would come back 401.
-  const raw = typeof res.headers.getSetCookie === 'function' ? res.headers.getSetCookie() : null;
-  const sc = raw || (res.headers.get('set-cookie') ? [res.headers.get('set-cookie')] : []);
-  const cookie = sc.map((c) => String(c).split(';')[0]).join('; ');
+  const sc = typeof res.headers.getSetCookie === 'function' ? res.headers.getSetCookie() : [];
+  const cookie = sc.map((c) => c.split(';')[0]).join('; ');
   return { ok: res.ok, cookie, body: (await res.text()).slice(0, 200) };
 }
 
@@ -148,9 +145,9 @@ async function connect9Router(opts = {}) {
   return connection;
 }
 
-/** `keys.txt` at the checkout root — the file mint.js and launcher.js use. */
+/** `keys.txt` at the checkout root (beside `src/`) — the layout the tools run in. */
 function defaultKeysFile() {
-  return path.join(path.resolve(__dirname, '..'), 'keys.txt');
+  return path.join(__dirname, '..', 'keys.txt');
 }
 
 function readKeys(keysFile = defaultKeysFile()) {

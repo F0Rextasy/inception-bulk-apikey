@@ -2,133 +2,186 @@
 'use strict';
 
 /**
- * Interactive launcher for inception-bulk-apikey — a menu over the task modules.
- * Settings persist in launcher.config.json at the checkout root (beside
- * proxies.txt and keys.txt).
+ * Interactive launcher for the compiled build.
+ *
+ * The CLI's options stay configurable without reading its source: this launcher
+ * asks for them, remembers the answers in `launcher.config.json`, and then runs
+ * the CLI with the right flags — including the proxy list, which is the setting
+ * people most often need and cannot guess.
+ *
+ * Usage: node src/launcher.js            (menu)
+ *        node src/launcher.js --help
  */
 
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 const { spawnSync } = require('child_process');
-const { connect9Router, connectKeysFile, readKeys, defaultKeysFile } = require('./connect-9router.js');
 
-const HERE = __dirname; // the task modules live beside this launcher
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG = path.join(ROOT, 'launcher.config.json');
-const POOL = path.join(ROOT, 'proxies.txt');
-const KEYS = path.join(ROOT, 'keys.txt');
+const CLI = path.join(__dirname, 'cli.js');
 
-const defaults = { count: 30, conc: 2 };
-let cfg = { ...defaults };
-try { Object.assign(cfg, JSON.parse(fs.readFileSync(CONFIG, 'utf8'))); } catch (e) {}
-const save = () => fs.writeFileSync(CONFIG, JSON.stringify(cfg, null, 2) + '\n');
-const ARGS = {"mint":["--count","count","--workers","conc"],"finish":[],"verify":[],"screen":[]};
+const defaults = {
+  count: 50,
+  model: 'mercury-2.5',
+  routerBase: 'http://localhost:20128',
+  routerPassword: '123456',
+};
+
+function loadConfig() {
+  try {
+    return { ...defaults, ...JSON.parse(fs.readFileSync(CONFIG, 'utf8')) };
+  } catch (e) {
+    return { ...defaults };
+  }
+}
+
+function saveConfig(cfg) {
+  try {
+    fs.writeFileSync(CONFIG, JSON.stringify(cfg, null, 2) + '\n');
+  } catch (e) {
+    console.error(`  ! could not write ${path.basename(CONFIG)}: ${e.message}`);
+  }
+}
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-const ask = (q, fb) => new Promise((r) => rl.question(q + (fb !== undefined ? ' [' + fb + ']' : '') + ': ', (a) => r(String(a).trim() || fb)));
+const ask = (question, fallback) =>
+  new Promise((resolve) => {
+    const hint = fallback ? ` [${String(fallback).slice(0, 30)}${String(fallback).length > 30 ? '…' : ''}]` : '';
+    rl.question(`  ${question}${hint}: `, (answer) => resolve(answer.trim() || fallback || ''));
+  });
 
-const LOGO = String.raw`
-  ██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
-  ██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
-  ██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
-  ██║██║╚██╗██║██║     ██╔══╝  ██╔═══╝    ██║   ██║██║   ██║██║╚██╗██║
-  ██║██║ ╚████║╚██████╗███████╗██║        ██║   ██║╚██████╔╝██║ ╚████║
-  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝`;
+function run(args, env = {}) {
+  console.log('');
+  const res = spawnSync(process.execPath, [CLI, ...args], {
+    windowsHide: true,
+    cwd: ROOT,
+    stdio: 'inherit',
+    env: { ...process.env, ...env },
+  });
+  if (res.status !== 0) console.log(`  ! exited with code ${res.status}`);
+}
+
+const BANNER_LOGO = String.raw`
+██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
+██║██║╚██╗██║██║     ██╔══╝  ██╔═══╝    ██║   ██║██║   ██║██║╚██╗██║
+██║██║ ╚████║╚██████╗███████╗██║        ██║   ██║╚██████╔╝██║ ╚████║
+╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+`;
 
 function banner() {
-  const w = 78;
-  const box = (s) => '  │ ' + s.padEnd(w) + ' │';
-  console.log(LOGO);
-  console.log('  ┌' + '─'.repeat(w + 2) + '┐');
-  console.log(box('inception-bulk-apikey  ·  one account per key'));
-  console.log(box('open source · MIT · inception-bulk-apikey contributors'));
-  console.log('  └' + '─'.repeat(w + 2) + '┘\n');
+  const cyan = '\x1b[36m';
+  const dim = '\x1b[2m';
+  const bold = '\x1b[1m';
+  const reset = '\x1b[0m';
+  const title = 'inception-bulk-apikey';
+  const tagline = "Mercury diffusion LLMs — every account 100M free tokens, no expiry, one account per key";
+  const lines = BANNER_LOGO.replace(/^\n/, '').replace(/\n$/, '').split('\n');
+  const width = Math.max(...lines.map((l) => [...l].length), [...title].length, [...tagline].length);
+  const pad = (s) => s + ' '.repeat(width - [...s].length);
+  const inner = width + 4;
+  console.log('');
+  console.log(`${cyan}╔${'═'.repeat(inner)}╗${reset}`);
+  console.log(`${cyan}║${' '.repeat(inner)}║${reset}`);
+  for (const line of lines) console.log(`${cyan}║${reset}  ${bold}${pad(line)}${reset}  ${cyan}║${reset}`);
+  console.log(`${cyan}║${' '.repeat(inner)}║${reset}`);
+  console.log(`${cyan}║${reset}  ${pad(title)}  ${cyan}║${reset}`);
+  console.log(`${cyan}║${reset}  ${dim}${pad(tagline)}${reset}  ${cyan}║${reset}`);
+  console.log(`${cyan}║${' '.repeat(inner)}║${reset}`);
+  console.log(`${cyan}╚${'═'.repeat(inner)}╝${reset}`);
+  console.log(`  ${dim}inception-bulk-apikey contributors${reset}`);
+  console.log('');
 }
 
-const count = (f) => { try { return fs.readFileSync(f, 'utf8').split(/\r?\n/).filter((l) => l.trim() && !l.trim().startsWith('#')).length; } catch (e) { return 0; } };
+async function mintFlow(cfg) {
+  cfg.count = parseInt(await ask('How many accounts/keys do you want (any number)', cfg.count), 10) || cfg.count;
+  cfg.model = await ask('Model used for the live verification', cfg.model);
+  saveConfig(cfg);
 
-function run(args) {
-  console.log('\n▶ node src/' + args.join(' ') + '\n');
-  const r = spawnSync(process.execPath, args, { windowsHide: true, cwd: HERE, stdio: 'inherit' });
-  if (r.status !== 0) console.log('\n⚠ exited with code ' + r.status);
+  if (!fs.existsSync(path.join(ROOT, 'proxies.txt'))) {
+    console.log('  ! proxies.txt not found — running WITHOUT a proxy (direct)');
+    console.log('    (put one exit per line there to route through proxies: http://host:port, socks5://host:port or host:port)');
+  }
+  run(['mint', '--count', String(cfg.count), '--model', cfg.model]);
 }
 
-function argsFor(task) {
-  const spec = ARGS[task] || [];
-  return spec.map((v) => (v === 'count' ? String(cfg.count) : v === 'conc' ? String(cfg.conc) : v));
+async function verifyFlow(cfg) {
+  saveConfig(cfg);
+  run(['verify', '--chat', '30']);
 }
 
-async function settings() {
-  console.log('\nSettings');
-  console.log('  1) count      ' + cfg.count);
-  console.log('  2) conc       ' + cfg.conc);
-  console.log('  0) back');
-  const p = await ask('choose', '0');
-  if (p === '1') cfg.count = parseInt(await ask('count', cfg.count), 10) || cfg.count;
-  if (p === '2') cfg.conc = parseInt(await ask('concurrency', cfg.conc), 10) || cfg.conc;
-  save();
+async function screenFlow(cfg) {
+  saveConfig(cfg);
+  run(['screen']);
 }
 
-async function connectRouter() {
-  const base = await ask('9Router base', cfg.routerBase || 'http://localhost:20128');
-  const password = await ask('9Router password', cfg.routerPassword || '123456');
-  cfg.routerBase = base;
-  cfg.routerPassword = password;
-  save();
-  console.log('\n▶ 9Router ' + base + ' — one connection per key\n');
+async function connectFlow(cfg) {
+  const { connectKeysFile, connect9Router } = require('./connect-9router.js');
+  cfg.routerBase = await ask('9Router base URL', cfg.routerBase);
+  cfg.routerPassword = await ask('9Router password', cfg.routerPassword);
+  saveConfig(cfg);
+  console.log('');
   try {
-    await connectKeysFile({ base, password });
+    await connectKeysFile({ base: cfg.routerBase, password: cfg.routerPassword });
   } catch (e) {
-    if (readKeys(defaultKeysFile()).length) {
-      console.log('\n⚠ ' + (e && e.message ? e.message : e));
-      return;
-    }
-    const apiKey = await ask('keys.txt is empty — paste one API key', '');
-    if (!apiKey) return;
-    try {
-      await connect9Router({ base, password, apiKey });
-    } catch (e2) {
-      console.log('\n⚠ ' + (e2 && e2.message ? e2.message : e2));
-    }
+    if (!/no API keys/.test(e.message)) throw e;
+    console.log(`  ! ${e.message}`);
+    const apiKey = await ask('Single Inception Labs key to register');
+    if (apiKey) await connect9Router({ base: cfg.routerBase, password: cfg.routerPassword, apiKey });
+  }
+}
+
+async function connectFlowOmni(cfg) {
+  const { connectKeysFile, connectOmniRoute } = require('./connect-omniroute.js');
+  cfg.routerBase = await ask('OmniRoute base URL', cfg.routerBase);
+  cfg.routerPassword = await ask('OmniRoute password', cfg.routerPassword);
+  saveConfig(cfg);
+  console.log('');
+  try {
+    await connectKeysFile({ base: cfg.routerBase, password: cfg.routerPassword });
+  } catch (e) {
+    if (!/no API keys/.test(e.message)) throw e;
+    console.log(`  ! ${e.message}`);
+    const apiKey = await ask('Single Inception Labs key to register');
+    if (apiKey) await connectOmniRoute({ base: cfg.routerBase, password: cfg.routerPassword, apiKey });
   }
 }
 
 async function main() {
-  process.stdout.write('\x1b[2J\x1b[H');
-  banner();
-  console.log('  proxy exits: ' + (count(POOL) || 'none — running WITHOUT a proxy (direct)') + '     keys on disk: ' + count(KEYS) + '\n');
-  console.log('  1) mint      create fresh accounts and mint one key each');
-  console.log('  2) finish    log in to accounts already created and finish their key');
-  console.log('  3) verify    re-check keys that are already on disk');
-  console.log('  4) screen    keep only proxy exits that reach the provider');
-  console.log('  5) Settings');
-  console.log('  6) Connect to 9Router');
-  console.log('  0) Exit\n');
-  const choice = await ask('choose', '1');
-  if (choice === '1') {
-    run(['mint.js', ...argsFor('mint')]);
-  }
-  else if (choice === '2') {
-    run(['finish.js', ...argsFor('finish')]);
-  }
-  else if (choice === '3') {
-    run(['verify-keys.js', ...argsFor('verify')]);
-  }
-  else if (choice === '4') {
-    run(['screen.js', ...argsFor('screen')]);
-  }
-  else if (choice === '5') {
-    await settings();
-  }
-  else if (choice === '6') {
-    await connectRouter();
-  } else {
+  const cfg = loadConfig();
+  if (process.argv.includes('--connect-9router')) {
+    await connectFlow(cfg);
     rl.close();
     return;
   }
-  await ask('\npress enter for the menu', '');
-  return main();
+
+  if (process.argv.includes('--connect-omniroute')) {
+    await connectFlowOmni(cfg);
+    rl.close();
+    return;
+  }
+  banner();
+  console.log('  1) Mint keys      — create one account per key and verify each with a live chat call');
+  console.log('  2) Verify keys    — re-check every key in keys.txt with a live chat call');
+  console.log('  3) Screen proxies — test your proxy list for exits that reach Inception Labs');
+  console.log('  4) Settings       — show what this launcher remembers');
+  console.log('  5) Help           — CLI options and notes');
+  console.log('  6) Connect to 9Router — register the keys in keys.txt with a local 9Router');
+  console.log('  7) Connect to OmniRoute — register the keys in keys.txt with a local OmniRoute');
+  console.log('  q) Quit\n');
+  const choice = (await ask('Choose', '1')).toLowerCase();
+
+  if (choice === '1') await mintFlow(cfg);
+  else if (choice === '2') await verifyFlow(cfg);
+  else if (choice === '3') await screenFlow(cfg);
+  else if (choice === '4') console.log('\n' + JSON.stringify(cfg, null, 2));
+  else if (choice === '5') run(['--help']);
+  else if (choice === '6') await connectFlow(cfg);
+  else if (choice === '7') await connectFlowOmni(cfg);
+  rl.close();
 }
 
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
@@ -136,4 +189,7 @@ if (process.argv.includes('--help') || process.argv.includes('-h')) {
   process.exit(0);
 }
 
-main().catch((e) => { console.error('launcher failed:', e.stack || e.message); process.exit(1); });
+main().catch((e) => {
+  console.error('[fatal]', e.message);
+  process.exit(1);
+});

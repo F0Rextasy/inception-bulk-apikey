@@ -65,7 +65,7 @@ async function snap(page, name) {
     await snap(page, 'login');
     if (ready) {
       const emailSel = (await page.eval(`document.querySelector('#email') ? '#email' : 'input[type=email]'`)) || '#email';
-      const pwSel = (await page.eval(`document.querySelector('#password') ? '#password' : 'input[type=password]'`)) || '#password';
+      const pwSel = (await page.eval(`document.querySelector('#password') ? '#password' : \`input[type=password]\``)) || '#password';
       await page.type(emailSel, EMAIL);
       await page.type(pwSel, PASSWORD);
       await sleep(600);

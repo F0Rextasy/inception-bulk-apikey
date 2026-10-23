@@ -6,7 +6,6 @@
   "type": "commonjs",
   "bin": {
     "inception-bulk-apikey": "src/cli.js",
-    "inception-bulk-apikey-9router": "src/connect-9router.js",
     "inception-bulk-apikey-launcher": "src/launcher.js"
   },
   "main": "src/cli.js",
@@ -16,7 +15,8 @@
   "scripts": {
     "start": "node src/launcher.js",
     "mint": "node src/cli.js",
-    "9router": "node src/connect-9router.js"
+    "9router": "node src/connect-9router.js",
+    "omniroute": "node src/connect-omniroute.js"
   },
   "keywords": [
     "api-key",
@@ -24,44 +24,10 @@
     "register",
     "launcher",
     "inception",
-    "apikey",
-    "9router",
-    "openai-compatible"
+    "apikey"
   ],
   "files": [
-    "src/broker-timing.js",
-    "src/browser.js",
-    "src/cdp.js",
-    "src/chrome-flags.js",
-    "src/chunks.js",
-    "src/cli.js",
-    "src/debug-mail.js",
-    "src/exits.js",
-    "src/finish.js",
-    "src/get.js",
-    "src/http-probe.js",
-    "src/launcher.js",
-    "src/lib.js",
-    "src/mail.js",
-    "src/mint.js",
-    "src/pilot.js",
-    "src/pool-union.js",
-    "src/proxy.js",
-    "src/recon-browser.js",
-    "src/relay.js",
-    "src/replay-test.js",
-    "src/rescue-reset.js",
-    "src/rescue-ui.js",
-    "src/screen.js",
-    "src/split-relay.js",
-    "src/token-required.js",
-    "src/token-screen.js",
-    "src/try-exits.js",
-    "src/turnstile-probe.js",
-    "src/verify-keys.js",
-    "src/warm-screen.js",
-    "src/warp-token.js",
-    "src/connect-9router.js",
+    "src",
     "README.md",
     "LICENSE"
   ]

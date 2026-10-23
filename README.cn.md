@@ -1,7 +1,6 @@
 <div align="center">
 
 ```
-
 ██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
 ██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
 ██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
@@ -19,9 +18,10 @@
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
 [![Models](https://img.shields.io/badge/models-3%20served-412991?style=for-the-badge)](https://platform.inceptionlabs.ai/docs)
 [![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
+[![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 快速开始](#-quick-start) · [🎁 免费额度](#-free-tier--how-much-you-get) · [🤖 模型](#-models--all-3-of-them) · [🧪 使用 API](#-how-to-use-the-api) · [✅ 已验证](#-verified-working--every-key-is-tested) · [🧭 工作原理](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ 选项](#️-cli-options) · [🛰️ 代理](#️-behind-a-proxy) · [🐞 问题反馈](#-issues)
+[🛠 快速开始](#-quick-start) · [🎁 免费额度](#-free-tier--how-much-you-get) · [🤖 模型](#-models--all-3-of-them) · [🧪 使用 API](#-how-to-use-the-api) · [✅ 已验证](#-verified-working--every-key-is-tested) · [🧭 工作原理](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ 选项](#️-cli-options) · [🛰️ 代理](#️-behind-a-proxy) · [🐞 问题反馈](#-issues)
 
 </div>
 
@@ -33,15 +33,14 @@
 
 ---
 
-## ✨ 为什么会有这个工具
+## ✨ 为什么需要这个工具
 
-Inception Labs 通过 `api.inceptionlabs.ai/v1` 上兼容 OpenAI 的 API 提供 **Mercury** —— 扩散式 LLM 系列（`mercury-2`、`mercury-2.5`、`mercury-decide`）。控制台在**账户之下**签发密钥（`/dashboard/api-keys`），因此有用的单位是*每个密钥一个账户* —— 而不是从一个账户生成多个密钥。
+Inception Labs 通过兼容 OpenAI 的 API 在 `api.inceptionlabs.ai/v1` 上提供 **Mercury** —— 扩散式 LLM 系列（`mercury-2`、`mercury-2.5`、`mercury-decide`）。控制台在**账户下**生成密钥（`/dashboard/api-keys`），因此有用的单位是*每个密钥对应一个账户* —— 而不是从一个账户生成多个密钥。
 
-该工具在真实的 Chrome 中走完整个流程，并且只有在实时 API 应答之后才记录密钥：
+该工具在真实的 Chrome 中走完整个流程，并且只有在实时 API 响应后才记录密钥：
 
 ```
-
-proxies.txt ─▶ 出口挑选 + 使用点探测（注册页面 + challenges.cloudflare.com）
+proxies.txt ─▶ 出口选择 + 使用点探测（注册页面 + challenges.cloudflare.com）
                    │
                    ▼
   隔离的 Chrome 上下文 ─▶ platform.inceptionlabs.ai/auth/register
@@ -57,30 +56,32 @@ proxies.txt ─▶ 出口挑选 + 使用点探测（注册页面 + challenges.cl
 
 ## 🎁 免费额度 —— 你能获得多少
 
-每个账户都以 **免费层级，含 100,000,000 免费 token** 开始 —— 有两种衡量方式：控制台显示 *"You are on the Free Tier — you have used 0 of your 100,000,000 free tokens"*，并且 `GET /api/usage?quota=1` 返回 `{"isFreeTier":true,"limits":{"requests":null,"totalTokens":100000000,"inputTokens":100000000,"outputTokens":100000000},"freeTokenGrant":{"total":100000000,"default":100000000,"expiresAt":null}}`。该额度是**按账户**计算的，且不会过期，因此一个新账户就是新的 1 亿。
+每个账户都以 **免费层级，含 100,000,000 免费 token** 开始 —— 有两种衡量方式：控制台显示 *"You are on the Free Tier — you have used 0 of your 100,000,000 free tokens"*，并且 `GET /api/usage?quota=1` 返回 `{"isFreeTier":true,"limits":{"requests":null,"totalTokens":100000000,"inputTokens":100000000,"outputTokens":100000000},"freeTokenGrant":{"total":100000000,"default":100000000,"expiresAt":null}}`。该额度是**按账户**授予的，且不会过期，因此一个新账户就是新的 1 亿。
 
 | 项目 | 值 |
 | --- | --- |
-| 欢迎额度 | **100,000,000 token** 每账户 —— 无过期 |
+| 欢迎额度 | 每个账户 **100,000,000 token** —— 无过期 |
 | 需要银行卡 | **否** |
 | 注册 | 在真实 Chrome 中 `POST /api/auth/register`（浏览器检查 + Turnstile）→ 验证邮件 → 登录 |
 | 可扩展的单位 | **一个账户 = 一个密钥** → `--count N` 即 N 个 1 亿额度 |
 
-> 💡 免费层级由 Inception Labs 设定，可能会变化。请在 [platform.inceptionlabs.ai](https://platform.inceptionlabs.ai) 查看实时数字 —— 并让工具自身的关卡来判定：
+> 💡 免费层级由 Inception Labs 设定，可能会变化。请在 [platform.inceptionlabs.ai](https://platform.inceptionlabs.ai) 查看实时数据 —— 并让工具自身的关卡来判定：
 
 ```bash
-node src/cli.js verify --chat 30     # keys.txt 中的每个密钥都会被重新测试（模型 + 一次聊天调用）
+node src/cli.js verify --chat 30  # keys.txt 中的每个密钥都会用真实的聊天调用重新测试
 ```
 
 ## 🤖 模型 —— 全部 3 个
 
-`models.json` 是已签发密钥对 `GET /v1/models` 的实时应答 —— **3 个 id**：
+`models.json` 是已生成密钥的实时 `GET /v1/models` 响应 —— **3 个 id**：
 
-|模型|✓|
-|---|---|
-|`mercury-2.5`|✓|
+| id | 说明 |
+| --- | --- |
+| `mercury-2` | 首个扩散式 LLM；128k 上下文，50k 最大输出；工具 / JSON 模式 / 结构化输出 |
+| `mercury-2.5` | 260k 上下文，64k 最大输出；**验证器的默认聊天模型** |
+| `mercury-decide` | 类型化决策预览；仅 `decisions` 端点 —— 不支持聊天 |
 
-对一个密钥的实时探测（正是验证器所做的事）：
+对一个密钥的实时探测（正是验证器所做的）：
 
 ```bash
 curl https://api.inceptionlabs.ai/v1/chat/completions \
@@ -91,7 +92,7 @@ curl https://api.inceptionlabs.ai/v1/chat/completions \
 
 ## 🧪 如何使用 API
 
-基础 URL 是 **`https://api.inceptionlabs.ai/v1`** —— 兼容 OpenAI。免费层级的密钥可直接应答聊天。
+基础 URL 是 **`https://api.inceptionlabs.ai/v1`** —— 兼容 OpenAI。免费层级的密钥可直接响应聊天。
 
 **任意 SDK / curl**
 
@@ -108,7 +109,7 @@ curl https://api.inceptionlabs.ai/v1/chat/completions \
   -d '{"model":"mercury-2.5","messages":[{"role":"user","content":"hi"}]}'
 ```
 
-**任何支持自定义基础 URL 的 agent**（Cursor、OpenCode、Kilo Code 等）：设置基础 URL 为 `https://api.inceptionlabs.ai/v1`，粘贴一个密钥，选择 `mercury-2` 或 `mercury-2.5`。
+**任何支持自定义基础 URL 的代理**（Cursor、OpenCode、Kilo Code …）：设置基础 URL 为 `https://api.inceptionlabs.ai/v1`，粘贴一个密钥，选择 `mercury-2` 或 `mercury-2.5`。
 
 ## 🛠 快速开始
 
@@ -117,7 +118,7 @@ git clone https://github.com/F0Rextasy/inception-bulk-apikey.git
 cd inception-bulk-apikey
 
 # 1) your proxy list, one exit per line (http://, socks5://, socks4:// or bare host:port)
-printf 'socks5://127.0.0.1:1080\n' > proxies.txt
+printf 'socks5://127.0.0.1:1080\n' > proxies.txt   # optional — without it the tool runs direct
 
 # 2) a mailbox broker on loopback — default 127.0.0.1:9700, fallback :9701 (contract below)
 
@@ -137,46 +138,52 @@ node src/cli.js screen --limit 400   # keep only proxy exits that reach the prov
 | `keys.txt` | 密钥，**每行一个**，在密钥验证通过的那一刻追加（已被 git 忽略） |
 | `%USERPROFILE%\\inception-keys.txt` | 同一列表的镜像，位于仓库之外 |
 | `accounts.json` | 每次尝试一条记录：邮箱、密码、注册状态、密钥前缀 + 模型 id（已被 git 忽略） |
-| [`models.json`](models.json) | 已签发密钥对 `GET /v1/models` 的应答 |
+| [`models.json`](models.json) | 已生成密钥所返回的 `GET /v1/models` |
 | `out/` | 运行日志（`mint.log`）、出口状态、待处理队列、每步的 DOM/网络/截图转储（已被 git 忽略） |
 
 ### 🖱️ 启动器
 
-启动器 `src/launcher.js` 驱动 mint / finish / verify / screen（+ 9Router），并将 `count`/`conc` 存储在 `launcher.config.json` 中。它在头部显示 `proxies.txt` 和 `keys.txt` 的计数器。`node src/launcher.js --connect-9router` 会将已签发的密钥注册到本地 9Router。
+启动器 `src/launcher.js` 驱动 mint / finish / verify / screen（+ 9Router），并将 `count`/`conc` 存储在 `launcher.config.json` 中。它在头部显示 `proxies.txt` 和 `keys.txt` 的计数器。`node src/launcher.js --connect-9router` 会将已生成的密钥注册到本地 9Router。
 
 ## ✅ 已验证可用 —— 每个密钥都经过测试
 
-只有在实时 API 用它应答之后，密钥才会被写入 `keys.txt`：
+只有当实时 API 用某个密钥成功响应后，该密钥才会被写入 `keys.txt`：
 
 | 检查 | 调用 | 预期 |
 | --- | --- | --- |
 | 认证 + 模型列表 | `GET https://api.inceptionlabs.ai/v1/models` | `200` + 该账户的模型 id（`mercury-2`、`mercury-2.5`、`mercury-decide`） |
 | 真实生成 | `POST https://api.inceptionlabs.ai/v1/chat/completions`（`mercury-2.5`） | `200` |
 
-验证器以两个 `200` 为关卡 —— 任一调用出现 `401`/`403` 会立即判定该密钥失败，其他任何情况（网络、其他状态码）会在另一个出口上重试，最多 6 次。
+验证器以两个 `200` 为关卡 —— 任一调用返回 `401`/`403` 会立即判定该密钥失败，其他任何情况（网络问题、其他状态码）会在另一个出口上重试，最多 6 次。
 
 ```bash
-node src/cli.js verify --chat 30    # 随时为你自己的文件复现这两项检查
+node src/cli.js verify --chat 30    # 随时为你自己的文件重现这两项检查
 ```
+
+> **质量关卡。** 这里的每个密钥在被写入 `keys.txt` 之前都通过了实时的 `chat-200`
+> （绝不提供失效的密钥）。路由器组合在模型层面遵循同样的规则：只有当模型
+> **能响应 `chat-200` 且能调用工具**时，才会添加条目 —— 不支持工具的模型、
+> 失效的密钥或失效的提供商会直接被丢弃而不是添加。可随时重新运行验证步骤；
+> 失败会被报告，绝不隐藏。
 
 ## 🧭 工作原理
 
 ```
-inbox (one address per account)                                  a fresh address per account
+收件箱（每个账户一个地址）                                  每个账户一个全新地址
    │
-   ├─▶ sign-up: Inception Labs page → e-mail address → code / link from the inbox
-   ├─▶ session: the account's cookies or access token in hand
-   ├─▶ key mint: the account's key endpoint → plaintext key returned once (written to disk immediately)
-   └─▶ live proof: POST https://api.inceptionlabs.ai/v1/chat/completions → real content = the key is live
+   ├─▶ 注册：Inception Labs 页面 → 电子邮件地址 → 来自收件箱的验证码 / 链接
+   ├─▶ 会话：持有该账户的 cookie 或访问令牌
+   ├─▶ 密钥生成：该账户的密钥端点 → 明文密钥仅返回一次（立即写入磁盘）
+   └─▶ 实时证明：POST https://api.inceptionlabs.ai/v1/chat/completions → 真实内容 = 密钥可用
 ```
 
 每个账户使用一个隔离的 Chrome 上下文（`openContext` 为每个上下文提供自己的代理和存储）：
 
-1. 从 broker 获取一个新邮箱；
-2. 只有当某个出口**此刻**能应答**两段**探测时才会被分配 —— 注册页面必须应答 `2xx–4xx`，**并且** Turnstile 脚本主机必须应答 `200/301/302`（没有该组件就没有 token，没有 token 注册 POST 就会被拒绝）；
-3. 注册：控制台的浏览器检查通过，表单填写完成，不可见的 Turnstile 生成其 token，`POST /api/auth/register` 将应用路由到 `/thank-you`；
-4. 消费验证邮件，然后登录（无验证码；适用一个限速的预检查）；
-5. `/dashboard/api-keys` → **Create API Key**：从一次性展示和创建密钥的网络响应中读取明文密钥；
+1. 从代理服务获取一个全新邮箱；
+2. 只有当某个出口**同时**通过两条探测腿时才被分配 —— 注册页面必须返回 `2xx–4xx`，**并且** Turnstile 脚本主机必须返回 `200/301/302`（没有该组件就没有令牌，没有令牌注册 POST 就会被拒绝）；
+3. 注册：控制台的浏览器检查通过，表单填写完成，不可见的 Turnstile 生成其令牌，`POST /api/auth/register` 将应用路由到 `/thank-you`；
+4. 消费验证邮件，然后登录（无验证码；适用限速预检查）；
+5. `/dashboard/api-keys` → **Create API Key**：从一次性展示和创建密钥的线路响应中读取明文密钥；
 6. 实时验证（`/v1/models` + 一次聊天补全）→ `keys.txt`。
 
 ## ⚙️ CLI 选项
@@ -191,12 +198,16 @@ node src/cli.js help                    # tasks and flags
 
 | 任务 | 标志 |
 | --- | --- |
-| `mint` | `--count 30·--workers 3 (max 4)·--broker 9700·--fallback-broker 9701·--mail-wait 300000ms·--pending-total 2400000ms·--burst-wait 75000ms·--model mercury-2.5·--stop-keys N (0 = whole count)·--exit-relay (pins bursts to one exit)·--port 9930 (CDP)` |
-| `finish` | `--email <addr>` · `--password <pw>` · `--verify <link>`（先消费验证链接；省略则直接登录） · `--tag <name>`（转储前缀，`f1`） · `--port N`（`9925`） |
-| `verify` | `--model <id>`（`mercury-2.5`） · `--chat N`（前 N 个密钥还会获得一次聊天补全，`30`） · `--only <key>`（只检查一个密钥而非整个文件） |
-| `screen` | `--url <page>`（`https://platform.inceptionlabs.ai/login`） · `--out <file>` · `--concurrency N`（`8`） · `--timeout N` ms（`30000`） · `--limit N`（`1000`） · `--ok-min` / `--ok-max`（`200` / `399`） |
+| `mint` | `--count N`（`30`）· `--workers N`（默认 `3`，最大 `4`）· `--broker N`（`9700`）· `--fallback-broker N`（`9701`）· `--mail-wait N` 毫秒（`300000`）· `--pending-total N` 毫秒（`2400000`）· `--burst-wait N` 毫秒（`75000`）· `--model <id>`（`mercury-2.5`）· `--stop-keys N`（当 `keys.txt` 达到 N 时停止；`0` = 运行整个 count）· `--exit-relay <url>`（将所有突发固定在一个固定出口上）· `--port N`（Chrome CDP 端口，`9930`） |
+| `finish` | `--email <addr>` · `--password <pw>` · `--verify <link>`（先消费验证链接；省略则直接登录）· `--tag <name>`（转储前缀，`f1`）· `--port N`（`9925`） |
+| `verify` | `--model <id>`（`mercury-2.5`）· `--chat N`（前 N 个密钥还会获得一次聊天补全，`30`）· `--only <key>`（只检查一个密钥而不是整个文件） |
+| `screen` | `--url <page>`（`https://platform.inceptionlabs.ai/login`）· `--out <file>` · `--concurrency N`（`8`）· `--timeout N` 毫秒（`30000`）· `--limit N`（`1000`）· `--ok-min` / `--ok-max`（`200` / `399`） |
 
 ## 🛰️ 在代理之后
+
+**可选 —— 大规模使用时推荐（按 IP 限制、封禁）。** 该工具在没有代理的情况下也能工作。
+
+如果 `proxies.txt` 中没有可用的行，浏览器将以无隧道方式打开，HTTP 调用直接从本机发出 —— 注册、密钥创建和验证都以相同方式运行。代理池是你用来扩展的，而不是工具所必需的。
 
 `proxies.txt`，每行一个出口。接受的格式（空行和 `#` / `//` 注释会被跳过；localhost/私有网段会被拒绝）：
 
@@ -209,9 +220,9 @@ user:pass@10.0.0.2:1080          # defaults to http://
 10.0.0.5:3128                    # bare host:port defaults to http://
 ```
 
-* **使用点探测，两段：** 注册页面加上 Turnstile 脚本主机。探测结果持久化在 `out/exit-state.json` 中，已知不良的出口排在最后。
-* **存在私有代理时优先使用：** `RESIDENTIAL_PROXIES=<file>`（或工具 `out/` 旁的 `residential-proxies.txt`）在文件存在的那一刻起就优先用于注册阶段；任何可到达 api 的出口都可用于廉价的 HTTP 工作。
-* **带凭据的 HTTP 代理在任何地方都可用；** `socks5://user:pass@…` 行不能用于浏览器步骤（Chrome 无法应答 SOCKS 认证提示），但它仍可用于 `screen` 和 `verify`。
+* **使用点探测，两条腿：** 注册页面加上 Turnstile 脚本主机。探测结果持久化在 `out/exit-state.json` 中，已知不良的出口排在最后。没有代理池时就没有可探测的 —— 直接路由按原样使用。
+* **存在私有代理时优先使用：** 只要文件存在，`RESIDENTIAL_PROXIES=<file>`（或工具 `out/` 旁边的 `residential-proxies.txt`）就会在注册阶段被优先使用；任何可访问 api 的出口都适合廉价的 HTTP 工作。
+* **带凭据的 HTTP 代理在任何地方都可用；** `socks5://user:pass@…` 行不能用于浏览器步骤（Chrome 无法响应 SOCKS 认证提示），但它仍可用于 `screen` 和 `verify`。
 
 ## 📄 文件
 
@@ -219,13 +230,13 @@ user:pass@10.0.0.2:1080          # defaults to http://
 | --- | --- |
 | `keys.txt` | 密钥，**每行一个**，在密钥验证通过的那一刻追加 —— 已被 git 忽略 |
 | `accounts.json` | 每个账户一条记录：邮箱、密码、注册状态、密钥前缀 + 模型 id —— 已被 git 忽略 |
-| [`models.json`](models.json) | 已签发密钥对 `GET /v1/models` 的应答（3 个 id） |
+| [`models.json`](models.json) | 已生成密钥所返回的 `GET /v1/models`（3 个 id） |
 | `out/` | 运行日志（`mint.log`）、出口状态、待处理队列、每步的 DOM/网络/截图转储 —— 已被 git 忽略 |
 | `proxies.txt` | 你的出口池，每行一个代理 —— 已被 git 忽略 |
 
 ## 🔌 连接到 9Router
 
-[9Router](https://9router.com) 是一个自托管、兼容 OpenAI 的路由器。Inception 提供兼容 OpenAI 的端点（`https://api.inceptionlabs.ai/v1`），因此只需注册一次，你签发的每个密钥都会成为一个 provider-node 下的连接 —— 9Router 会在它们之间做负载均衡：
+[9Router](https://9router.com) 是一个自托管、兼容 OpenAI 的路由器。Inception 提供兼容 OpenAI 的端点（`https://api.inceptionlabs.ai/v1`），因此注册一次，你生成的每个密钥都会成为一个提供商节点下的连接 —— 9Router 会在它们之间进行负载均衡：
 
 ```bash
 node src/connect-9router.js \
@@ -233,7 +244,7 @@ node src/connect-9router.js \
   --api-key sk-xxxxxxxx
 ```
 
-不带 `--api-key` 运行它会注册 `keys.txt` 中的**每一个**密钥。重复运行是幂等的：节点通过 `--prefix inception` 匹配，每个连接通过名称匹配（`inception-001`、`inception-002`、……），已注册的密钥会被保留不动。默认值：`--base http://localhost:20128`、`--password 123456`、`--name "Inception Labs"`、`--prefix inception`、`--base-url https://api.inceptionlabs.ai/v1`、`--model mercury-2.5`。
+不带 `--api-key` 运行它会注册 `keys.txt` 中的**每一个**密钥。重新运行是幂等的：节点通过 `--prefix inception` 匹配，每个连接通过名称匹配（`inception-001`、`inception-002`、…），已注册的密钥会被保留不动。默认值：`--base http://localhost:20128`、`--password 123456`、`--name "Inception Labs"`、`--prefix inception`、`--base-url https://api.inceptionlabs.ai/v1`、`--model mercury-2.5`。
 
 在 9Router 内部，这些密钥以如下形式提供：
 
@@ -243,21 +254,43 @@ inception/mercury-2
 inception/mercury-decide
 ```
 
-`node src/cli.js verify --chat 30 --connect-9router` 会重新检查 `keys.txt` 并在一次运行中完成注册，而 `node src/launcher.js` 会从其菜单驱动相同的流程。
+`node src/cli.js verify --chat 30 --connect-9router` 会重新检查 `keys.txt` 并在一次操作中注册它，而 `node src/launcher.js` 从其菜单驱动相同的流程。
 
-## 🔑 一个密钥能给你什么
+## 🔌 连接到 OmniRoute
+
+[OmniRoute](https://omniroute.online) 是一个自托管、兼容 OpenAI 的路由器。Inception 提供兼容 OpenAI 的端点（`https://api.inceptionlabs.ai/v1`），因此注册一次，你生成的每个密钥都会成为一个提供商节点下的连接 —— OmniRoute 会在它们之间进行负载均衡：
+
+```bash
+node src/connect-omniroute.js \
+  --base http://localhost:20128 --password 123456 \
+  --api-key sk-xxxxxxxx
+```
+
+不带 `--api-key` 运行它会注册 `keys.txt` 中的**每一个**密钥。重新运行是幂等的：节点通过 `--prefix inception` 匹配，每个连接通过名称匹配（`inception-001`、`inception-002`、…），已注册的密钥会被保留不动。默认值：`--base http://localhost:20128`、`--password 123456`、`--name "Inception Labs"`、`--prefix inception`、`--base-url https://api.inceptionlabs.ai/v1`、`--model mercury-2.5`。
+
+在 OmniRoute 内部，这些密钥以如下形式提供：
+
+```
+inception/mercury-2.5
+inception/mercury-2
+inception/mercury-decide
+```
+
+`node src/cli.js verify --chat 30 --connect-omniroute` 会重新检查 `keys.txt` 并在一次操作中注册它，而 `node src/launcher.js` 从其菜单驱动相同的流程。
+
+## 🔑 一个密钥能给你带来什么
 
 | | |
 | --- | --- |
 | 🏢 提供商 | **Inception Labs** —— [platform.inceptionlabs.ai](https://platform.inceptionlabs.ai) |
-| 🎁 提供商提供什么 | Mercury 扩散式 LLM —— 每个账户 1 亿免费 token，无过期，每个密钥一个账户 |
-| 🔑 一个密钥能给你什么 | 一个作用域为其自身账户的 API 密钥：下方端点上的 3 个模型 id，按你计划的限制。配额存在于**账户**上，这正是该工具为每个密钥创建一个账户的原因 |
+| 🎁 提供商提供什么 | Mercury 扩散式 LLM —— 每个账户 1 亿免费 token，无过期，每个密钥对应一个账户 |
+| 🔑 一个密钥能给你带来什么 | 一个 API 密钥，作用域为其自身账户：下方端点上的 3 个模型 id，受你套餐的限制。配额存在于**账户**上，这正是该工具为每个密钥创建一个账户的原因 |
 | 🌐 API 形态 | 兼容 OpenAI：`POST https://api.inceptionlabs.ai/v1/chat/completions` |
-| 🔒 你的数据 | 只联系 platform.inceptionlabs.ai 和你配置的收件箱后端；密钥留在你的机器上 |
+| 🔒 你的数据 | 仅联系 platform.inceptionlabs.ai 和你配置的收件箱后端；密钥保留在你的机器上 |
 
 ## 🐞 问题反馈
 
-Inception 更改了注册流程、Turnstile 组件、认证路由或 api-keys 端点？工具会在那一步停止并说明。**[提交 issue](../../issues)**，附上你运行的命令和确切的输出 —— `out/` 中每步的转储（DOM + 截图 + 网络）让失败可复现且不会泄露密钥。欢迎 PR。
+Inception 更改了注册流程、Turnstile 组件、认证路由或 api-keys 端点？工具会在该步骤停止并说明原因。**[提交 issue](../../issues)**，附上你运行的命令和确切的输出 —— `out/` 中每步的转储（DOM + 截图 + 线路）使失败可复现且不会泄露密钥。欢迎 PR。
 
 ## 📄 许可证
 
