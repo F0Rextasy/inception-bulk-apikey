@@ -32,7 +32,7 @@ function help() {
   for (const [name, t] of Object.entries(TASKS)) console.log('  ' + name.padEnd(9) + ' ' + t.note);
   console.log('\noptions: every task takes its own flags — ask it directly:');
   console.log('  node src/<task-file> --help');
-  console.log('  --count N          keys to mint (the one-command path: node src/cli.js --count N)');
+  console.log('  --count N          keys to mint (node src/cli.js mint --count N)');
   console.log('  --auto             solve the Turnstile with src/solver.js (default)');
   console.log('  --connect-9router  register the keys in 9Router after the task finishes');
   console.log('  keys-dead.txt      keys verify called dead (401/403) are written beside keys.txt');
